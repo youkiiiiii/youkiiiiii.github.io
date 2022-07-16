@@ -11,7 +11,7 @@
   
   <title>
     
-      归档 
+      告别 
       
       
       |
@@ -103,50 +103,117 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2021</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">告别</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-11-30 23:59:40
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="985e0f5d8fa35bd4016bb7cceee22f3ce9c9640714a07c5931a281c775ecd20b">4a3bd7f48cb9735dcb817391f2c6e83c9cca1ca6f62f4c6d2c3d69ed18102425fc45f60dc4756ef3ed0bb9248496434bf6cf00799b9841a9795081b6b7f45e109bfd65dfd2d3001526245abc5802207611d8cb47cb8280a7db7099459f097508abe7d2227e257fdff807f90112e940a6e6eb3e1ef28874ff0eaa1a3ba0720a4e598ad291a8ba98e454cb33550059fca7d30224bb40ea5ef6a8397361e254fb1addc564cc25b070b393fba24b9a1619c078fc76c38b5bd23d0c2469ec128fe69c5ad0efcae84cf55fc0e560fd82984241da5c9d23961765882381ec129f82777f4d38586e80db0634287fed2e5cf11895ec46ac8e0040d57718f1052da7a2360e0fedaf9899ce25e1dac8d1e6de6f16bbdd374d82f1a3cd7c27c26a0710ea9a239569513de5cc0ffdab8e235805731b5220bda6729545ede20300777c7fac48a1c99ab918c8297636ef9bad911bff06bc5bf04c82997cfdd0d8e6d2c4a3987bb746c45378244e45eaa3c2123c6c79287b31f8248a2f8c108654e15169ea2e28cba679daa85294a7bd88b9b1bfd31b356656ce76a14b7d43ec61662c27ae33f016f38bdab9e5431488421e2a191cce461eed3ab14f47c439411b77146ae06d8f51cc033da290abc118570b60ca1f5062ccd1788982dd633f83f2ee7e4aec8c0c1b8470e9d58a069bde4fc6b7b5852178525427fbe909f1c6716459e2d63d0910f6e4bdc0b4feb2a214a6fb4d5ff40930f90ab615a4df3c7b40bd7a1b517886693c</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/11/30/%E6%97%A9%E4%B8%8A%E7%9A%84%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-11-30 23:59:40
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/12/01/%E6%B7%B1%E5%A4%9C%E6%80%9D%E8%80%83/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="深夜思考">
-        <div class="time-m-d">12-01</div>
-        <div class="title">
-          <a href="/2021/12/01/%E6%B7%B1%E5%A4%9C%E6%80%9D%E8%80%83/">
-            <span>深夜思考</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="告别">
-        <div class="time-m-d">11-30</div>
-        <div class="title">
-          <a href="/2021/11/30/%E5%91%8A%E5%88%AB/">
-            <span>告别</span>
-          </a>
-        </div>
-      </div>
+
     
-      <div class="post-item" title="早上的胡思乱想">
-        <div class="time-m-d">11-30</div>
-        <div class="title">
-          <a href="/2021/11/30/%E6%97%A9%E4%B8%8A%E7%9A%84%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3/">
-            <span>早上的胡思乱想</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -406,6 +473,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%91%8A%E5%88%AB + '&url=' + http%3A%2F%2Fyoukiiiiii.github.io%2F2021%2F11%2F30%2F%25E5%2591%258A%25E5%2588%25AB%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://youkiiiiii.github.io/2021/11/30/%E5%91%8A%E5%88%AB/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>

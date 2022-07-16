@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>风雪小屋</title>
+  <icon>http://youkiiiiii.github.io/icon.png</icon>
+  
+  <link href="http://youkiiiiii.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://youkiiiiii.github.io/"/>
+  <updated>2022-07-16T03:07:07.585Z</updated>
+  <id>http://youkiiiiii.github.io/</id>
+  
+  <author>
+    <name>右赤</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深夜思考</title>
+    <link href="http://youkiiiiii.github.io/2021/12/01/%E6%B7%B1%E5%A4%9C%E6%80%9D%E8%80%83/"/>
+    <id>http://youkiiiiii.github.io/2021/12/01/%E6%B7%B1%E5%A4%9C%E6%80%9D%E8%80%83/</id>
+    <published>2021-11-30T16:00:41.000Z</published>
+    <updated>2022-07-16T03:07:07.585Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;人类无法相互理解痛苦，尽管绝望到趋于崩溃，对他人而言不过是无关痛痒这种程度。&lt;/p&gt;
+&lt;p&gt;更为悲哀的是，当被迫承担某种责任时，他们总以道德渲染，以控制欲作为表达。你争吵，你歇斯底里，反反复复徒劳过后，只能以沉默和逃避相对。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>告别</title>
+    <link href="http://youkiiiiii.github.io/2021/11/30/%E5%91%8A%E5%88%AB/"/>
+    <id>http://youkiiiiii.github.io/2021/11/30/%E5%91%8A%E5%88%AB/</id>
+    <published>2021-11-30T15:59:40.000Z</published>
+    <updated>2022-07-16T03:09:02.812Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>早上的胡思乱想</title>
+    <link href="http://youkiiiiii.github.io/2021/11/30/%E6%97%A9%E4%B8%8A%E7%9A%84%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3/"/>
+    <id>http://youkiiiiii.github.io/2021/11/30/%E6%97%A9%E4%B8%8A%E7%9A%84%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3/</id>
+    <published>2021-11-30T15:58:17.000Z</published>
+    <updated>2022-07-16T03:07:49.762Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近高二高三时的感觉又出现了，又复杂又怀念的心情，就是在那两年我才对周围的事物产生感知，也是在那时才开始变得多愁善感。&lt;/p&gt;
+&lt;p&gt;想起了很多，早上上学去车站等车，意外看到阳光穿透叶片，路上流动的日光；傍晚坐公交回家，经过东站时，窗外拥挤堵塞的车辆，昏暗中车灯亮起的光点；晚上路过公园，经过一大片树时的沁凉，和浓郁的草木气息。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>

@@ -11,7 +11,7 @@
   
   <title>
     
-      归档 
+      早上的胡思乱想 
       
       
       |
@@ -103,50 +103,105 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2021</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">早上的胡思乱想</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-11-30 23:58:17
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <p>最近高二高三时的感觉又出现了，又复杂又怀念的心情，就是在那两年我才对周围的事物产生感知，也是在那时才开始变得多愁善感。</p>
+<p>想起了很多，早上上学去车站等车，意外看到阳光穿透叶片，路上流动的日光；傍晚坐公交回家，经过东站时，窗外拥挤堵塞的车辆，昏暗中车灯亮起的光点；晚上路过公园，经过一大片树时的沁凉，和浓郁的草木气息。</p>
+<span id="more"></span>
+<p>以及高三某次步行回家，穿过巷子时，看到几个老人坐在一起晒着太阳聊天，小孩子追赶打闹，吵吵的却不会让人烦躁。当时应该是四五月份，天气很好，毛绒绒的暖和感，灰尘在阳光中浮动，天空也是很透亮的蓝色，这些都让我在略有乏味的高中生活中，体会到鲜活生动的感觉。</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-11-30 23:58:17
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/11/30/%E5%91%8A%E5%88%AB/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="深夜思考">
-        <div class="time-m-d">12-01</div>
-        <div class="title">
-          <a href="/2021/12/01/%E6%B7%B1%E5%A4%9C%E6%80%9D%E8%80%83/">
-            <span>深夜思考</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="告别">
-        <div class="time-m-d">11-30</div>
-        <div class="title">
-          <a href="/2021/11/30/%E5%91%8A%E5%88%AB/">
-            <span>告别</span>
-          </a>
-        </div>
-      </div>
+
     
-      <div class="post-item" title="早上的胡思乱想">
-        <div class="time-m-d">11-30</div>
-        <div class="title">
-          <a href="/2021/11/30/%E6%97%A9%E4%B8%8A%E7%9A%84%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3/">
-            <span>早上的胡思乱想</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -406,6 +461,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%97%A9%E4%B8%8A%E7%9A%84%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3 + '&url=' + http%3A%2F%2Fyoukiiiiii.github.io%2F2021%2F11%2F30%2F%25E6%2597%25A9%25E4%25B8%258A%25E7%259A%2584%25E8%2583%25A1%25E6%2580%259D%25E4%25B9%25B1%25E6%2583%25B3%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://youkiiiiii.github.io/2021/11/30/%E6%97%A9%E4%B8%8A%E7%9A%84%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
