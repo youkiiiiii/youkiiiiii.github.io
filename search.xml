@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>SanDisk Sansa Clip+ 刷Rockbox教程</title>
+      <link href="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/"/>
+      <url>/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/MP3.jpg"><br>闲鱼收到一个老物件，SanDisk Sansa Clip+播放器。<br>SanDisk（闪迪）家一直以内存卡和U盘出名，没想到还生产过MP3播放器。<br>到手后发现音质意外不错，续航也久，令人惊喜的是它还能刷入Rockbox固件，使SanDisk Sansa Clip+支持更多音乐格式，发挥出最大音质潜能，同时增加不少实用功能。<br>下面是SanDisk Sansa Clip+刷入Rockbox的教程。</p><h2 id="一、下载Rockbox系统"><a href="#一、下载Rockbox系统" class="headerlink" title="一、下载Rockbox系统"></a>一、下载Rockbox系统</h2><p>先在Rockbox官网下载最新3.1.5版本系统：<br><a href="https://www.rockbox.org/download/">https://www.rockbox.org/download/</a></p><h2 id="二、下载SanDisk-Sansa-Clip-官方固件"><a href="#二、下载SanDisk-Sansa-Clip-官方固件" class="headerlink" title="二、下载SanDisk Sansa Clip+官方固件"></a>二、下载SanDisk Sansa Clip+官方固件</h2><p>在SanDisk官网下载Sansa Clip+最新01.02.18版本官方固件：<br><a href="https://support-cn.wd.com/app/answers/detailweb/a_id/36022">https://support-cn.wd.com/app/answers/detailweb/a_id/36022</a></p><h2 id="三、刷入Rockbox系统"><a href="#三、刷入Rockbox系统" class="headerlink" title="三、刷入Rockbox系统"></a>三、刷入Rockbox系统</h2><ol><li>把Sansa Clip+连接电脑，打开RockboxUtility.exe，先点击右上角更改，在弹出的对话框中选自动识别，如果无法识别出Sansa Clip+播放器，也可以手动选择。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/1.png"></li><li>回到主界面，勾选Themes，点击Customize，选择Theme4Chinese2主题，点击Select。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/2.png"><br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/3.png"></li><li>回到主界面，点击Install，会弹出对话框，点击OK，选择SanDisk Sansa Clip+官方固件所在位置，选定clppa.bin，点击打开。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/4.jpg"><br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/5.png"></li><li>等待安装完成，点击OK，然后断开Sansa Clip+与电脑的连接。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/6.png"></li><li>打开Sansa Clip+，等待系统升级完成，进行以下设置：  <ol><li>settings—general setting—–display—default codepage—- simp chinese  </li><li>settings—theme setting—–browse theme files—Theme4Chinese2  </li><li>settings—general setting—–language—-chinese-simp</li></ol></li></ol><h2 id="四、rockbox和官方系统打开方式"><a href="#四、rockbox和官方系统打开方式" class="headerlink" title="四、rockbox和官方系统打开方式"></a>四、rockbox和官方系统打开方式</h2><ol><li>按顶部开机键进入rockbox系统。</li><li>长按左键+开机键进入官方系统。</li></ol><h2 id="五、Sansa-Clip-死机解决方法"><a href="#五、Sansa-Clip-死机解决方法" class="headerlink" title="五、Sansa Clip+死机解决方法"></a>五、Sansa Clip+死机解决方法</h2><p>按住电源键+菜单键（方向下）20秒左右，再重新开机。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随身听 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深夜思考</title>
+      <link href="/2021/12/01/%E6%B7%B1%E5%A4%9C%E6%80%9D%E8%80%83/"/>
+      <url>/2021/12/01/%E6%B7%B1%E5%A4%9C%E6%80%9D%E8%80%83/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>人类无法相互理解痛苦，尽管绝望到趋于崩溃，对他人而言也只是无关痛痒的程度。</p><p>在你被迫承担某种责任时，他们总是以道德渲染，以控制欲作为表达。你争吵，你歇斯底里，反反复复徒劳过后，只能以沉默和逃避相对。</p><span id="more"></span><p>不想为了这种责任而牺牲掉自我感受，不想遵从他们既定的人生，所以你只能拼命逃离，去更远更寂静无声的地方，甚至于消失在极度疲惫和绝望之中。</p><p>然后他们的怨恨多于同情，指责多于反思，但你再也不会听到＂这样对得起爱你的人吗＂这种话，这样的爱对任何人来说都是负担，而你已经不用再去承担了。</p><p>你发现，对于某些人，生命终是界限，灵魂应飘向无尽飘渺的自由。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>告别</title>
+      <link href="/2021/11/30/%E5%91%8A%E5%88%AB/"/>
+      <url>/2021/11/30/%E5%91%8A%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="f04c832b977e7a53a260d09a2764d0f6f34329f69914b779ce701e9b55079bf4">4a3bd7f48cb9735dcb817391f2c6e83c98178d022470d9489e736b4eb26a05a506dbb3de0e2c4daac91c66dfc1af416b45df77d1263d3712af86a209e91c91aec392dbe41a8cc4000b80a476c5fec64bf4b5a979963b0865ae52d74362a5d4d5fef1c26c58af2eee488cf8e3397a3102f66e45fd7b7bc33c9b7e157be5adde7b49678e109d563429d12900518d28281d5898f4c50b222e82290df4e0e945f51407a6c6c20328ed83dce8cd40f15ca9e371fd852a4743d9ce0ec07377738f8713b8fdbf7779afeab3aa3a2548f8921983c2b56a4ff586ae6f409fc259a9b8ca44acbe330df3614c542f8f9db1c6b6bba5759014bec60c1281a6509725356043630c925744fb8cd417fe39c98bd688f0f55c49c06edc2c2eeb9b9f828474d6f8531da93decc9cc3dd208ed2b452105f27159c235067352c05d999954f71812d2b1cbd933df9bd38c69b29dd19c4184a685e2de6611bc19f503e12f8d4c0529e5b9ee3e11ba5e5d973d6b1af12a04b690083809ede0ec117b7475fd246d925b3c0f74abc88af6de885941fb72583c8bd9fb82eb22214aad8dd9c026ad6fe254acaf7681b923d7bdce1772c7c051f324f626cfa9306afbf194e5301e6b653e1526ce88102fda0f4aa0b8be8124575ed13a68b85d9cd7ac774841d337e7d5de58e92f46266aa2283cae30683adf89df60c95c0d96736205bb032323c3236f954eb6a7da068a5e2ace572ef7286dcd9e00943088902c8002a3043a23b30b39c7e9c5004b3c299ae0f2e2ac2e38a46604d2ba2436621f4c16f3716650bc77c6b71c06db23e0c839b160ffce5316799a03a0396068d4879981d0485e0e273ee174aea9c13db2327c57defc6baa3d028dba8fcd991ba1c43cb2e1411be5440875c21cfdcb2dae3b2e5a704d16195a3b5598355c7a970ee7d4c8df0f9d4be5d0822fdac5153e45a4db9f0f7df41919818e77756d0ba11aec70f4979613d07e47adf2e3875b1cd0b40e0813e821666b8988995fa9c3cafc88a23a935e6176a00d1c36b1b2e1f89da811f3421ccff127dcf25859068e729d2f9a915a3c9a66f0c5862d2a12a895a069021fb4b60176ff9779e527557f6c8fe53e396ae66660f0b520b6e02739902c604add62759aa26f32d22d469420e14705d01fc40ad11b24da9ad67fb349</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>早上的胡思乱想</title>
+      <link href="/2021/11/30/%E6%97%A9%E4%B8%8A%E7%9A%84%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3/"/>
+      <url>/2021/11/30/%E6%97%A9%E4%B8%8A%E7%9A%84%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>最近高二高三时的感觉又出现了，又复杂又怀念的心情，就是在那两年我才对周围的事物产生感知，也是在那时才开始变得多愁善感。</p><p>想起了很多，早上上学去车站等车，意外看到阳光穿透叶片，路上流动的日光；傍晚坐公交回家，经过东站时，窗外拥挤堵塞的车辆，昏暗中车灯亮起的光点；晚上路过公园，经过一大片树时的沁凉，和浓郁的草木气息。</p><span id="more"></span><p>以及高三某次步行回家，穿过巷子时，看到几个老人坐在一起晒着太阳聊天，小孩子追赶打闹，吵吵的却不会让人烦躁。当时应该是四五月份，天气很好，毛绒绒的暖和感，灰尘在阳光中浮动，天空也是很透亮的蓝色，这些都让我在略有乏味的高中生活中，体会到鲜活生动的感觉。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
