@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>中国注册LINE账号教程（2024年版本）</title>
+      <link href="/2024/07/23/%E4%B8%AD%E5%9B%BD%E6%B3%A8%E5%86%8CLINE%E8%B4%A6%E5%8F%B7%E6%95%99%E7%A8%8B%EF%BC%882024%E5%B9%B4%E7%89%88%E6%9C%AC%EF%BC%89/"/>
+      <url>/2024/07/23/%E4%B8%AD%E5%9B%BD%E6%B3%A8%E5%86%8CLINE%E8%B4%A6%E5%8F%B7%E6%95%99%E7%A8%8B%EF%BC%882024%E5%B9%B4%E7%89%88%E6%9C%AC%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>近期在中国地区注册LINE账号时，会弹出“所在国家或地区无法使用”提示。</p><span id="more"></span><p><img src="/2024/07/23/%E4%B8%AD%E5%9B%BD%E6%B3%A8%E5%86%8CLINE%E8%B4%A6%E5%8F%B7%E6%95%99%E7%A8%8B%EF%BC%882024%E5%B9%B4%E7%89%88%E6%9C%AC%EF%BC%89/LINE.jpg"><br>解决办法很简单，关闭手机定位，拔出SIM卡，在应用详情里清除LINE的数据，打开代理用谷歌Google账户进行注册。</p><p>如果注册失败，重新清除LINE的数据，并找到一个能使用印尼线路的代理，连接印尼节点后，再用谷歌Google账户注册，一般都能成功。</p><p>如需要重新登陆已注册的账号，即使连接印尼节点，也会提示“所在地区或国家无法使用”。</p><p>解决办法是在登录前，清除LINE的数据，并关闭手机定位和拔出手机卡，之后就可以成功登录了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LINE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo NexT 博客主题美化</title>
       <link href="/2024/07/16/Hexo-NexT-%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/"/>
       <url>/2024/07/16/Hexo-NexT-%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/</url>
@@ -33,7 +58,7 @@
       <link href="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/"/>
       <url>/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>闲鱼收到一个老物件，SanDisk Sansa Clip+播放器。<br>SanDisk（闪迪）家一直以内存卡和U盘出名，没想到MP3音乐播放器也有生产过。  </p><p>令人惊喜的是，这款MP3可刷入Rockbox固件，使SanDisk Sansa Clip+支持更多音乐格式，发挥出最大音质潜能，测试后发现刷入Rockbox的SanDisk Sansa Clip+在音质上几乎吊打同价位所有播放器，同时增加了不少实用功能。<br>即使Rockbox会导致SanDisk Sansa Clip+播放器续航降低，但也能坚持播放10小时以上。</p><span id="more"></span><p>下面是SanDisk Sansa Clip+刷入Rockbox的教程。</p><p><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/MP3.jpg"></p><h2 id="一、下载Rockbox系统"><a href="#一、下载Rockbox系统" class="headerlink" title="一、下载Rockbox系统"></a>一、下载Rockbox系统</h2><p>先在Rockbox官网下载最新3.1.5版本系统：<br><a href="https://www.rockbox.org/download/">https://www.rockbox.org/download/</a></p><h2 id="二、下载SanDisk-Sansa-Clip-官方固件"><a href="#二、下载SanDisk-Sansa-Clip-官方固件" class="headerlink" title="二、下载SanDisk Sansa Clip+官方固件"></a>二、下载SanDisk Sansa Clip+官方固件</h2><p>在SanDisk官网下载Sansa Clip+最新01.02.18版本官方固件：<br><a href="https://support-cn.wd.com/app/answers/detailweb/a_id/36022">https://support-cn.wd.com/app/answers/detailweb/a_id/36022</a></p><h2 id="三、刷入Rockbox系统"><a href="#三、刷入Rockbox系统" class="headerlink" title="三、刷入Rockbox系统"></a>三、刷入Rockbox系统</h2><ol><li>把Sansa Clip+连接电脑，打开RockboxUtility.exe，先点击右上角更改，在弹出的对话框中选自动识别，如果无法识别出Sansa Clip+播放器，也可以手动选择。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/1.png"></li><li>回到主界面，勾选Themes，点击Customize，选择Theme4Chinese2主题，点击Select。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/2.png"><br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/3.png"></li><li>回到主界面，点击Install，会弹出对话框，点击OK，选择SanDisk Sansa Clip+官方固件所在位置，选定clppa.bin，点击打开。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/4.jpg"><br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/5.png"></li><li>等待安装完成，点击OK，然后断开Sansa Clip+与电脑的连接。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/6.png"></li><li>打开Sansa Clip+，等待系统升级完成，进行以下设置：  <ol><li>settings—general setting—–display—default codepage—- simp chinese  </li><li>settings—theme setting—–browse theme files—Theme4Chinese2  </li><li>settings—general setting—–language—-chinese-simp</li></ol></li></ol><h2 id="四、rockbox和官方系统打开方式"><a href="#四、rockbox和官方系统打开方式" class="headerlink" title="四、rockbox和官方系统打开方式"></a>四、rockbox和官方系统打开方式</h2><ol><li>按顶部开机键进入rockbox系统。</li><li>长按左键+开机键进入官方系统。</li></ol><h2 id="五、Sansa-Clip-死机解决方法"><a href="#五、Sansa-Clip-死机解决方法" class="headerlink" title="五、Sansa Clip+死机解决方法"></a>五、Sansa Clip+死机解决方法</h2><p>按住电源键+菜单键（方向下）20秒左右，再重新开机。  </p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>闲鱼收到一个老物件，SanDisk Sansa Clip+播放器。<br>SanDisk（闪迪）家一直以内存卡和U盘出名，没想到MP3音乐播放器也有生产过。  </p><p>令人惊喜的是，这款MP3可刷入Rockbox固件，使SanDisk Sansa Clip+支持更多音乐格式，发挥出最大音质潜能，测试后发现刷入Rockbox的SanDisk Sansa Clip+在音质上几乎吊打同价位所有播放器，同时增加了不少实用功能。<br>即使Rockbox会导致播放器续航降低，SanDisk Sansa Clip+也能坚持播放10小时以上。</p><span id="more"></span><p>下面是SanDisk Sansa Clip+刷入Rockbox的教程。</p><p><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/MP3.jpg"></p><h2 id="一、下载Rockbox系统"><a href="#一、下载Rockbox系统" class="headerlink" title="一、下载Rockbox系统"></a>一、下载Rockbox系统</h2><p>先在Rockbox官网下载最新3.1.5版本系统：<br><a href="https://www.rockbox.org/download/">https://www.rockbox.org/download/</a></p><h2 id="二、下载SanDisk-Sansa-Clip-官方固件"><a href="#二、下载SanDisk-Sansa-Clip-官方固件" class="headerlink" title="二、下载SanDisk Sansa Clip+官方固件"></a>二、下载SanDisk Sansa Clip+官方固件</h2><p>在SanDisk官网下载Sansa Clip+最新01.02.18版本官方固件：<br><a href="https://support-cn.wd.com/app/answers/detailweb/a_id/36022">https://support-cn.wd.com/app/answers/detailweb/a_id/36022</a></p><h2 id="三、刷入Rockbox系统"><a href="#三、刷入Rockbox系统" class="headerlink" title="三、刷入Rockbox系统"></a>三、刷入Rockbox系统</h2><ol><li>把Sansa Clip+连接电脑，打开RockboxUtility.exe，先点击右上角更改，在弹出的对话框中选自动识别，如果无法识别出Sansa Clip+播放器，也可以手动选择。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/1.png"></li><li>回到主界面，勾选Themes，点击Customize，选择Theme4Chinese2主题，点击Select。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/2.png"><br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/3.png"></li><li>回到主界面，点击Install，会弹出对话框，点击OK，选择SanDisk Sansa Clip+官方固件所在位置，选定clppa.bin，点击打开。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/4.jpg"><br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/5.png"></li><li>等待安装完成，点击OK，然后断开Sansa Clip+与电脑的连接。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/6.png"></li><li>打开Sansa Clip+，等待系统升级完成，进行以下设置：  <ol><li>settings—general setting—–display—default codepage—- simp chinese  </li><li>settings—theme setting—–browse theme files—Theme4Chinese2  </li><li>settings—general setting—–language—-chinese-simp</li></ol></li></ol><h2 id="四、rockbox和官方系统打开方式"><a href="#四、rockbox和官方系统打开方式" class="headerlink" title="四、rockbox和官方系统打开方式"></a>四、rockbox和官方系统打开方式</h2><ol><li>按顶部开机键进入rockbox系统。</li><li>长按左键+开机键进入官方系统。</li></ol><h2 id="五、Sansa-Clip-死机解决方法"><a href="#五、Sansa-Clip-死机解决方法" class="headerlink" title="五、Sansa Clip+死机解决方法"></a>五、Sansa Clip+死机解决方法</h2><p>按住电源键+菜单键（方向下）20秒左右，再重新开机。  </p>]]></content>
       
       
       <categories>

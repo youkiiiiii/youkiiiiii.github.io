@@ -6,7 +6,7 @@
   <link href="http://youkiiiiii.github.io/atom.xml" rel="self"/>
   
   <link href="http://youkiiiiii.github.io/"/>
-  <updated>2024-07-23T11:40:47.555Z</updated>
+  <updated>2024-07-24T18:26:44.873Z</updated>
   <id>http://youkiiiiii.github.io/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>中国注册LINE账号教程（2024年版本）</title>
+    <link href="http://youkiiiiii.github.io/2024/07/23/%E4%B8%AD%E5%9B%BD%E6%B3%A8%E5%86%8CLINE%E8%B4%A6%E5%8F%B7%E6%95%99%E7%A8%8B%EF%BC%882024%E5%B9%B4%E7%89%88%E6%9C%AC%EF%BC%89/"/>
+    <id>http://youkiiiiii.github.io/2024/07/23/%E4%B8%AD%E5%9B%BD%E6%B3%A8%E5%86%8CLINE%E8%B4%A6%E5%8F%B7%E6%95%99%E7%A8%8B%EF%BC%882024%E5%B9%B4%E7%89%88%E6%9C%AC%EF%BC%89/</id>
+    <published>2024-07-23T11:58:22.000Z</published>
+    <updated>2024-07-24T18:26:44.873Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;近期在中国地区注册LINE账号时，会弹出“所在国家或地区无法使用”提示。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="http://youkiiiiii.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="LINE" scheme="http://youkiiiiii.github.io/tags/LINE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo NexT 博客主题美化</title>
     <link href="http://youkiiiiii.github.io/2024/07/16/Hexo-NexT-%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/"/>
     <id>http://youkiiiiii.github.io/2024/07/16/Hexo-NexT-%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/</id>
     <published>2024-07-16T05:57:21.000Z</published>
-    <updated>2024-07-23T11:40:47.555Z</updated>
+    <updated>2024-07-23T11:59:12.466Z</updated>
     
     
     <summary type="html">&lt;p&gt;给Hexo博客换了nexT主题，由于8.0版本的部分美化教程在网上很难找到，所以直接自己动手拆文件改完了。  &lt;/p&gt;
@@ -41,11 +60,11 @@
     <link href="http://youkiiiiii.github.io/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/"/>
     <id>http://youkiiiiii.github.io/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/</id>
     <published>2022-11-28T23:04:18.000Z</published>
-    <updated>2024-07-22T20:50:42.470Z</updated>
+    <updated>2024-07-24T18:10:45.585Z</updated>
     
     
     <summary type="html">&lt;p&gt;闲鱼收到一个老物件，SanDisk Sansa Clip+播放器。&lt;br&gt;SanDisk（闪迪）家一直以内存卡和U盘出名，没想到MP3音乐播放器也有生产过。  &lt;/p&gt;
-&lt;p&gt;令人惊喜的是，这款MP3可刷入Rockbox固件，使SanDisk Sansa Clip+支持更多音乐格式，发挥出最大音质潜能，测试后发现刷入Rockbox的SanDisk Sansa Clip+在音质上几乎吊打同价位所有播放器，同时增加了不少实用功能。&lt;br&gt;即使Rockbox会导致SanDisk Sansa Clip+播放器续航降低，但也能坚持播放10小时以上。&lt;/p&gt;</summary>
+&lt;p&gt;令人惊喜的是，这款MP3可刷入Rockbox固件，使SanDisk Sansa Clip+支持更多音乐格式，发挥出最大音质潜能，测试后发现刷入Rockbox的SanDisk Sansa Clip+在音质上几乎吊打同价位所有播放器，同时增加了不少实用功能。&lt;br&gt;即使Rockbox会导致播放器续航降低，SanDisk Sansa Clip+也能坚持播放10小时以上。&lt;/p&gt;</summary>
     
     
     
