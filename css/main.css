@@ -1346,7 +1346,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #997812;
+    background: #6cf6ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2848,41 +2848,4 @@ body {
   .sidebar {
     display: none;
   }
-}
-/* 自定义评论区高度 */
-.comments {
-  height: auto; /* 自动调整高度以适应内容 */
-  overflow: visible; /* 使溢出的内容可见 */
-}
-:root {
-/* 字体大小 */
-  --waline-font-size: 16px;
-/* 常规颜色 */
-  --waline-white: #fff;
-  --waline-light-grey: #999;
-  --waline-dark-grey: #666;
-/* 主题色 */
-  --waline-theme-color: #3a5b52 !important;
-  --waline-active-color: #3a5b52 !important;
-/* 布局颜色 */
-  --waline-text-color: #444;
-  --waline-bgcolor: #fff;
-  --waline-bgcolor-light: #f8f8f8;
-  --waline-border-color: #ddd;
-  --waline-disable-bgcolor: #f8f8f8;
-  --waline-disable-color: #ddd;
-/* 特殊颜色 */
-  --waline-bq-color: #f0f0f0;
-/* 头像 */
-  --waline-avatar-size: 3.25rem;
-/* 徽章 */
-  --waline-badge-color: #3498db;
-  --waline-badge-font-size: 0.775em;
-/* 信息 */
-  --waline-info-bgcolor: #f8f8f8;
-  --waline-info-color: #999;
-  --waline-info-font-size: 0.625em;
-/* * 使用边框 * */
-  --waline-border: 1px solid var(--waline-border-color);
-  --waline-box-shadow: none;
 }
