@@ -184,7 +184,7 @@ body {
   background: var(--body-bg-color);
   box-sizing: border-box;
   color: var(--text-color);
-  font-family: Arvo, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: PT Serif, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1em;
   line-height: 2;
   min-height: 100%;
@@ -197,7 +197,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Arvo, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: PT Serif, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -1204,7 +1204,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Arvo, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: PT Serif, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1346,7 +1346,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #fffaff;
+    background: #5c1ccb;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1951,7 +1951,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Arvo, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: PT Serif, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2137,7 +2137,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Arvo, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: PT Serif, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2848,4 +2848,75 @@ body {
   .sidebar {
     display: none;
   }
+}
+/* 自定义评论区高度 */
+.comments {
+  height: auto; /* 自动调整高度以适应内容 */
+  overflow: visible; /* 使溢出的内容可见 */
+}
+:root {
+/* 字体大小 */
+  --waline-font-size: 16px;
+/* 常规颜色 */
+  --waline-white: #fff;
+  --waline-light-grey: #999;
+  --waline-dark-grey: #666;
+/* 主题色 */
+  --waline-theme-color: #3a5b52 !important;
+  --waline-active-color: #3a5b52 !important;
+/* 布局颜色 */
+  --waline-text-color: #444;
+  --waline-bgcolor: #fff;
+  --waline-bgcolor-light: #f8f8f8;
+  --waline-border-color: #ddd;
+  --waline-disable-bgcolor: #f8f8f8;
+  --waline-disable-color: #ddd;
+/* 特殊颜色 */
+  --waline-bq-color: #f0f0f0;
+/* 头像 */
+  --waline-avatar-size: 3.25rem;
+/* 徽章 */
+  --waline-badge-color: #3498db;
+  --waline-badge-font-size: 0.775em;
+/* 信息 */
+  --waline-info-bgcolor: #f8f8f8;
+  --waline-info-color: #999;
+  --waline-info-font-size: 0.625em;
+/* * 使用边框 * */
+  --waline-border: 1px solid var(--waline-border-color);
+  --waline-box-shadow: none;
+}
+/* 首页文章标题样式 */
+.index .post-title a {
+  color: #3a5b52; /* 标题颜色 */
+  position: relative; /* 确保伪元素相对于标题定位 */
+  text-decoration: none; /* 去除默认的下划线 */
+  font-size: 25px; /* 标题字体大小，调整为适合的值 */
+  font-weight: 550; /* 字体粗细，调整为较细的值 */
+  line-height: 1.4; /* 行高，根据需要调整 */
+  margin-bottom: 5px; /* 标题下方的外边距，根据需要调整 */
+}
+/* 修改黑色横线为绿色 */
+.index .post-title a::after {
+  content: ""; /* 伪元素需要有内容 */
+  display: block; /* 伪元素需为块级元素以便展示 */
+  height: 2px; /* 横线的高度 */
+  background-color: #3a5b52 /* 将横线颜色设置为绿色 */;
+  position: absolute; /* 定位伪元素 */
+  bottom: 2px; /* 横线和标题之间的距离，根据需要调整 */
+  left: 0;
+  width: 0; /* 初始宽度为 0 */
+  transition: width 0.3s ease; /* 动画效果，调整持续时间和效果 */
+}
+/* 鼠标悬停时横线的宽度变化 */
+.index .post-title a:hover::after {
+  width: 100%; /* 鼠标悬停时横线的宽度 */
+}
+/* 确保其他可能影响横线的伪元素样式被移除 */
+.index .post-title a::before {
+  content: none; /* 确保没有黑色横线 */
+}
+/* 文章页标题样式 */
+.post-title {
+  color: #3a5b52; /* 替换为你希望的颜色 */
 }
