@@ -1346,7 +1346,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #7a45ff;
+    background: #fffaff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2820,7 +2820,7 @@ header.header {
   }
 }
 body {
-  background: url("/images/background.jpg");
+  background: url("https://pic.imgdb.cn/item/66ab221fd9c307b7e9ff8c10.png");
   background-attachment: fixed;
 }
 .main-inner {
