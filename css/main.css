@@ -1346,7 +1346,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffe58f;
+    background: #ad38b6;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2886,29 +2886,29 @@ body {
   --waline-border: 1px solid var(--waline-border-color);
   --waline-box-shadow: none;
 }
-/* 首页文章标题样式 */
+/* 首页标题样式 */
 .index .post-title a {
   color: #3a5b52; /* 标题颜色 */
   position: relative; /* 确保伪元素相对于标题定位 */
   text-decoration: none; /* 去除默认的下划线 */
-  font-size: 25px; /* 标题字体大小，调整为适合的值 */
-  font-weight: 550; /* 字体粗细，调整为较细的值 */
-  line-height: 1.2; /* 行高，根据需要调整 */
-  margin-bottom: 5px; /* 标题下方的外边距，根据需要调整 */
+  font-size: 25px; /* 标题字体大小 */
+  font-weight: 550; /* 字体粗细 */
+  line-height: 1.2; /* 行高 */
+  margin-bottom: 5px; /* 标题下方的外边距 */
 }
-/* 修改黑色横线为绿色 */
+/* 首页标题下划线样式 */
 .index .post-title a::after {
   content: ""; /* 伪元素需要有内容 */
   display: block; /* 伪元素需为块级元素以便展示 */
   height: 2px; /* 横线的高度 */
-  background-color: #3a5b52 /* 将横线颜色设置为绿色 */;
+  background-color: #3a5b52; /* 横线颜色 */
   position: absolute; /* 定位伪元素 */
-  bottom: -3px; /* 横线和标题之间的距离，根据需要调整 */
+  bottom: -3px; /* 横线和标题之间的距离 */
   left: 0;
   width: 0; /* 初始宽度为 0 */
-  transition: width 0.3s ease; /* 动画效果，调整持续时间和效果 */
+  transition: width 0.3s ease; /* 动画效果 */
 }
-/* 鼠标悬停时横线的宽度变化 */
+/* 首页标题悬停效果 */
 .index .post-title a:hover::after {
   width: 100%; /* 鼠标悬停时横线的宽度 */
 }
@@ -2917,7 +2917,7 @@ body {
   content: none; /* 确保没有黑色横线 */
 }
 /* 文章页标题样式 */
-.post-title {
+.post .post-title {
   color: #3a5b52 !important; /* 强制应用颜色 */
   font-size: 25px !important; /* 强制应用字体大小 */
   font-weight: 550 !important; /* 强制应用字体粗细 */
