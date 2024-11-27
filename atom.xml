@@ -6,7 +6,7 @@
   <link href="http://youkiiiiii.github.io/atom.xml" rel="self"/>
   
   <link href="http://youkiiiiii.github.io/"/>
-  <updated>2024-11-17T08:36:11.522Z</updated>
+  <updated>2024-11-27T14:31:00.519Z</updated>
   <id>http://youkiiiiii.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo＋github搭建个人博客（简略省流）</title>
+    <link href="http://youkiiiiii.github.io/2024/11/27/hexo%EF%BC%8Bgithub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E7%AE%80%E7%95%A5%E7%9C%81%E6%B5%81%EF%BC%89/"/>
+    <id>http://youkiiiiii.github.io/2024/11/27/hexo%EF%BC%8Bgithub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E7%AE%80%E7%95%A5%E7%9C%81%E6%B5%81%EF%BC%89/</id>
+    <published>2024-11-27T13:20:46.000Z</published>
+    <updated>2024-11-27T14:31:00.519Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;该教程转自酷安用户魂祈梦，原文链接：&lt;a href=&quot;https://www.coolapk.com/feed/28853076?shareKey=YTY3YWNhOWRjYzVhNjc0NzFjMDk~&amp;shareUid=1245780&amp;shareFrom=com.coolapk.market_14.2.3&quot;&gt;hexo＋github搭建个人博客（简略省流）&lt;/a&gt;&lt;br&gt;之前试过几个hexo搭建教程，魂祈梦大佬的教程非常适合我这种不懂代码的小白，跟着步骤就可以顺利搭建。  &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="http://youkiiiiii.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="hexo next" scheme="http://youkiiiiii.github.io/tags/hexo-next/"/>
+    
+  </entry>
   
   <entry>
     <title>过于转瞬即逝的时间让我感到生活趋于停滞</title>
