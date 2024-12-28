@@ -1346,7 +1346,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #398abf;
+    background: #fff08c;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2921,4 +2921,21 @@ body {
   color: #3a5b52 !important; /* 强制应用颜色 */
   font-size: 25px !important; /* 强制应用字体大小 */
   font-weight: 550 !important; /* 强制应用字体粗细 */
+}
+body {
+  font-family: "PT Serif", "Noto Serif SC", serif !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "PT Serif", "Noto Serif SC", serif !important;
+}
+.post-body {
+  font-family: "PT Serif", "Noto Serif SC", serif !important;
+}
+code {
+  font-family: "Courier New", monospace !important;
 }
