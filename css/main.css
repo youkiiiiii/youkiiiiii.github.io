@@ -184,7 +184,7 @@ body {
   background: var(--body-bg-color);
   box-sizing: border-box;
   color: var(--text-color);
-  font-family: Noto Serif SC, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: LXGW WenKai Mono, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.04em;
   line-height: 2;
   min-height: 100%;
@@ -197,7 +197,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Noto Serif SC, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: LXGW WenKai Mono, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -1204,7 +1204,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Noto Serif SC, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: LXGW WenKai Mono, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1346,7 +1346,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #812bfb;
+    background: #ff57f5;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1951,7 +1951,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Noto Serif SC, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: LXGW WenKai Mono, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2137,7 +2137,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Noto Serif SC, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: LXGW WenKai Mono, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2892,7 +2892,7 @@ body {
   position: relative; /* 确保伪元素相对于标题定位 */
   text-decoration: none; /* 去除默认的下划线 */
   font-size: 25px; /* 标题字体大小 */
-  font-weight: 550; /* 字体粗细 */
+  font-weight: 600; /* 字体粗细 */
   line-height: 1.2; /* 行高 */
   margin-bottom: 5px; /* 标题下方的外边距 */
 }
@@ -2920,5 +2920,5 @@ body {
 .post .post-title {
   color: #3a5b52 !important; /* 强制应用颜色 */
   font-size: 25px !important; /* 强制应用字体大小 */
-  font-weight: 550 !important; /* 强制应用字体粗细 */
+  font-weight: 600 !important; /* 强制应用字体粗细 */
 }
