@@ -184,7 +184,7 @@ body {
   background: var(--body-bg-color);
   box-sizing: border-box;
   color: var(--text-color);
-  font-family: Source Han Serif VF, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: LXGW WenKai Mono, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.04em;
   line-height: 2;
   min-height: 100%;
@@ -197,7 +197,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Source Han Serif VF, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: LXGW WenKai Mono, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -1204,7 +1204,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Source Han Serif VF, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: LXGW WenKai Mono, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1346,7 +1346,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #5efff5;
+    background: #248805;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1951,7 +1951,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Source Han Serif VF, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: LXGW WenKai Mono, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2137,7 +2137,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Source Han Serif VF, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: LXGW WenKai Mono, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2921,8 +2921,4 @@ body {
   color: #3a5b52 !important; /* 强制应用颜色 */
   font-size: 25px !important; /* 强制应用字体大小 */
   font-weight: 600 !important; /* 强制应用字体粗细 */
-}
-/* 调整文章标题与正文之间的距离 */
-article h1 {
-  margin-bottom: 5px !important;
 }
