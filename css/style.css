@@ -110,7 +110,7 @@ body {
 .post code,
 .post pre {
   font-size: 16px;
-  background-color: #f7f7f7;
+  background-color: #fff; /* 白色背景 */
   font-family: 'Fantasque Sans Mono', 'PT Mono', 'Source Code Pro', monospace;
 }
 .post .highlight {
@@ -118,8 +118,9 @@ body {
   margin: 1em 0;
   border-radius: 2px;
   line-height: 1.1em;
-  background-color: #f8f8f8;
+  background-color: #fff; /* 白色背景 */
   overflow-x: auto;
+  border: 1px solid #ddd; /* 边框 */
 }
 .post .highlight table,
 .post .highlight tr,
@@ -131,6 +132,7 @@ body {
 }
 .post .highlight .gutter {
   display: none;
+  background-color: #f0f0f0; /* 行号背景色 */
 }
 .post .highlight .code pre {
   line-height: 1em;
@@ -142,7 +144,8 @@ body {
 }
 .post pre {
   padding: 0.3em;
-  color: #525252;
+  color: #333; /* 代码文本颜色 */
+  background-color: #fff; /* 白色背景 */
 }
 .post img {
   height: auto;

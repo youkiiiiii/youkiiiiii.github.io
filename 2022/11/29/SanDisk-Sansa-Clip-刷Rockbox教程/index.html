@@ -31,11 +31,12 @@
     
     <link rel="shortcut icon" href="/favicon-32x32-next.ico">
     
-    <link rel="stylesheet"
-        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/arduino-light.min.css">
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    
+        <!-- 引用 highlight.js 新版本 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/vs.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/core.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/scss.js"></script> <!-- SCSS 语言支持 -->
+        <script>hljs.initHighlightingOnLoad();</script>
+               
     
     
 <link rel="stylesheet" href="/css/style.css">
@@ -99,10 +100,21 @@
 <p>令人惊喜的是，这款MP3可刷入Rockbox固件，使SanDisk Sansa Clip+支持更多音乐格式，发挥出最大音质潜能，测试后发现刷入Rockbox的SanDisk Sansa Clip+在音质上几乎吊打同价位所有播放器，同时增加了不少实用功能。<br>即使Rockbox会导致播放器续航降低，SanDisk Sansa Clip+也能坚持播放10小时以上。</p>
 <span id="more"></span>
 <p>下面是SanDisk Sansa Clip+刷入Rockbox的教程。</p>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%B8%8B%E8%BD%BDrockbox%E7%B3%BB%E7%BB%9F">下载Rockbox系统</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BDsandisk-sansa-clip%E5%AE%98%E6%96%B9%E5%9B%BA%E4%BB%B6">下载SanDisk Sansa Clip+官方固件</a></li>
+<li><a href="#%E5%88%B7%E5%85%A5rockbox%E7%B3%BB%E7%BB%9F">刷入Rockbox系统</a></li>
+<li><a href="#rockbox%E5%92%8C%E5%AE%98%E6%96%B9%E7%B3%BB%E7%BB%9F%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F">rockbox和官方系统打开方式</a></li>
+<li><a href="#sansa-clip%E6%AD%BB%E6%9C%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">Sansa Clip+死机解决方法</a></li>
+</ul>
+<!-- tocstop -->
+
 <p><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/MP3.jpg"></p>
-<h2 id="下载Rockbox系统"><a href="#下载Rockbox系统" class="headerlink" title="下载Rockbox系统"></a>下载Rockbox系统</h2><p>先在Rockbox官网下载最新3.1.5版本系统：<br><a target="_blank" rel="noopener" href="https://www.rockbox.org/download/">https://www.rockbox.org/download/</a></p>
-<h2 id="下载SanDisk-Sansa-Clip-官方固件"><a href="#下载SanDisk-Sansa-Clip-官方固件" class="headerlink" title="下载SanDisk Sansa Clip+官方固件"></a>下载SanDisk Sansa Clip+官方固件</h2><p>在SanDisk官网下载Sansa Clip+最新01.02.18版本官方固件：<br><a target="_blank" rel="noopener" href="https://support-cn.wd.com/app/answers/detailweb/a_id/36022">https://support-cn.wd.com/app/answers/detailweb/a_id/36022</a></p>
-<h2 id="刷入Rockbox系统"><a href="#刷入Rockbox系统" class="headerlink" title="刷入Rockbox系统"></a>刷入Rockbox系统</h2><ol>
+<h2><span id="下载rockbox系统">下载Rockbox系统</span></h2><p>先在Rockbox官网下载最新3.1.5版本系统：<br><a target="_blank" rel="noopener" href="https://www.rockbox.org/download/">https://www.rockbox.org/download/</a></p>
+<h2><span id="下载sandisk-sansa-clip官方固件">下载SanDisk Sansa Clip+官方固件</span></h2><p>在SanDisk官网下载Sansa Clip+最新01.02.18版本官方固件：<br><a target="_blank" rel="noopener" href="https://support-cn.wd.com/app/answers/detailweb/a_id/36022">https://support-cn.wd.com/app/answers/detailweb/a_id/36022</a></p>
+<h2><span id="刷入rockbox系统">刷入Rockbox系统</span></h2><ol>
 <li>把Sansa Clip+连接电脑，打开RockboxUtility.exe，先点击右上角更改，在弹出的对话框中选自动识别，如果无法识别出Sansa Clip+播放器，也可以手动选择。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/1.png"></li>
 <li>回到主界面，勾选Themes，点击Customize，选择Theme4Chinese2主题，点击Select。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/2.png"><br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/3.png"></li>
 <li>回到主界面，点击Install，会弹出对话框，点击OK，选择SanDisk Sansa Clip+官方固件所在位置，选定clppa.bin，点击打开。<br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/4.jpg"><br><img src="/2022/11/29/SanDisk-Sansa-Clip-%E5%88%B7Rockbox%E6%95%99%E7%A8%8B/5.png"></li>
@@ -114,11 +126,11 @@
 </ol>
 </li>
 </ol>
-<h2 id="rockbox和官方系统打开方式"><a href="#rockbox和官方系统打开方式" class="headerlink" title="rockbox和官方系统打开方式"></a>rockbox和官方系统打开方式</h2><ol>
+<h2><span id="rockbox和官方系统打开方式">rockbox和官方系统打开方式</span></h2><ol>
 <li>按顶部开机键进入rockbox系统。</li>
 <li>长按左键+开机键进入官方系统。</li>
 </ol>
-<h2 id="Sansa-Clip-死机解决方法"><a href="#Sansa-Clip-死机解决方法" class="headerlink" title="Sansa Clip+死机解决方法"></a>Sansa Clip+死机解决方法</h2><p>按住电源键+菜单键（方向下）20秒左右，再重新开机。  </p>
+<h2><span id="sansa-clip死机解决方法">Sansa Clip+死机解决方法</span></h2><p>按住电源键+菜单键（方向下）20秒左右，再重新开机。</p>
 
     </div>
     <div class="post-meta">
@@ -148,6 +160,22 @@
 
 <div class="post-comment">
     
+<section id="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'youkiiiiii'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered
+            by Disqus.</a></noscript>
+</section>
+
 
 
 
