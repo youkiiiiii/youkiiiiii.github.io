@@ -30,6 +30,39 @@ body {
     font-size: calc(16px + 2 * ((100vw - 320px) / 960));
   }
 }
+/* 分类与标签样式 */
+.categories,
+.tags {
+  margin-bottom: 1em; /* 调整分类和标签模块的整体下方间距 */
+}
+.categories h3,
+.tags h3 {
+  font-size: 1em; /* 调整标题字体稍小 */
+  margin-bottom: 0.1em; /* 将标题与选项之间的间距进一步缩小 */
+  color: #333; /* 保持标题颜色 */
+}
+.categories ul,
+.tags ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* 去除列表可能的默认边距 */
+}
+.categories li,
+.tags li {
+  display: inline-block;
+  margin: 0.2em 0.8em 0 0; /* 减少每个选项之间的间距 */
+  font-size: 0.9em; /* 保持选项字体大小 */
+}
+.categories a,
+.tags a {
+  color: inherit; /* 使用默认字体颜色 */
+  text-decoration: none; /* 去掉下划线 */
+}
+.categories a:hover,
+.tags a:hover {
+  text-decoration: none; /* 悬停时不做任何变化 */
+}
+/* 导入部分样式文件 */
 .header {
   display: flex;
   margin: 0 auto;
