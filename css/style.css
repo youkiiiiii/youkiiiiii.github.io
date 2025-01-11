@@ -6,9 +6,6 @@ body {
   margin: 0 auto;
   max-width: 750px;
   word-break: break-word;
-/* 标点符号设置 */
-  font-feature-settings: "palt", "ruby"; /* 调整比例间距和标点下沉 */
-  font-variant-east-asian: traditional; /* 使用东亚传统排版 */
 }
 /* 添加移动端宽度规则 */
 @media screen and (max-width: 750px) {
