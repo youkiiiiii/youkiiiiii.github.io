@@ -1,256 +1,487 @@
-/* 导入字体 */
-@import url("https://static.zeoseven.com/zsft/184/main/result.css");
-/* 全局样式 */
-html,
 body {
-  margin: 0;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 1.6em;
+  padding: 0 1.5em;
+  margin: 0 auto;
+  max-width: 750px;
+  word-break: break-word;
+}
+/* 添加移动端宽度规则 */
+@media screen and (max-width: 750px) {
+  body {
+    max-width: 100%; /* 让内容在小屏设备上填满宽度 */
+    padding: 0 1em; /* 调整左右边距，防止内容过于贴边 */
+  }
+}
+@media screen and (min-width: 750px) {
+  body {
+    margin-left: calc((100vw - 3em - 750px) / 2); /* 保持桌面端的居中显示 */
+  }
+}
+/* 保持字体大小动态调整 */
+@media screen and (min-width: 320px) {
+  body {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 960));
+  }
+}
+/* 分类与标签样式 */
+.categories,
+.tags {
+  margin-bottom: 1em; /* 调整分类和标签模块的整体下方间距 */
+}
+.categories h3,
+.tags h3 {
+  font-size: 1em; /* 调整标题字体稍小 */
+  margin-bottom: 0.1em; /* 将标题与选项之间的间距进一步缩小 */
+  color: #333; /* 保持标题颜色 */
+}
+.categories ul,
+.tags ul {
+  list-style: none;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: "975Maru SC", Arial, sans-serif;
-  font-weight: normal;
-  background: url("/images/bg.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #333;
-  overflow-x: hidden;
-  box-sizing: border-box;
+  margin: 0; /* 去除列表可能的默认边距 */
 }
-/* header 保持一致的宽度 */
-header {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center; /* 确保标题和导航居中 */
+.categories li,
+.tags li {
+  display: inline-block;
+  margin: 0.2em 0.8em 0 0; /* 减少每个选项之间的间距 */
+  font-size: 0.9em; /* 保持选项字体大小 */
 }
-/* 导航栏样式 */
-header nav {
-  display: inline-flex; /* 改为inline-flex，让导航栏适应内容 */
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  padding: 10px 0;
-  flex-wrap: wrap;
-  background-color: transparent;
-  max-width: 100%; /* 让它占满整个宽度 */
-  margin-left: auto;
-  margin-right: auto; /* 确保导航栏居中 */
+.categories a,
+.tags a {
+  color: inherit; /* 使用默认字体颜色 */
+  text-decoration: none; /* 去掉下划线 */
 }
-header nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: color 0.3s ease;
+.categories a:hover,
+.tags a:hover {
+  text-decoration: none; /* 悬停时不做任何变化 */
 }
-header nav a:hover {
-  color: #fc0;
-}
-header nav::-webkit-scrollbar {
-  display: none;
-}
-.site-title {
-  font-size: 4rem;
-  color: #fff;
-  font-weight: bold;
-  margin: 100px 0 20px;
-  text-align: center;
-  font-family: "975Maru SC", Arial, sans-serif;
-}
-.site-description {
-  font-size: 1.1rem;
-  color: #fff;
-  max-width: 800px;
-  margin: 20px auto 70px;
-  text-align: center;
-  line-height: 1.6;
-  font-family: "975Maru SC", Arial, sans-serif;
-}
-/* 主内容区 */
-main {
-  margin-top: 60px;
+/* 导入部分样式文件 */
+.header {
   display: flex;
+  margin: 0 auto;
+  padding: 1em;
+  padding-bottom: 0.5em;
   justify-content: center;
   flex-direction: column;
-  min-height: calc(100vh - 200px);
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  all: unset;
+  align-items: center;
 }
-/* 首页文章内容框 */
-.content-box {
-  width: 90%;
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: rgba(255,255,255,0.9);
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  position: relative;
-  text-align: center; /* 保持整体居中 */
-  line-height: 1.8;
-  font-family: "975Maru SC", Arial, sans-serif;
-  padding-bottom: 30px;
-}
-.content-box h2 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 10px;
-  text-align: center !important; /* 添加 !important 优先级 */
-  display: block; /* 确保标题是块级元素 */
-  width: 100%; /* 确保占满父容器 */
-}
-.content-box p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 15px;
-  text-align: left; /* 文字左对齐 */
-}
-.content-box a {
-  display: inline-block;
-  margin-top: 15px;
-  color: #752100;
+.header .blog-title .logo {
+  color: #000;
+  font-size: 1.2em;
+  font-weight: 900; /* 设置字体稍微加粗 */
   text-decoration: none;
-  font-weight: bold;
-  text-align: center; /* 阅读更多按钮保持居中 */
 }
-.content-box a:hover {
+.header .blog-title {
+  height: 26.5;
+}
+.header .menu {
+  margin: 0 auto;
+  vertical-align: text-top;
+  padding-left: 0;
+}
+.header .menu .menu-item {
+  display: inline-block;
+  padding: 0.25em;
+}
+.header .menu .menu-item-link {
+  color: #818181;
+  text-decoration: none;
+  font-size: 1em;
+}
+.header .menu .menu-item-link:hover {
+  color: #111;
+}
+.header .menu .current-menu-item-link {
+  color: #111;
+  text-decoration: none;
+}
+@media screen and (max-width: 320px) {
+  .header .menu {
+    display: inline-flex;
+  }
+}
+.post {
+  padding: 1.3em 2em;
+  border: 1px #ddd;
+  border-style: solid none;
+}
+.post h1.title {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  line-height: 1.2em;
+  text-align: center;
+}
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.post h6 {
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+.post a {
+  color: #616161;
   text-decoration: underline;
 }
-/* page 页面内容样式 */
-.page-content {
-  width: 90%;
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: rgba(255,255,255,0.9); /* 和首页内容框背景一致 */
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  line-height: 1.8;
-  font-family: "975Maru SC", Arial, sans-serif; /* 字体保持一致 */
+.post ul {
+  padding-left: 30px;
 }
-/* 修改后的页面标题样式 */
-.article-title {
-  font-size: 1.5rem; /* 标题字体大小与首页内容框的标题一致 */
-  color: #333; /* 修改为要求的颜色 */
-  font-family: "975Maru SC", Arial, sans-serif;
-  font-weight: bold;
-  margin-bottom: 20px; /* 标题和正文之间留出间隙 */
-  text-align: center;
+.post ol {
+  padding-left: 20px;
 }
-/* 正文部分样式 */
-.page-body {
-  font-size: 1.1rem; /* 字体大小一致 */
-  color: #666; /* 正文字体颜色统一 */
-  margin-bottom: 20px;
-  line-height: 1.8;
-  text-align: left; /* 内容左对齐 */
+.post blockquote {
+  border-left: 2px solid #616161;
+  padding-left: 20px;
+  margin: 1rem 0;
 }
-/* 页脚样式 */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: rgba(0,0,0,0.7);
-  color: #fff;
+.post p code {
+  padding: 0.2em;
+}
+.post code,
+.post pre {
+  font-size: 16px;
+  background-color: #fff; /* 白色背景 */
+  font-family: 'Fantasque Sans Mono', 'PT Mono', 'Source Code Pro', monospace;
+}
+.post .highlight {
+  position: relative;
+  margin: 1em 0;
+  border-radius: 2px;
+  line-height: 1.1em;
+  background-color: #fff; /* 白色背景 */
+  overflow-x: auto;
+  border: 1px solid #ddd; /* 边框 */
+}
+.post .highlight table,
+.post .highlight tr,
+.post .highlight td {
   width: 100%;
-  font-family: "975Maru SC", Arial, sans-serif;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
 }
-/* 密码提示框居中 */
-.protected-message {
-  display: block; /* 使其成为块级元素，独占一行 */
-  text-align: center; /* 文字居中 */
-  width: 100%; /* 占满父容器的宽度 */
-  color: #752100; /* 设置文字颜色 */
-  font-size: 1.5rem; /* 文字大小 */
-  margin: 20px 0; /* 上下间距 */
-  padding: 10px; /* 内边距 */
-  background: rgba(255,255,255,0.8); /* 半透明背景，突出显示 */
-  border-radius: 10px; /* 边框圆角 */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 阴影效果 */
+.post .highlight .gutter {
+  display: none;
+  background-color: #f0f0f0; /* 行号背景色 */
 }
-/* 让文章中的图片自适应 */
-.page-body img,
-.content-box img {
-  max-width: 80%; /* 最大宽度为父容器的 80% */
-  height: auto; /* 保持图片比例 */
-  display: block; /* 使图片为块级元素，避免文字环绕 */
-  margin: 0 auto; /* 居中图片 */
+.post .highlight .code pre {
+  line-height: 1em;
+  margin: 0;
 }
-/* 媒体查询：适配平板和手机 */
-@media (max-width: 1024px) {
-  .page-body img,
-  .content-box img {
-    max-width: 70%; /* 在平板上最大宽度为 70% */
-  }
-  header nav {
-    gap: 15px;
-    padding: 5px 0;
-  }
-  header nav a {
-    font-size: 1rem;
-    padding: 5px;
-  }
-  .site-title {
-    font-size: 3rem;
-  }
-  .site-description {
-    font-size: 1rem;
-    padding: 0 10px;
-  }
-  .content-box,
-  .page-content {
-    max-width: 90%;
-    margin: 20px auto;
-    padding: 20px;
+.post .highlight .code pre .line {
+  width: auto;
+  height: 18px;
+}
+.post pre {
+  padding: 0.3em;
+  color: #333; /* 代码文本颜色 */
+  background-color: #fff; /* 白色背景 */
+}
+.post img {
+  height: auto;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  box-sizing: content-box;
+  width: 100%;
+}
+.post .shk {
+  margin: 1em 0;
+}
+@media screen and (max-width: 320px) {
+  .post {
+    padding: 30px 16px;
   }
 }
-@media (max-width: 768px) {
-  .page-body img,
-  .content-box img {
-    max-width: 60%; /* 在手机上最大宽度为 60% */
-  }
-  header nav {
-    gap: 10px;
-  }
-  header nav a {
-    font-size: 0.9rem;
-    min-width: 70px;
-  }
-  .site-title {
-    font-size: 2.5rem;
-  }
-  .content-box,
-  .page-content {
-    max-width: 90%;
-    margin: 20px auto;
-    padding: 20px;
+@media screen and (max-width: 500px) {
+  .post {
+    padding: 1.3em 1em;
   }
 }
-@media (max-width: 480px) {
-  .page-body img,
-  .content-box img {
-    max-width: 50%; /* 在更小屏幕上最大宽度为 50% */
+#prev_next {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 2em;
+  margin-right: 2em;
+  font-size: 16px;
+  justify-content: space-between;
+}
+#prev_next a {
+  color: #616161;
+  transition: color linear 200ms;
+}
+#prev_next .article-nav-title {
+  display: inline-block;
+  color: #616161;
+  text-decoration: underline;
+}
+#prev_next p {
+  margin: 0;
+}
+#prev_next .next {
+  display: inline-block;
+  text-align: right;
+  margin-left: 5px;
+  box-sizing: border-box;
+  width: 50%;
+}
+#prev_next .prev {
+  display: inline-block;
+  margin-right: 5px;
+  box-sizing: border-box;
+  width: 50%;
+}
+@media screen and (max-width: 500px) {
+  #prev_next {
+    margin-left: 1em;
+    margin-right: 1em;
   }
-  header nav {
-    gap: 5px;
-  }
-  header nav a {
-    font-size: 0.8rem;
-    min-width: 60px;
-  }
-  .site-title {
-    font-size: 2rem;
-  }
-  .site-description {
-    font-size: 0.9rem;
-  }
-  .content-box,
-  .page-content {
-    max-width: 85%;
-    margin: 15px auto;
-    padding: 15px;
+}
+.page-nav {
+  display: flex;
+  justify-content: center;
+  border-style: solid none none none;
+  border: 1px #ddd;
+}
+.page-nav .more {
+  margin-top: 1em;
+  text-decoration: none;
+  color: #808080;
+}
+.license {
+  display: flex;
+  justify-content: center;
+  border-style: solid none none none;
+  border: 1px #ddd;
+}
+.posts .post-title {
+  font-size: 1.5em;
+  line-height: 1.2em;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+}
+.posts .post-title .post-title-link {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+.posts .post-content {
+  margin-bottom: 1em;
+}
+.posts .post-content a {
+  color: #616161;
+  text-decoration: underline;
+}
+.posts .post-content .More {
+  padding: 1em 0;
+}
+.posts .post-meta {
+  color: #000;
+}
+.archive {
+  padding: 0 10%;
+  border: 1px #ddd;
+  border-style: solid none none none;
+}
+.archive .post-archive {
+  list-style: none;
+  padding: 0;
+}
+.archive .post-archive .years {
+  border: 1px #ddd;
+  border-style: none none solid none;
+  padding-bottom: 0.5em;
+}
+.archive .post-archive .post-item .post-date {
+  display: inline-block;
+  margin-right: 10px;
+}
+.archive .post-archive .post-item .post-title {
+  color: #000;
+  text-decoration: none;
+}
+/* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html {
+  line-height: 1.15;
+/* 1 */
+  -webkit-text-size-adjust: 100%;
+/* 2 */
+}
+main {
+  display: block;
+}
+h1 {
+  margin: 0.67em 0;
+}
+hr {
+  box-sizing: content-box;
+/* 1 */
+  height: 0;
+/* 1 */
+  overflow: visible;
+/* 2 */
+}
+pre {
+  font-family: monospace, monospace;
+/* 1 */
+  font-size: 1em;
+/* 2 */
+}
+a {
+  background-color: transparent;
+}
+abbr[title] {
+  border-bottom: none;
+/* 1 */
+  text-decoration: underline;
+/* 2 */
+  text-decoration: underline dotted;
+/* 2 */
+}
+b,
+strong {
+  font-weight: bolder;
+}
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+/* 1 */
+  font-size: 1em;
+/* 2 */
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+img {
+  border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+/* 1 */
+  font-size: 100%;
+/* 1 */
+  line-height: 1.15;
+/* 1 */
+  margin: 0;
+/* 2 */
+}
+button,
+input {
+/* 1 */
+  overflow: visible;
+}
+button,
+select {
+/* 1 */
+  text-transform: none;
+}
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+legend {
+  box-sizing: border-box;
+/* 1 */
+  color: inherit;
+/* 2 */
+  display: table;
+/* 1 */
+  max-width: 100%;
+/* 1 */
+  padding: 0;
+/* 3 */
+  white-space: normal;
+/* 1 */
+}
+progress {
+  vertical-align: baseline;
+}
+textarea {
+  overflow: auto;
+}
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+/* 1 */
+  padding: 0;
+/* 2 */
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+[type="search"] {
+  -webkit-appearance: textfield;
+/* 1 */
+  outline-offset: -2px;
+/* 2 */
+}
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+/* 1 */
+  font: inherit;
+/* 2 */
+}
+details {
+  display: block;
+}
+summary {
+  display: list-item;
+}
+template {
+  display: none;
+}
+[hidden] {
+  display: none;
+}
+@media screen and (min-width: 320px) {
+  body {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 960));
   }
 }
