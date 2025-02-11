@@ -1,5 +1,9 @@
 body {
-  background-color: #fff;
+  background-color: #fff; /* 默认背景颜色 */
+  background-image: url("https://pic1.imgdb.cn/item/5e427f4f2fb38b8c3ca200b4.png"); /* 替换成你自己的图片 URL */
+  background-size: cover; /* 背景图覆盖整个页面 */
+  background-position: center center; /* 背景图居中 */
+  background-attachment: fixed; /* 背景图固定不随滚动而移动 */
   font-size: 16px;
   line-height: 1.6em;
   padding: 0 1.5em;
@@ -7,22 +11,9 @@ body {
   max-width: 750px;
   word-break: break-word;
 }
-/* 添加移动端宽度规则 */
-@media screen and (max-width: 750px) {
-  body {
-    max-width: 100%; /* 让内容在小屏设备上填满宽度 */
-    padding: 0 1em; /* 调整左右边距，防止内容过于贴边 */
-  }
-}
 @media screen and (min-width: 750px) {
   body {
-    margin-left: calc((100vw - 3em - 750px) / 2); /* 保持桌面端的居中显示 */
-  }
-}
-/* 保持字体大小动态调整 */
-@media screen and (min-width: 320px) {
-  body {
-    font-size: calc(16px + 2 * ((100vw - 320px) / 960));
+    margin-left: calc((100vw - 3em - 750px) / 2);
   }
 }
 /* 分类与标签样式 */
@@ -68,9 +59,10 @@ body {
   align-items: center;
 }
 .header .blog-title .logo {
+  font-family: 'Source Serif Pro', 'Noto Serif SC', serif;
   color: #000;
   font-size: 1.2em;
-  font-weight: 900; /* 设置字体稍微加粗 */
+  font-weight: 600;
   text-decoration: none;
 }
 .header .blog-title {
