@@ -2,9 +2,10 @@
 /* styles are what change the color and sizes of stuff on your site. */
 /* these are variables that are being used in the code */
 :root {
-  --header-image: url("https://sadhost.neocities.org/images/layouts/wp.jpeg");
   --body-bg-image: url("https://sadhost.neocities.org/images/tiles/starsrbowbg.gif");
   --content: #43256e;
+  --border-color: #8dd9cc; /* 浅薄荷绿色边框 */
+  --text-color: #4f3d46; /* 深红棕色文字，与示例一致 */
 }
 /* 自定义字体 */
 @font-face {
@@ -28,12 +29,15 @@
   font-weight: bold;
 }
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', monospace; /* 仿示例的 monospace */
+  font-size: 0.875em;
   margin: 0;
-  background-color: #08031a;
-  background-size: auto;
-  color: #fceaff;
-  background-image: var(--body-bg-image);
+  padding: 0;
+  background-color: #08031a; /* 深蓝色底色 */
+  background-image: var(--body-bg-image); /* 单独设置背景图 */
+  background-size: auto; /* 保持星星背景尺寸 */
+  background-repeat: repeat; /* 确保背景图平铺 */
+  color: var(--text-color);
 }
 * {
   box-sizing: border-box;
@@ -42,51 +46,50 @@ body {
 #container {
   max-width: 900px;
   margin: 0 auto;
+  background: none; /* 仿 wrapper */
 }
 #container a {
-  color: #ed64f5;
+  color: var(--text-color); /* 深红棕色链接 */
   font-weight: bold;
 }
+/* Header 样式 */
 #header {
   width: 100%;
-  background-color: #5e4e8c;
+  background: linear-gradient(#fbdcdc, #fbdcdc); /* 示例渐变 */
   height: 150px;
-  background-image: var(--header-image);
-  background-size: 100%;
+  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  text-align: center;
+  margin-top: 15px;
 }
-/* 导航栏 - 优化后的样式 */
+/* 导航栏 */
 #navbar {
-  height: 50px; /* 增加高度以适应新样式 */
-  background-color: rgba(255,255,255,0.5); /* 白色半透明背景 */
+  height: 50px;
+  background: #fff;
   width: 100%;
   margin-bottom: 10px;
-  border-bottom: 2px dashed #ed64f5; /* 下方虚线边框 */
-  box-shadow: 0 0 10px #ed64f5; /* 霓虹外发光 */
-  display: flex; /* 使用 flexbox 优化布局 */
-  align-items: center; /* 垂直居中 */
+  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  display: flex;
+  align-items: center;
 }
 #navbar ul {
   display: flex;
   padding: 0;
-  margin: 0 auto; /* 水平居中 */
+  margin: 0 auto;
   list-style-type: none;
   justify-content: space-evenly;
   width: 100%;
-  max-width: 900px; /* 与 container 一致 */
+  max-width: 900px;
 }
 #navbar li a {
-  color: #ed64f5; /* 霓虹粉色链接 */
-  font-weight: 800;
+  color: var(--text-color);
+  font-weight: bold;
   text-decoration: none;
-  text-shadow: 1px 1px 2px #0ff; /* 青色发光 */
-  letter-spacing: 1px; /* 字母间距 */
-  padding: 5px 10px; /* 增加点击区域 */
-  transition: all 0.3s ease; /* 平滑过渡效果 */
+  padding: 5px 10px;
+  transition: all 0.3s ease;
 }
 #navbar li a:hover {
-  color: #0ff; /* 悬停时变成青色 */
+  color: #ff69b4; /* 柔和粉色悬停，增加趣味性 */
   text-decoration: underline;
-  text-shadow: 2px 2px 4px #ed64f5; /* 增强发光 */
 }
 /* Flex布局 */
 #flex {
@@ -103,104 +106,106 @@ body {
 }
 /* 侧边栏通用样式 */
 aside {
-  background-color: rgba(255,255,255,0.5);
-  padding: 20px;
+  background: #fff; /* 白色背景 */
+  padding: 0;
   font-size: smaller;
-  border: 2px dashed #ed64f5;
-  box-shadow: 0 0 10px #ed64f5;
-  color: #13092d;
-  text-shadow: 1px 1px 2px #ed64f5;
+  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  color: var(--text-color);
 }
 #updatesSidebar,
 #toolsSidebar {
   margin-bottom: 0;
-  background-color: rgba(255,255,255,0.5);
-  border: 2px dashed #ed64f5;
-  box-shadow: 0 0 10px #ed64f5;
-  color: #13092d;
-  text-shadow: 1px 1px 2px #ed64f5;
+  background: #fff;
+  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  color: var(--text-color);
 }
 /* 侧边栏内的标题和链接 */
 aside h1,
 aside h2,
 aside h3 {
-  color: #ed64f5;
+  background: #facbd8; /* 示例标题背景 */
+  margin: 0;
+  padding: 0.35em 0.25em 0.3em 0.25em;
+  text-align: center;
+  border-bottom: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  color: var(--text-color);
   font-weight: bold;
-  text-shadow: 2px 2px 4px #ed64f5, -2px -2px 4px #0ff;
-  letter-spacing: 2px;
+}
+aside .inner {
+  padding: 0.25em 1em 0.3em 1em;
+  font-size: 1.075em;
 }
 aside a {
-  color: #43256e;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: bold;
-  text-shadow: 1px 1px 2px #ed64f5;
 }
 aside a:hover {
-  color: #ed64f5;
+  color: #ff69b4; /* 柔和粉色悬停 */
   text-decoration: underline;
 }
 /* Main区域 */
 main {
-  background-color: rgba(255,255,255,0.5);
+  background: #fff; /* 白色背景 */
   flex: 1;
-  padding: 20px;
+  padding: 0;
   margin-left: 20px;
-  color: #13092d;
+  color: var(--text-color);
   text-align: justify;
   line-height: 1.6;
   font-size: 16px;
-  border: 2px dashed #ed64f5;
-  box-shadow: 0 0 10px #ed64f5;
+  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
 }
 main h1,
 main h2,
 main h3 {
-  color: #ed64f5;
+  background: #facbd8; /* 示例标题背景 */
+  margin: 0;
+  padding: 0.35em 0.25em 0.3em 0.25em;
+  text-align: center;
+  border-bottom: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  color: var(--text-color);
   font-weight: bold;
-  text-shadow: 2px 2px 4px #ed64f5, -2px -2px 4px #0ff;
-  letter-spacing: 2px;
+}
+main .inner {
+  padding: 0.25em 1em 0.3em 1em;
+  font-size: 1.075em;
 }
 main p {
-  font-family: 'Nunito', sans-serif;
-  color: #13092d;
-  text-shadow: 1px 1px 2px #ed64f5;
+  font-family: 'Nunito', monospace;
+  color: var(--text-color);
   margin-bottom: 15px;
 }
 main strong {
-  color: #43256e;
+  color: var(--text-color);
   font-weight: bold;
-  text-shadow: 1px 1px 2px #ed64f5;
 }
 /* Footer */
 footer {
-  background-color: rgba(255,255,255,0.5);
+  background: #fff;
   width: 100%;
-  height: 50px;
+  height: 50px; /* 示例中 footer 高度为 0，但这里保留功能性 */
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 2px dashed #ed64f5;
-  box-shadow: 0 0 10px #ed64f5;
-  color: #13092d;
+  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  color: var(--text-color);
   font-weight: bold;
-  text-shadow: 1px 1px 2px #ed64f5;
-  letter-spacing: 1px;
 }
-/* Footer 内的链接 */
 footer a {
-  color: #ed64f5;
+  color: var(--text-color);
   text-decoration: none;
-  text-shadow: 1px 1px 2px #0ff;
 }
 footer a:hover {
-  color: #0ff;
+  color: #ff69b4; /* 柔和粉色悬停 */
   text-decoration: underline;
 }
 /* 头像框 */
 .box {
   width: 100%;
   height: 100px;
-  border: 2px solid #ed64f5;
+  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  background: #fff;
   padding: 0;
   overflow: hidden;
 }
@@ -209,26 +214,44 @@ footer a:hover {
   height: 100%;
   object-fit: cover;
 }
-/* 媒体查询 */
-@media only screen and (max-width: 800px) {
-  #flex {
-    flex-wrap: wrap;
-    justify-content: center;
+/* 媒体查询 - 添加参考 CSS 的移动端样式 */
+@media only screen and (max-width: 880px) {
+  #container {
+    width: calc(340px + 50vw);
   }
   #leftColumn {
-    width: 100%;
-    order: 2;
+    width: 160px;
+  }
+  main {
+    width: 50vw;
+    margin-left: 170px;
+  }
+}
+@media only screen and (orientation: portrait) {
+  #container {
+    width: 96vw;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+  }
+  #flex {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+  }
+  main {
+    order: 1; /* main 在上方 */
+    width: 92vw;
+    margin: 0.25rem auto; /* 居中水平对齐 */
+  }
+  #leftColumn {
+    order: 2; /* 侧边栏在下方 */
+    width: 92vw;
+    margin: 0.25rem auto; /* 居中水平对齐 */
   }
   aside,
   #updatesSidebar,
   #toolsSidebar {
-    width: 100%;
-  }
-  main {
-    order: 1;
-    width: 100%;
-    margin-left: 0;
-    margin-bottom: 20px;
-    min-height: auto;
+    width: 100%; /* 确保侧边栏内部元素占满容器 */
+    margin: 0.25rem 0; /* 垂直间距 */
   }
 }
