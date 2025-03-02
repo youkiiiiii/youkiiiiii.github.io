@@ -55,27 +55,29 @@ body {
   display: flex;
   flex-direction: column; /* 垂直排列子元素 */
 }
-/* Header 样式 - 计算机窗口风格边框 */
+/* Header 样式 - 优化连接处 */
 #header {
   width: 100%;
   background: url("https://sadhost.neocities.org/images/tiles/starsrbowbg.gif") repeat; /* 替换为图片，平铺 */
   height: 170px;
   border: 2px solid var(--border-color); /* 单线边框 */
-  border-top: 4px solid var(--border-color); /* 顶部加粗，模拟标题栏 */
+  border-top: 4px solid var(--border-color); /* 顶部加粗 */
   border-left: 4px solid var(--border-color); /* 左侧加粗 */
+  border-bottom: none; /* 移除底部边框，避免与navbar叠加 */
   box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
 /* 外阴影，立体感 */
   text-align: center;
   margin-top: 5px; /* 保持顶部间距较小 */
 }
-/* 导航栏 - 计算机窗口风格边框 */
+/* 导航栏 - 加粗顶部边框 */
 #navbar {
   height: 50px;
   background: #fff;
   width: 100%;
   margin-bottom: 10px;
+  margin-top: 0; /* 与header无缝连接 */
   border: 2px solid var(--border-color); /* 单线边框 */
-  border-top: 4px solid var(--border-color); /* 顶部加粗 */
+  border-top: 3px solid var(--border-color); /* 顶部加粗至3px */
   border-left: 4px solid var(--border-color); /* 左侧加粗 */
   box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
 /* 外阴影，立体感 */
@@ -262,13 +264,11 @@ footer a:hover {
   color: #ff69b4; /* 柔和粉色悬停 */
   text-decoration: underline;
 }
-/* 头像框 - 计算机窗口风格边框 */
+/* 头像框 - 删除边框，与侧边栏下边框连接 */
 .box {
   width: 100%;
   height: 100px;
-  border: 2px solid var(--border-color); /* 单线边框 */
-  border-top: 4px solid var(--border-color); /* 顶部加粗 */
-  border-left: 4px solid var(--border-color); /* 左侧加粗 */
+  border: none; /* 删除所有边框 */
   box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
 /* 外阴影，立体感 */
   background: #fff;
