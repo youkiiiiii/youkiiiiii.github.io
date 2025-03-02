@@ -2,9 +2,10 @@
 /* styles are what change the color and sizes of stuff on your site. */
 /* these are variables that are being used in the code */
 :root {
-  --body-bg-image: url("https://sadhost.neocities.org/images/tiles/starsrbowbg.gif");
+  --header-image: url("https://nyaa.neocities.org/sozai/decometest6.png");
+  --body-bg-image: url("https://pic1.imgdb.cn/item/67c42961d0e0a243d40a162a.gif");
   --content: #43256e;
-  --border-color: #8dd9cc; /* 浅薄荷绿色边框 */
+  --border-color: #ffa6c4; /* 边框颜色保持粉色 */
   --text-color: #4f3d46; /* 深红棕色文字，与示例一致 */
 }
 /* 自定义字体 */
@@ -38,6 +39,9 @@ body {
   background-size: auto; /* 保持星星背景尺寸 */
   background-repeat: repeat; /* 确保背景图平铺 */
   color: var(--text-color);
+  min-height: 100vh; /* 占满视口高度 */
+  display: flex;
+  flex-direction: column; /* 垂直布局 */
 }
 * {
   box-sizing: border-box;
@@ -47,30 +51,38 @@ body {
   max-width: 900px;
   margin: 0 auto;
   background: none; /* 仿 wrapper */
+  flex: 1; /* 填充剩余空间 */
+  display: flex;
+  flex-direction: column; /* 垂直排列子元素 */
 }
-#container a {
-  color: var(--text-color); /* 深红棕色链接 */
-  font-weight: bold;
-}
-/* Header 样式 */
+/* Header 样式 - 计算机窗口风格边框 */
 #header {
   width: 100%;
-  background: linear-gradient(#fbdcdc, #fbdcdc); /* 示例渐变 */
-  height: 150px;
-  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  background: url("https://sadhost.neocities.org/images/tiles/starsrbowbg.gif") repeat; /* 替换为图片，平铺 */
+  height: 170px;
+  border: 2px solid var(--border-color); /* 单线边框 */
+  border-top: 4px solid var(--border-color); /* 顶部加粗，模拟标题栏 */
+  border-left: 4px solid var(--border-color); /* 左侧加粗 */
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 外阴影，立体感 */
   text-align: center;
-  margin-top: 15px;
+  margin-top: 5px; /* 保持顶部间距较小 */
 }
-/* 导航栏 */
+/* 导航栏 - 计算机窗口风格边框 */
 #navbar {
   height: 50px;
   background: #fff;
   width: 100%;
   margin-bottom: 10px;
-  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  border: 2px solid var(--border-color); /* 单线边框 */
+  border-top: 4px solid var(--border-color); /* 顶部加粗 */
+  border-left: 4px solid var(--border-color); /* 左侧加粗 */
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 外阴影，立体感 */
   display: flex;
   align-items: center;
 }
+/* 导航栏内部样式 */
 #navbar ul {
   display: flex;
   padding: 0;
@@ -96,44 +108,60 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
+  flex: 1; /* 填充剩余空间 */
 }
 /* 左侧栏 */
 #leftColumn {
   width: 200px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px; /* 保持紧凑 */
+  flex: 0 0 200px; /* 固定宽度 */
 }
-/* 侧边栏通用样式 */
+/* 侧边栏通用样式 - 计算机窗口风格边框 */
 aside {
   background: #fff; /* 白色背景 */
   padding: 0;
   font-size: smaller;
-  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  border: 2px solid var(--border-color); /* 单线边框 */
+  border-top: 4px solid var(--border-color); /* 顶部加粗 */
+  border-left: 4px solid var(--border-color); /* 左侧加粗 */
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 外阴影，立体感 */
   color: var(--text-color);
 }
 #updatesSidebar,
 #toolsSidebar {
   margin-bottom: 0;
   background: #fff;
-  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  border: 2px solid var(--border-color); /* 单线边框 */
+  border-top: 4px solid var(--border-color); /* 顶部加粗 */
+  border-left: 4px solid var(--border-color); /* 左侧加粗 */
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 外阴影，立体感 */
   color: var(--text-color);
 }
-/* 侧边栏内的标题和链接 */
+/* 侧边栏内的标题和链接 - 调整边框 */
 aside h1,
 aside h2,
 aside h3 {
-  background: #facbd8; /* 示例标题背景 */
-  margin: 0;
-  padding: 0.35em 0.25em 0.3em 0.25em;
+  background: url("https://sadhost.neocities.org/images/tiles/starsrbowbg.gif") repeat; /* 替换为图片，平铺 */
+  margin: 0 0 0.5em 0; /* 示例中的底部间距 */
+  padding: 0.35em 0.25em; /* 示例中的紧凑内边距 */
   text-align: center;
-  border-bottom: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  border-bottom: 2px solid var(--border-color); /* 改为单线边框 */
   color: var(--text-color);
   font-weight: bold;
+  letter-spacing: 2px; /* 示例中的字间距 */
 }
 aside .inner {
-  padding: 0.25em 1em 0.3em 1em;
-  font-size: 1.075em;
+  padding: 0.75em 1em; /* 保持不贴边 */
+  font-size: 0.95em;
+}
+aside p {
+  padding: 0 0.5em; /* 示例中的段落内边距 */
+  margin: 0 0 0.5em 0; /* 示例中的段落间距 */
+  line-height: 1.4; /* 示例中的行距 */
 }
 aside a {
   color: var(--text-color);
@@ -144,54 +172,88 @@ aside a:hover {
   color: #ff69b4; /* 柔和粉色悬停 */
   text-decoration: underline;
 }
-/* Main区域 */
+/* Main区域 - 计算机窗口风格边框 */
 main {
   background: #fff; /* 白色背景 */
   flex: 1;
-  padding: 0;
-  margin-left: 20px;
+  padding: 0; /* 示例中无外层padding */
+  margin-left: 10px; /* 保持紧凑 */
   color: var(--text-color);
   text-align: justify;
-  line-height: 1.6;
+  line-height: 1.4; /* 示例中的行距 */
   font-size: 16px;
-  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  border: 2px solid var(--border-color); /* 单线边框 */
+  border-top: 4px solid var(--border-color); /* 顶部加粗 */
+  border-left: 4px solid var(--border-color); /* 左侧加粗 */
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 外阴影，立体感 */
 }
+/* Main标题 - 调整边框 */
 main h1,
 main h2,
 main h3 {
-  background: #facbd8; /* 示例标题背景 */
-  margin: 0;
-  padding: 0.35em 0.25em 0.3em 0.25em;
+  background: url("https://sadhost.neocities.org/images/tiles/starsrbowbg.gif") repeat; /* 替换为图片，平铺 */
+  margin: 0 0 0.5em 0; /* 示例中的底部间距 */
+  padding: 0.35em 0.25em; /* 示例中的紧凑内边距 */
   text-align: center;
-  border-bottom: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  border-bottom: 2px solid var(--border-color); /* 改为单线边框 */
   color: var(--text-color);
   font-weight: bold;
+  letter-spacing: 2px; /* 示例中的字间距 */
 }
 main .inner {
-  padding: 0.25em 1em 0.3em 1em;
-  font-size: 1.075em;
+  padding: 0; /* 移除.inner的padding，依赖子元素控制 */
+  font-size: 0.95em;
 }
 main p {
-  font-family: 'Nunito', monospace;
-  color: var(--text-color);
-  margin-bottom: 15px;
+  padding: 0 0.5em; /* 示例中的左右内边距，避免贴边 */
+  margin: 0 0 0.5em 0; /* 示例中的紧凑段落间距 */
+  line-height: 1.4; /* 示例中的行距 */
 }
 main strong {
   color: var(--text-color);
   font-weight: bold;
 }
-/* Footer */
+/* Markdown 列表样式 */
+main ul,
+main ol {
+  padding: 0 1.25em; /* 调整缩进，避免贴边 */
+  margin: 0 0 0.5em 0;
+}
+main li {
+  margin: 0.2em 0; /* 紧凑列表项间距 */
+  line-height: 1.4;
+}
+/* Markdown 代码块样式 - 计算机窗口风格边框 */
+main pre,
+main code {
+  background: #f0f0f0;
+  padding: 0.75em; /* 不贴边 */
+  margin: 0.5em 0;
+  font-family: 'Nunito', monospace;
+  font-size: 0.9em;
+  border: 1px solid var(--border-color); /* 单线边框 */
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.5), inset -1px -1px 0 rgba(0,0,0,0.2), 2px 2px 4px rgba(255,166,196,0.3);
+/* 外阴影，立体感 */
+  overflow-x: auto;
+}
+/* Footer - 计算机窗口风格边框 */
 footer {
   background: #fff;
   width: 100%;
-  height: 50px; /* 示例中 footer 高度为 0，但这里保留功能性 */
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  border: 2px solid var(--border-color); /* 单线边框 */
+  border-top: 4px solid var(--border-color); /* 顶部加粗 */
+  border-left: 4px solid var(--border-color); /* 左侧加粗 */
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 外阴影，立体感 */
   color: var(--text-color);
   font-weight: bold;
 }
+/* Footer 内的链接 */
 footer a {
   color: var(--text-color);
   text-decoration: none;
@@ -200,11 +262,15 @@ footer a:hover {
   color: #ff69b4; /* 柔和粉色悬停 */
   text-decoration: underline;
 }
-/* 头像框 */
+/* 头像框 - 计算机窗口风格边框 */
 .box {
   width: 100%;
   height: 100px;
-  border: 3px double var(--border-color); /* 浅薄荷绿色双重边框 */
+  border: 2px solid var(--border-color); /* 单线边框 */
+  border-top: 4px solid var(--border-color); /* 顶部加粗 */
+  border-left: 4px solid var(--border-color); /* 左侧加粗 */
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 外阴影，立体感 */
   background: #fff;
   padding: 0;
   overflow: hidden;
@@ -214,7 +280,7 @@ footer a:hover {
   height: 100%;
   object-fit: cover;
 }
-/* 媒体查询 - 添加参考 CSS 的移动端样式 */
+/* 媒体查询 */
 @media only screen and (max-width: 880px) {
   #container {
     width: calc(340px + 50vw);
@@ -242,6 +308,7 @@ footer a:hover {
     order: 1; /* main 在上方 */
     width: 92vw;
     margin: 0.25rem auto; /* 居中水平对齐 */
+    flex: 1; /* 填充剩余空间 */
   }
   #leftColumn {
     order: 2; /* 侧边栏在下方 */
