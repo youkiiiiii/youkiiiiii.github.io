@@ -7,6 +7,7 @@
   --content: #43256e;
   --border-color: #ffa6c4; /* 边框颜色保持粉色 */
   --text-color: #4f3d46; /* 深红棕色文字，与示例一致 */
+  --avatar-border-color: #ffebf5; /* 新头像框边框颜色：浅粉色 */
 }
 /* 自定义字体 */
 @font-face {
@@ -55,7 +56,7 @@ body {
   display: flex;
   flex-direction: column; /* 垂直排列子元素 */
 }
-/* Header 样式 - 优化连接处 */
+/* Header 样式 - 美化分隔线和立体感 */
 #header {
   width: 100%;
   background: url("https://sadhost.neocities.org/images/tiles/starsrbowbg.gif") repeat; /* 替换为图片，平铺 */
@@ -63,24 +64,31 @@ body {
   border: 2px solid var(--border-color); /* 单线边框 */
   border-top: 4px solid var(--border-color); /* 顶部加粗 */
   border-left: 4px solid var(--border-color); /* 左侧加粗 */
-  border-bottom: none; /* 移除底部边框，避免与navbar叠加 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 外阴影，立体感 */
+  border-bottom: 2px solid var(--border-color); /* 与其他边框一致的实线 */
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 0 2px 4px rgba(255,166,196,0.3);
+/* 底部轻阴影，增强立体感 */
   text-align: center;
   margin-top: 5px; /* 保持顶部间距较小 */
 }
-/* 导航栏 - 加粗顶部边框 */
+/* 网站标题样式 */
+.site-title {
+  margin: 0;
+  padding: 20px;
+  font-size: 2em; /* 调整标题大小 */
+  color: var(--text-color);
+}
+/* 导航栏 - 美化立体感 */
 #navbar {
   height: 50px;
   background: #fff;
   width: 100%;
   margin-bottom: 10px;
-  margin-top: 0; /* 与header无缝连接 */
+  margin-top: 2px; /* 微小间距，增强层次感 */
   border: 2px solid var(--border-color); /* 单线边框 */
-  border-top: 3px solid var(--border-color); /* 顶部加粗至3px */
+  border-top: none; /* 移除顶部边框，依靠header的实线 */
   border-left: 4px solid var(--border-color); /* 左侧加粗 */
   box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 外阴影，立体感 */
+/* 外阴影，整体立体感 */
   display: flex;
   align-items: center;
 }
@@ -174,6 +182,29 @@ aside a:hover {
   color: #ff69b4; /* 柔和粉色悬停 */
   text-decoration: underline;
 }
+/* 关于我侧边栏 - 调整内容样式 */
+#aboutmeSidebar .inner {
+  padding: 0.75em 1em; /* 与其他侧边栏一致的内边距 */
+  font-size: 16px; /* 与main一致的字体大小 */
+  text-align: justify; /* 与main一致的文字对齐 */
+  line-height: 1.4; /* 与main一致的行距 */
+  display: flex; /* 使用flex布局让图片和文字整体显示 */
+  flex-direction: column; /* 垂直排列 */
+  align-items: center; /* 居中对齐 */
+}
+#aboutmeSidebar .inner img {
+  width: 100px; /* 固定图片宽度，避免过大 */
+  height: auto; /* 自适应高度 */
+  margin-bottom: 0.5em; /* 图片与文字之间的间距 */
+  border: 2px solid var(--avatar-border-color); /* 浅粉色实线边框 */
+  border-radius: 0; /* 方形边框 */
+  box-shadow: 2px 2px 4px rgba(255,166,196,0.5); /* 保留粉色发光特效 */
+}
+#aboutmeSidebar .inner p {
+  padding: 0 0.5em; /* 与main一致的左右内边距 */
+  margin: 0; /* 移除额外外边距 */
+  text-align: center; /* 文字居中，与图片对齐 */
+}
 /* Main区域 - 计算机窗口风格边框 */
 main {
   background: #fff; /* 白色背景 */
@@ -183,7 +214,7 @@ main {
   color: var(--text-color);
   text-align: justify;
   line-height: 1.4; /* 示例中的行距 */
-  font-size: 16px;
+  font-size: 16px; /* 字体大小16px */
   border: 2px solid var(--border-color); /* 单线边框 */
   border-top: 4px solid var(--border-color); /* 顶部加粗 */
   border-left: 4px solid var(--border-color); /* 左侧加粗 */
@@ -264,21 +295,9 @@ footer a:hover {
   color: #ff69b4; /* 柔和粉色悬停 */
   text-decoration: underline;
 }
-/* 头像框 - 删除边框，与侧边栏下边框连接 */
+/* 移除.box的独立样式 */
 .box {
-  width: 100%;
-  height: 100px;
-  border: none; /* 删除所有边框 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 外阴影，立体感 */
-  background: #fff;
-  padding: 0;
-  overflow: hidden;
-}
-.box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: none; /* 移除.box的独立样式 */
 }
 /* 媒体查询 */
 @media only screen and (max-width: 880px) {
@@ -291,6 +310,26 @@ footer a:hover {
   main {
     width: 50vw;
     margin-left: 170px;
+  }
+  #header {
+    border-radius: 10px; /* 圆角 */
+  }
+  #navbar {
+    border-radius: 10px; /* 圆角 */
+  }
+  main {
+    border-radius: 10px; /* 圆角 */
+  }
+  #leftColumn {
+    border-radius: 10px; /* 圆角 */
+  }
+  aside,
+  #updatesSidebar,
+  #toolsSidebar {
+    border-radius: 10px; /* 圆角 */
+  }
+  footer {
+    border-radius: 10px; /* 圆角 */
   }
 }
 @media only screen and (orientation: portrait) {
@@ -309,16 +348,34 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto; /* 居中水平对齐 */
     flex: 1; /* 填充剩余空间 */
+    border-radius: 10px; /* 圆角 */
   }
   #leftColumn {
     order: 2; /* 侧边栏在下方 */
     width: 92vw;
     margin: 0.25rem auto; /* 居中水平对齐 */
+    border-radius: 10px; /* 圆角 */
   }
   aside,
   #updatesSidebar,
   #toolsSidebar {
     width: 100%; /* 确保侧边栏内部元素占满容器 */
     margin: 0.25rem 0; /* 垂直间距 */
+    border-radius: 10px; /* 圆角 */
+  }
+  #header {
+    width: 92vw; /* 调整 header 宽度与 main 和侧边栏一致 */
+    margin: 0.25rem auto; /* 居中对齐 */
+    border-radius: 10px; /* 圆角 */
+  }
+  #navbar {
+    width: 92vw; /* 调整导航栏宽度与 main 和侧边栏一致 */
+    margin: 0.25rem auto; /* 居中对齐 */
+    border-radius: 10px; /* 圆角 */
+  }
+  footer {
+    width: 92vw; /* 调整 footer 宽度与 main 和侧边栏一致 */
+    margin: 0.25rem auto; /* 居中对齐 */
+    border-radius: 10px; /* 圆角 */
   }
 }
