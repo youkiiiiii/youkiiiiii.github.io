@@ -216,7 +216,7 @@ aside a:hover {
 main {
   background: #000; /* 改为黑色背景 */
   flex: 1;
-  padding: 0 0 0.3em 0; /* 添加底部内边距 1.5em，约 21px */
+  padding: 0 0 0.4em 0; /* 添加底部内边距 1.5em，约 21px */
   margin-left: 10px;
   color: #fff; /* 文字改为白色 */
   text-align: justify;
