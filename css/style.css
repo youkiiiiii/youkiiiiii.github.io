@@ -81,7 +81,7 @@ body {
 /* 导航栏 - 美化立体感 */
 #navbar {
   height: 50px;
-  background: #000; /* 改为黑色背景 */
+  background: #111; /* 改为深灰色 #111111 */
   width: 100%;
   margin-bottom: 10px;
   margin-top: 2px;
@@ -132,7 +132,7 @@ body {
 }
 /* 侧边栏通用样式 - 计算机窗口风格边框 */
 aside {
-  background: #000; /* 改为黑色背景 */
+  background: #111; /* 改为深灰色 #111111 */
   padding: 0;
   font-size: smaller;
   border: 2px solid #fff; /* 边框改为白色 */
@@ -145,7 +145,7 @@ aside {
 #updatesSidebar,
 #toolsSidebar {
   margin-bottom: 0;
-  background: #000; /* 改为黑色背景 */
+  background: #111; /* 改为深灰色 #111111 */
   border: 2px solid #fff; /* 边框改为白色 */
   border-top: 4px solid #fff; /* 顶部加粗白色 */
   border-left: 4px solid #fff; /* 左侧加粗白色 */
@@ -214,7 +214,7 @@ aside a:hover {
 }
 /* Main区域 - 计算机窗口风格边框 */
 main {
-  background: #000; /* 改为黑色背景 */
+  background: #111; /* 改为深灰色 #111111 */
   flex: 1;
   padding: 0;
   margin-left: 10px;
@@ -285,7 +285,7 @@ main code {
 }
 /* Footer - 计算机窗口风格边框 */
 footer {
-  background: #000; /* 改为黑色背景 */
+  background: #111; /* 改为深灰色 #111111 */
   width: 100%;
   height: 50px;
   display: flex;
@@ -346,7 +346,7 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     height: 50px;
-    background: #000; /* 改为黑色背景 */
+    background: #111; /* 改为深灰色 #111111 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: none;
@@ -359,7 +359,7 @@ footer a:hover {
   main {
     width: 92vw;
     margin: 0.25rem auto;
-    background: #000; /* 改为黑色背景 */
+    background: #111; /* 改为深灰色 #111111 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
@@ -389,7 +389,7 @@ footer a:hover {
   #toolsSidebar {
     width: 100%;
     margin: 0.25rem auto;
-    background: #000; /* 改为黑色背景 */
+    background: #111; /* 改为深灰色 #111111 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
@@ -410,7 +410,7 @@ footer a:hover {
   footer {
     width: 92vw;
     margin: 0.25rem auto;
-    background: #000; /* 改为黑色背景 */
+    background: #111; /* 改为深灰色 #111111 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
@@ -439,7 +439,7 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     flex: 1;
-    background: #000; /* 改为黑色背景 */
+    background: #111; /* 改为深灰色 #111111 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
@@ -470,7 +470,7 @@ footer a:hover {
   #toolsSidebar {
     width: 100%;
     margin: 0.25rem auto;
-    background: #000; /* 改为黑色背景 */
+    background: #111; /* 改为深灰色 #111111 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
@@ -506,7 +506,7 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     height: 50px;
-    background: #000; /* 改为黑色背景 */
+    background: #111; /* 改为深灰色 #111111 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: none;
@@ -519,7 +519,7 @@ footer a:hover {
   footer {
     width: 92vw;
     margin: 0.25rem auto;
-    background: #000; /* 改为黑色背景 */
+    background: #111; /* 改为深灰色 #111111 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
