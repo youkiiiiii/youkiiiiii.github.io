@@ -149,7 +149,7 @@ aside {
   border: 2px solid #fff; /* 边框改为白色 */
   border-top: 4px solid #fff; /* 顶部加粗白色 */
   border-left: 4px solid #fff; /* 左侧加粗白色 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,255,255,0.5);
 /* 调整阴影色调以匹配 #FF6699 */
   color: #fff; /* 文字改为白色 */
 }
@@ -216,7 +216,7 @@ aside a:hover {
 main {
   background: #000; /* 改为黑色背景 */
   flex: 1;
-  padding: 0;
+  padding: 0 0 0.3em 0; /* 添加底部内边距 1.5em，约 21px */
   margin-left: 10px;
   color: #fff; /* 文字改为白色 */
   text-align: justify;
@@ -243,7 +243,7 @@ main h3 {
 }
 /* main 内文字颜色调整 */
 main .inner {
-  padding: 0;
+  padding: 0; /* 移除此处的 padding，依赖 main 的 padding */
   font-size: 0.95em;
   color: #fff; /* 文字改为白色 */
 }
@@ -337,6 +337,7 @@ footer a:hover {
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
     border-left: 4px solid #fff; /* 左侧加粗白色 */
+    border-bottom: 4px solid #fff; /* 底部加粗为 4px */
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
 /* 调整阴影色调以匹配 #FF6699 */
     position: relative;
@@ -349,10 +350,10 @@ footer a:hover {
     background: #000; /* 改为黑色背景 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 4px solid #fff; /* 加粗顶部边框以增强立体感 */
+    border-top: 2px solid #fff; /* 顶部边框调整为 2px */
     border-left: 4px solid #fff; /* 左侧加粗白色 */
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.7), inset -2px -2px 0 rgba(0,0,0,0.3), 4px 4px 8px rgba(255,102,153,0.6);
-/* 略增强外阴影 */
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
+/* 与其他框一致 */
     position: relative;
     z-index: 1;
   }
@@ -501,6 +502,7 @@ footer a:hover {
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
     border-left: 4px solid #fff; /* 左侧加粗白色 */
+    border-bottom: 4px solid #fff; /* 底部加粗为 4px */
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
 /* 调整阴影色调以匹配 #FF6699 */
     position: relative;
@@ -513,10 +515,10 @@ footer a:hover {
     background: #000; /* 改为黑色背景 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 4px solid #fff; /* 加粗顶部边框以增强立体感 */
+    border-top: 2px solid #fff; /* 顶部边框调整为 2px */
     border-left: 4px solid #fff; /* 左侧加粗白色 */
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.7), inset -2px -2px 0 rgba(0,0,0,0.3), 4px 4px 8px rgba(255,102,153,0.6);
-/* 略增强外阴影 */
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
+/* 与其他框一致 */
     position: relative;
     z-index: 1;
   }
