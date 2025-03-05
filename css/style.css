@@ -81,7 +81,7 @@ body {
 /* 导航栏 - 美化立体感 */
 #navbar {
   height: 50px;
-  background: #111; /* 改为深灰色 #111111 */
+  background: #000; /* 改为黑色背景 */
   width: 100%;
   margin-bottom: 10px;
   margin-top: 2px;
@@ -132,7 +132,7 @@ body {
 }
 /* 侧边栏通用样式 - 计算机窗口风格边框 */
 aside {
-  background: #111; /* 改为深灰色 #111111 */
+  background: #000; /* 改为黑色背景 */
   padding: 0;
   font-size: smaller;
   border: 2px solid #fff; /* 边框改为白色 */
@@ -145,7 +145,7 @@ aside {
 #updatesSidebar,
 #toolsSidebar {
   margin-bottom: 0;
-  background: #111; /* 改为深灰色 #111111 */
+  background: #000; /* 改为黑色背景 */
   border: 2px solid #fff; /* 边框改为白色 */
   border-top: 4px solid #fff; /* 顶部加粗白色 */
   border-left: 4px solid #fff; /* 左侧加粗白色 */
@@ -214,7 +214,7 @@ aside a:hover {
 }
 /* Main区域 - 计算机窗口风格边框 */
 main {
-  background: #111; /* 改为深灰色 #111111 */
+  background: #000; /* 改为黑色背景 */
   flex: 1;
   padding: 0;
   margin-left: 10px;
@@ -285,7 +285,7 @@ main code {
 }
 /* Footer - 计算机窗口风格边框 */
 footer {
-  background: #111; /* 改为深灰色 #111111 */
+  background: #000; /* 改为黑色背景 */
   width: 100%;
   height: 50px;
   display: flex;
@@ -346,20 +346,20 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     height: 50px;
-    background: #111; /* 改为深灰色 #111111 */
+    background: #000; /* 改为黑色背景 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
-    border-top: none;
+    border-top: 4px solid #fff; /* 加粗顶部边框以增强立体感 */
     border-left: 4px solid #fff; /* 左侧加粗白色 */
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.7), inset -2px -2px 0 rgba(0,0,0,0.3), 4px 4px 8px rgba(255,102,153,0.6);
+/* 略增强外阴影 */
     position: relative;
     z-index: 1;
   }
   main {
     width: 92vw;
     margin: 0.25rem auto;
-    background: #111; /* 改为深灰色 #111111 */
+    background: #000; /* 改为黑色背景 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
@@ -375,6 +375,7 @@ footer a:hover {
   main h3 {
     background: var(--border-color); /* 使用新的粉色 #FF6699 */
     border-bottom: 2px solid #fff; /* 改为白色线条 */
+    border-radius: 20px 20px 0 0; /* 顶部圆角，底部直角 */
     color: #fff; /* 文字改为白色 */
   }
   #leftColumn {
@@ -389,7 +390,7 @@ footer a:hover {
   #toolsSidebar {
     width: 100%;
     margin: 0.25rem auto;
-    background: #111; /* 改为深灰色 #111111 */
+    background: #000; /* 改为黑色背景 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
@@ -405,12 +406,13 @@ footer a:hover {
   aside h3 {
     background: var(--border-color); /* 使用新的粉色 #FF6699 */
     border-bottom: 2px solid #fff; /* 改为白色线条 */
+    border-radius: 20px 20px 0 0; /* 顶部圆角，底部直角 */
     color: #fff; /* 文字改为白色 */
   }
   footer {
     width: 92vw;
     margin: 0.25rem auto;
-    background: #111; /* 改为深灰色 #111111 */
+    background: #000; /* 改为黑色背景 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
@@ -439,7 +441,7 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     flex: 1;
-    background: #111; /* 改为深灰色 #111111 */
+    background: #000; /* 改为黑色背景 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
@@ -455,6 +457,7 @@ footer a:hover {
   main h3 {
     background: var(--border-color); /* 使用新的粉色 #FF6699 */
     border-bottom: 2px solid #fff; /* 改为白色线条 */
+    border-radius: 20px 20px 0 0; /* 顶部圆角，底部直角 */
     color: #fff; /* 文字改为白色 */
   }
   #leftColumn {
@@ -470,7 +473,7 @@ footer a:hover {
   #toolsSidebar {
     width: 100%;
     margin: 0.25rem auto;
-    background: #111; /* 改为深灰色 #111111 */
+    background: #000; /* 改为黑色背景 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
@@ -486,6 +489,7 @@ footer a:hover {
   aside h3 {
     background: var(--border-color); /* 使用新的粉色 #FF6699 */
     border-bottom: 2px solid #fff; /* 改为白色线条 */
+    border-radius: 20px 20px 0 0; /* 顶部圆角，底部直角 */
     color: #fff; /* 文字改为白色 */
   }
   #header {
@@ -506,20 +510,20 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     height: 50px;
-    background: #111; /* 改为深灰色 #111111 */
+    background: #000; /* 改为黑色背景 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
-    border-top: none;
+    border-top: 4px solid #fff; /* 加粗顶部边框以增强立体感 */
     border-left: 4px solid #fff; /* 左侧加粗白色 */
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.7), inset -2px -2px 0 rgba(0,0,0,0.3), 4px 4px 8px rgba(255,102,153,0.6);
+/* 略增强外阴影 */
     position: relative;
     z-index: 1;
   }
   footer {
     width: 92vw;
     margin: 0.25rem auto;
-    background: #111; /* 改为深灰色 #111111 */
+    background: #000; /* 改为黑色背景 */
     border-radius: 20px;
     border: 2px solid #fff; /* 边框改为白色 */
     border-top: 4px solid #fff; /* 顶部加粗白色 */
