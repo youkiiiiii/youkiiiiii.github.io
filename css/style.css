@@ -321,12 +321,11 @@ footer a:hover {
   #header {
     width: 92vw;
     margin: 0.25rem auto;
-    border-radius: 20px; /* 保留圆角 */
+    border-radius: 20px;
     border: 2px solid var(--border-color);
     border-top: 4px solid var(--border-color);
     border-left: 4px solid var(--border-color);
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 与桌面端一致 */
     position: relative;
     z-index: 1;
   }
@@ -334,26 +333,29 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     height: 50px;
-    border-radius: 20px; /* 保留圆角 */
+    border-radius: 20px;
     border: 2px solid var(--border-color);
     border-top: none;
     border-left: 4px solid var(--border-color);
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 与桌面端一致 */
     position: relative;
     z-index: 1;
   }
   main {
     width: 92vw;
     margin: 0.25rem auto;
-    border-radius: 20px; /* 保留圆角 */
+    border-radius: 20px;
     border: 2px solid var(--border-color);
     border-top: 4px solid var(--border-color);
     border-left: 4px solid var(--border-color);
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 与桌面端一致 */
     position: relative;
     z-index: 1;
+  }
+  main h1,
+  main h2,
+  main h3 {
+    border-radius: 20px 20px 0 0; /* 顶部圆角，下部直角 */
   }
   #leftColumn {
     width: 92vw;
@@ -367,24 +369,27 @@ footer a:hover {
   #toolsSidebar {
     width: 100%;
     margin: 0.25rem auto;
-    border-radius: 20px; /* 保留圆角 */
+    border-radius: 20px;
     border: 2px solid var(--border-color);
     border-top: 4px solid var(--border-color);
     border-left: 4px solid var(--border-color);
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 与桌面端一致 */
     position: relative;
     z-index: 1;
+  }
+  aside h1,
+  aside h2,
+  aside h3 {
+    border-radius: 20px 20px 0 0; /* 顶部圆角，下部直角 */
   }
   footer {
     width: 92vw;
     margin: 0.25rem auto;
-    border-radius: 20px; /* 保留圆角 */
+    border-radius: 20px;
     border: 2px solid var(--border-color);
     border-top: 4px solid var(--border-color);
     border-left: 4px solid var(--border-color);
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 与桌面端一致 */
     position: relative;
     z-index: 1;
   }
@@ -406,14 +411,18 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     flex: 1;
-    border-radius: 20px; /* 保留圆角 */
+    border-radius: 20px;
     border: 2px solid var(--border-color);
     border-top: 4px solid var(--border-color);
     border-left: 4px solid var(--border-color);
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 与桌面端一致 */
     position: relative;
     z-index: 1;
+  }
+  main h1,
+  main h2,
+  main h3 {
+    border-radius: 20px 20px 0 0; /* 顶部圆角，下部直角 */
   }
   #leftColumn {
     order: 2;
@@ -428,25 +437,28 @@ footer a:hover {
   #toolsSidebar {
     width: 100%;
     margin: 0.25rem auto;
-    border-radius: 20px; /* 保留圆角 */
+    border-radius: 20px;
     border: 2px solid var(--border-color);
     border-top: 4px solid var(--border-color);
     border-left: 4px solid var(--border-color);
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 与桌面端一致 */
     position: relative;
     z-index: 1;
+  }
+  aside h1,
+  aside h2,
+  aside h3 {
+    border-radius: 20px 20px 0 0; /* 顶部圆角，下部直角 */
   }
   #header {
     width: 92vw;
     margin: 0.25rem auto;
     height: 170px;
-    border-radius: 20px; /* 保留圆角 */
+    border-radius: 20px;
     border: 2px solid var(--border-color);
     border-top: 4px solid var(--border-color);
     border-left: 4px solid var(--border-color);
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 与桌面端一致 */
     position: relative;
     z-index: 1;
   }
@@ -454,24 +466,22 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     height: 50px;
-    border-radius: 20px; /* 保留圆角 */
+    border-radius: 20px;
     border: 2px solid var(--border-color);
     border-top: none;
     border-left: 4px solid var(--border-color);
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 与桌面端一致 */
     position: relative;
     z-index: 1;
   }
   footer {
     width: 92vw;
     margin: 0.25rem auto;
-    border-radius: 20px; /* 保留圆角 */
+    border-radius: 20px;
     border: 2px solid var(--border-color);
     border-top: 4px solid var(--border-color);
     border-left: 4px solid var(--border-color);
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
-/* 与桌面端一致 */
     position: relative;
     z-index: 1;
   }
