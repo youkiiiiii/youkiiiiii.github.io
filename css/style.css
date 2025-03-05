@@ -302,93 +302,94 @@ footer a:hover {
 .box {
   display: none; /* 移除.box的独立样式 */
 }
-/* 媒体查询 - 移动端（max-width: 880px 或 orientation: portrait） */
+/* 媒体查询 - 移动端（max-width: 880px） */
 @media only screen and (max-width: 880px) {
   #container {
     width: calc(340px + 50vw);
   }
   #leftColumn {
     width: 160px;
-    border: none; /* 移除侧边栏外部大框的边框 */
-    box-shadow: none; /* 移除侧边栏外部大框的阴影 */
-    margin: 0; /* 移除外部 margin */
-    padding: 0; /* 移除外部 padding */
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
   }
   main {
     width: 50vw;
     margin-left: 170px;
   }
   #header {
-    width: 92vw; /* 保持宽度与 main 和侧边栏一致 */
-    margin: 0.25rem auto; /* 居中对齐 */
-    border-radius: 20px; /* 保持圆角 */
-    border: 2px solid var(--border-color); /* 恢复为粉色直线边框 */
-    border-top: 4px solid var(--border-color); /* 顶部加粗直线 */
-    border-left: 4px solid var(--border-color); /* 左侧加粗直线 */
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.7), inset -4px -4px 8px rgba(0,0,0,0.3), 6px 6px 12px rgba(255,166,196,0.6), -4px -4px 8px rgba(255,255,255,0.5);
-/* 添加内侧反光，增加立体感 */
-    position: relative; /* 确保边框在背景上方 */
-    z-index: 1; /* 提高边框优先级，防止被背景覆盖 */
+    width: 92vw;
+    margin: 0.25rem auto;
+    border-radius: 20px; /* 保留圆角 */
+    border: 2px solid var(--border-color);
+    border-top: 4px solid var(--border-color);
+    border-left: 4px solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 与桌面端一致 */
+    position: relative;
+    z-index: 1;
   }
   #navbar {
-    width: 92vw; /* 保持宽度与 main 和侧边栏一致 */
-    margin: 0.25rem auto; /* 居中对齐 */
-    height: 50px; /* 保持导航栏原始高度 */
-    border-radius: 20px; /* 保持圆角 */
-    border: 2px solid var(--border-color); /* 恢复为粉色直线边框 */
-    border-top: none; /* 保持顶部无边 */
-    border-left: 4px solid var(--border-color); /* 左侧加粗直线 */
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.7), inset -4px -4px 8px rgba(0,0,0,0.3), 6px 6px 12px rgba(255,166,196,0.6), -4px -4px 8px rgba(255,255,255,0.5);
-/* 添加内侧反光，增加立体感 */
-    position: relative; /* 确保边框在背景上方 */
-    z-index: 1; /* 提高边框优先级，防止被背景覆盖 */
+    width: 92vw;
+    margin: 0.25rem auto;
+    height: 50px;
+    border-radius: 20px; /* 保留圆角 */
+    border: 2px solid var(--border-color);
+    border-top: none;
+    border-left: 4px solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 与桌面端一致 */
+    position: relative;
+    z-index: 1;
   }
   main {
-    width: 92vw; /* 修正为与 header 和侧边栏一致的宽度 */
-    margin: 0.25rem auto; /* 居中对齐 */
-    border-radius: 20px; /* 保持圆角 */
-    border: 2px solid var(--border-color); /* 恢复为粉色直线边框 */
-    border-top: 4px solid var(--border-color); /* 顶部加粗直线 */
-    border-left: 4px solid var(--border-color); /* 左侧加粗直线 */
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.7), inset -4px -4px 8px rgba(0,0,0,0.3), 6px 6px 12px rgba(255,166,196,0.6), -4px -4px 8px rgba(255,255,255,0.5);
-/* 添加内侧反光，增加立体感 */
-    position: relative; /* 确保边框在背景上方 */
-    z-index: 1; /* 提高边框优先级，防止被背景覆盖 */
+    width: 92vw;
+    margin: 0.25rem auto;
+    border-radius: 20px; /* 保留圆角 */
+    border: 2px solid var(--border-color);
+    border-top: 4px solid var(--border-color);
+    border-left: 4px solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 与桌面端一致 */
+    position: relative;
+    z-index: 1;
   }
   #leftColumn {
-    width: 92vw; /* 保持宽度与 main 和 header 一致 */
-    margin: 0.25rem auto; /* 居中对齐 */
-    border: none; /* 移除侧边栏外部大框的边框 */
-    box-shadow: none; /* 移除侧边栏外部大框的阴影 */
-    padding: 0; /* 移除外部 padding */
+    width: 92vw;
+    margin: 0.25rem auto;
+    border: none;
+    box-shadow: none;
+    padding: 0;
   }
   aside,
   #updatesSidebar,
   #toolsSidebar {
-    width: 100%; /* 确保侧边栏内部元素占满容器 */
-    margin: 0.25rem auto; /* 居中对齐，保持垂直间距 */
-    border-radius: 20px; /* 保持圆角 */
-    border: 2px solid var(--border-color); /* 恢复为粉色直线边框 */
-    border-top: 4px solid var(--border-color); /* 顶部加粗直线 */
-    border-left: 4px solid var(--border-color); /* 左侧加粗直线 */
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.7), inset -4px -4px 8px rgba(0,0,0,0.3), 6px 6px 12px rgba(255,166,196,0.6), -4px -4px 8px rgba(255,255,255,0.5);
-/* 添加内侧反光，增加立体感 */
-    position: relative; /* 确保边框在背景上方 */
-    z-index: 1; /* 提高边框优先级，防止被背景覆盖 */
+    width: 100%;
+    margin: 0.25rem auto;
+    border-radius: 20px; /* 保留圆角 */
+    border: 2px solid var(--border-color);
+    border-top: 4px solid var(--border-color);
+    border-left: 4px solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 与桌面端一致 */
+    position: relative;
+    z-index: 1;
   }
   footer {
-    width: 92vw; /* 调整 footer 宽度与 main 和侧边栏一致 */
-    margin: 0.25rem auto; /* 居中对齐 */
-    border-radius: 20px; /* 保持圆角 */
-    border: 2px solid var(--border-color); /* 恢复为粉色直线边框 */
-    border-top: 4px solid var(--border-color); /* 顶部加粗直线 */
-    border-left: 4px solid var(--border-color); /* 左侧加粗直线 */
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.7), inset -4px -4px 8px rgba(0,0,0,0.3), 6px 6px 12px rgba(255,166,196,0.6), -4px -4px 8px rgba(255,255,255,0.5);
-/* 添加内侧反光，增加立体感 */
-    position: relative; /* 确保边框在背景上方 */
-    z-index: 1; /* 提高边框优先级，防止被背景覆盖 */
+    width: 92vw;
+    margin: 0.25rem auto;
+    border-radius: 20px; /* 保留圆角 */
+    border: 2px solid var(--border-color);
+    border-top: 4px solid var(--border-color);
+    border-left: 4px solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 与桌面端一致 */
+    position: relative;
+    z-index: 1;
   }
 }
+/* 媒体查询 - 纵向屏幕（orientation: portrait） */
 @media only screen and (orientation: portrait) {
   #container {
     width: 96vw;
@@ -398,80 +399,80 @@ footer a:hover {
   }
   #flex {
     display: flex;
-    flex-direction: column; /* 垂直排列 */
+    flex-direction: column;
   }
   main {
-    order: 1; /* main 在上方 */
+    order: 1;
     width: 92vw;
-    margin: 0.25rem auto; /* 居中水平对齐 */
-    flex: 1; /* 填充剩余空间 */
-    border-radius: 20px; /* 保持圆角 */
-    border: 2px solid var(--border-color); /* 恢复为粉色直线边框 */
-    border-top: 4px solid var(--border-color); /* 顶部加粗直线 */
-    border-left: 4px solid var(--border-color); /* 左侧加粗直线 */
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.7), inset -4px -4px 8px rgba(0,0,0,0.3), 6px 6px 12px rgba(255,166,196,0.6), -4px -4px 8px rgba(255,255,255,0.5);
-/* 添加内侧反光，增加立体感 */
-    position: relative; /* 确保边框在背景上方 */
-    z-index: 1; /* 提高边框优先级，防止被背景覆盖 */
+    margin: 0.25rem auto;
+    flex: 1;
+    border-radius: 20px; /* 保留圆角 */
+    border: 2px solid var(--border-color);
+    border-top: 4px solid var(--border-color);
+    border-left: 4px solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 与桌面端一致 */
+    position: relative;
+    z-index: 1;
   }
   #leftColumn {
-    order: 2; /* 侧边栏在下方 */
+    order: 2;
     width: 92vw;
-    margin: 0.25rem auto; /* 居中水平对齐 */
-    border: none; /* 移除侧边栏外部大框的边框 */
-    box-shadow: none; /* 移除侧边栏外部大框的阴影 */
-    padding: 0; /* 移除外部 padding */
+    margin: 0.25rem auto;
+    border: none;
+    box-shadow: none;
+    padding: 0;
   }
   aside,
   #updatesSidebar,
   #toolsSidebar {
-    width: 100%; /* 确保侧边栏内部元素占满容器 */
-    margin: 0.25rem auto; /* 居中对齐，保持垂直间距 */
-    border-radius: 20px; /* 保持圆角 */
-    border: 2px solid var(--border-color); /* 恢复为粉色直线边框 */
-    border-top: 4px solid var(--border-color); /* 顶部加粗直线 */
-    border-left: 4px solid var(--border-color); /* 左侧加粗直线 */
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.7), inset -4px -4px 8px rgba(0,0,0,0.3), 6px 6px 12px rgba(255,166,196,0.6), -4px -4px 8px rgba(255,255,255,0.5);
-/* 添加内侧反光，增加立体感 */
-    position: relative; /* 确保边框在背景上方 */
-    z-index: 1; /* 提高边框优先级，防止被背景覆盖 */
+    width: 100%;
+    margin: 0.25rem auto;
+    border-radius: 20px; /* 保留圆角 */
+    border: 2px solid var(--border-color);
+    border-top: 4px solid var(--border-color);
+    border-left: 4px solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 与桌面端一致 */
+    position: relative;
+    z-index: 1;
   }
   #header {
-    width: 92vw; /* 调整 header 宽度与 main 和侧边栏一致 */
-    margin: 0.25rem auto; /* 居中对齐 */
-    height: 170px; /* 保持 header 原始高度 */
-    border-radius: 20px; /* 保持圆角 */
-    border: 2px solid var(--border-color); /* 恢复为粉色直线边框 */
-    border-top: 4px solid var(--border-color); /* 顶部加粗直线 */
-    border-left: 4px solid var(--border-color); /* 左侧加粗直线 */
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.7), inset -4px -4px 8px rgba(0,0,0,0.3), 6px 6px 12px rgba(255,166,196,0.6), -4px -4px 8px rgba(255,255,255,0.5);
-/* 添加内侧反光，增加立体感 */
-    position: relative; /* 确保边框在背景上方 */
-    z-index: 1; /* 提高边框优先级，防止被背景覆盖 */
+    width: 92vw;
+    margin: 0.25rem auto;
+    height: 170px;
+    border-radius: 20px; /* 保留圆角 */
+    border: 2px solid var(--border-color);
+    border-top: 4px solid var(--border-color);
+    border-left: 4px solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 与桌面端一致 */
+    position: relative;
+    z-index: 1;
   }
   #navbar {
-    width: 92vw; /* 调整导航栏宽度与 main 和侧边栏一致 */
-    margin: 0.25rem auto; /* 居中对齐 */
-    height: 50px; /* 保持导航栏原始高度 */
-    border-radius: 20px; /* 保持圆角 */
-    border: 2px solid var(--border-color); /* 恢复为粉色直线边框 */
-    border-top: none; /* 保持顶部无边 */
-    border-left: 4px solid var(--border-color); /* 左侧加粗直线 */
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.7), inset -4px -4px 8px rgba(0,0,0,0.3), 6px 6px 12px rgba(255,166,196,0.6), -4px -4px 8px rgba(255,255,255,0.5);
-/* 添加内侧反光，增加立体感 */
-    position: relative; /* 确保边框在背景上方 */
-    z-index: 1; /* 提高边框优先级，防止被背景覆盖 */
+    width: 92vw;
+    margin: 0.25rem auto;
+    height: 50px;
+    border-radius: 20px; /* 保留圆角 */
+    border: 2px solid var(--border-color);
+    border-top: none;
+    border-left: 4px solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 与桌面端一致 */
+    position: relative;
+    z-index: 1;
   }
   footer {
-    width: 92vw; /* 调整 footer 宽度与 main 和侧边栏一致 */
-    margin: 0.25rem auto; /* 居中对齐 */
-    border-radius: 20px; /* 保持圆角 */
-    border: 2px solid var(--border-color); /* 恢复为粉色直线边框 */
-    border-top: 4px solid var(--border-color); /* 顶部加粗直线 */
-    border-left: 4px solid var(--border-color); /* 左侧加粗直线 */
-    box-shadow: inset 4px 4px 8px rgba(255,255,255,0.7), inset -4px -4px 8px rgba(0,0,0,0.3), 6px 6px 12px rgba(255,166,196,0.6), -4px -4px 8px rgba(255,255,255,0.5);
-/* 添加内侧反光，增加立体感 */
-    position: relative; /* 确保边框在背景上方 */
-    z-index: 1; /* 提高边框优先级，防止被背景覆盖 */
+    width: 92vw;
+    margin: 0.25rem auto;
+    border-radius: 20px; /* 保留圆角 */
+    border: 2px solid var(--border-color);
+    border-top: 4px solid var(--border-color);
+    border-left: 4px solid var(--border-color);
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,166,196,0.5);
+/* 与桌面端一致 */
+    position: relative;
+    z-index: 1;
   }
 }
