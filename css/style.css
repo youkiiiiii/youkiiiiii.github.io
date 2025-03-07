@@ -81,9 +81,9 @@ body {
 /* 网站标题样式 - 使用 ZeroGothic 字体 */
 .site-title {
   margin: 0;
-  padding: 40px 20px 20px 20px; /* 顶部 padding 增加到 40px，向下移动 */
+  padding: 40px 20px 20px 20px; /* 顶部 padding 40px，向下移动 */
   font-family: 'ZeroGothic', 'Nunito', sans-serif !important; /* 强制使用 ZeroGothic */
-  font-size: 3em; /* 字体从 2.5em 增大到 2.75em */
+  font-size: 3em; /* 字体从 2.5em 增大到 3.0em */
   font-weight: normal; /* 常规字重 */
   color: #fff; /* 文字改为白色 */
   text-shadow: 2px 2px 0 rgba(255,102,153,0.7), -1px -1px 0 rgba(255,255,255,0.5);
@@ -229,7 +229,7 @@ aside a:hover {
 main {
   background: #000; /* 改为黑色背景 */
   flex: 1;
-  padding: 0 0 0.3em 0; /* 添加底部内边距 1.5em，约 21px */
+  padding: 0 0 0.25em 0; /* 添加底部内边距 1.5em，约 21px */
   margin-left: 10px;
   color: #fff; /* 文字改为白色 */
   text-align: justify;
@@ -355,6 +355,9 @@ footer a:hover {
     position: relative;
     z-index: 1;
   }
+  .site-title {
+    padding: 50px 20px 20px 20px !important; /* 顶部 padding 从 40px 增加到 50px */
+  }
   #navbar {
     width: 92vw;
     margin: 0.25rem auto;
@@ -388,12 +391,12 @@ footer a:hover {
     border-bottom: 2px solid #fff;
     border-radius: 20px 20px 0 0;
     color: #fff;
-    padding: 10px 2px !important; /* 垂直 padding 设为 0px，使其更薄 */
+    padding: 6px 2px !important;
     margin: 0 0 0.5em 0;
     text-align: center;
     font-weight: bold;
     letter-spacing: 2px;
-    font-size: 20px !important; /* 字体缩小到 14px */
+    font-size: 19px !important;
   }
   #leftColumn {
     width: 92vw;
@@ -473,12 +476,12 @@ footer a:hover {
     border-bottom: 2px solid #fff;
     border-radius: 20px 20px 0 0;
     color: #fff;
-    padding: 10px 2px !important; /* 垂直 padding 设为 0px，使其更薄 */
+    padding: 6px 2px !important;
     margin: 0 0 0.5em 0;
     text-align: center;
     font-weight: bold;
     letter-spacing: 2px;
-    font-size: 20px !important; /* 字体缩小到 14px */
+    font-size: 19px !important;
   }
   #leftColumn {
     order: 2;
@@ -524,6 +527,9 @@ footer a:hover {
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
     position: relative;
     z-index: 1;
+  }
+  .site-title {
+    padding: 50px 20px 20px 20px !important; /* 顶部 padding 从 40px 增加到 50px */
   }
   #navbar {
     width: 92vw;
