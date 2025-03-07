@@ -30,6 +30,13 @@
   font-style: italic;
   font-weight: bold;
 }
+/* 引入 ZeroGothic 字体 */
+@font-face {
+  font-family: 'ZeroGothic';
+  src: url("/fonts/ZeroGothic-Regular.otf") format('opentype'); /* 修正为 opentype */
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   font-family: 'Nunito', monospace;
   font-size: 0.875em;
@@ -65,18 +72,24 @@ body {
   border-top: 4px solid #fff; /* 顶部加粗白色 */
   border-left: 4px solid #fff; /* 左侧加粗白色 */
   border-bottom: 2px solid #fff; /* 底部白色 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 0 2px 4px rgba(255,102,153,0.3);
-/* 调整阴影色调以匹配 #FF6699 */
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
+/* 修改为粉色光芒，与其他框一致 */
   text-align: center;
   margin-top: 5px;
   position: relative;
 }
-/* 网站标题样式 */
+/* 网站标题样式 - 使用 ZeroGothic 字体 */
 .site-title {
   margin: 0;
-  padding: 20px;
-  font-size: 2em;
+  padding: 40px 20px 20px 20px; /* 顶部 padding 增加到 40px，向下移动 */
+  font-family: 'ZeroGothic', 'Nunito', sans-serif !important; /* 强制使用 ZeroGothic */
+  font-size: 3em; /* 字体从 2.5em 增大到 2.75em */
+  font-weight: normal; /* 常规字重 */
   color: #fff; /* 文字改为白色 */
+  text-shadow: 2px 2px 0 rgba(255,102,153,0.7), -1px -1px 0 rgba(255,255,255,0.5);
+/* 白色高光增强立体感 */
+  letter-spacing: 2px; /* 增加字符间距，可爱复古 */
+  display: inline-block; /* 保持 inline-block 以兼容其他样式 */
 }
 /* 导航栏 - 美化立体感 */
 #navbar {
@@ -149,8 +162,8 @@ aside {
   border: 2px solid #fff; /* 边框改为白色 */
   border-top: 4px solid #fff; /* 顶部加粗白色 */
   border-left: 4px solid #fff; /* 左侧加粗白色 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,255,255,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
+/* 修改为粉色光芒，与其他框一致 */
   color: #fff; /* 文字改为白色 */
 }
 /* 侧边栏内的标题和链接 - 调整边框 */
@@ -216,7 +229,7 @@ aside a:hover {
 main {
   background: #000; /* 改为黑色背景 */
   flex: 1;
-  padding: 0 0 0.45em 0; /* 添加底部内边距 1.5em，约 21px */
+  padding: 0 0 0.2em 0; /* 添加底部内边距 1.5em，约 21px */
   margin-left: 10px;
   color: #fff; /* 文字改为白色 */
   text-align: justify;
@@ -234,7 +247,7 @@ main h2,
 main h3 {
   background: var(--border-color); /* 使用新的粉色 #FF6699 */
   margin: 0 0 0.5em 0;
-  padding: 0.35em 0.25em;
+  padding: 0.35em 0.25em; /* 电脑端保持不变，与侧边栏一致 */
   text-align: center;
   border-bottom: 2px solid #fff; /* 改为白色线条 */
   color: #fff; /* 文字改为白色 */
@@ -332,14 +345,13 @@ footer a:hover {
   #header {
     width: 92vw;
     margin: 0.25rem auto;
-    background: var(--border-color); /* 使用新的粉色 #FF6699 */
+    background: var(--border-color);
     border-radius: 20px;
-    border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 4px solid #fff; /* 顶部加粗白色 */
-    border-left: 4px solid #fff; /* 左侧加粗白色 */
-    border-bottom: 4px solid #fff; /* 底部加粗为 4px */
+    border: 2px solid #fff;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
+    border-bottom: 4px solid #fff;
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
     position: relative;
     z-index: 1;
   }
@@ -347,37 +359,41 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     height: 50px;
-    background: #000; /* 改为黑色背景 */
+    background: #000;
     border-radius: 20px;
-    border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 2px solid #fff; /* 顶部边框调整为 2px */
-    border-left: 4px solid #fff; /* 左侧加粗白色 */
+    border: 2px solid #fff;
+    border-top: 2px solid #fff;
+    border-left: 4px solid #fff;
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 与其他框一致 */
     position: relative;
     z-index: 1;
   }
   main {
     width: 92vw;
     margin: 0.25rem auto;
-    background: #000; /* 改为黑色背景 */
+    background: #000;
     border-radius: 20px;
-    border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 4px solid #fff; /* 顶部加粗白色 */
-    border-left: 4px solid #fff; /* 左侧加粗白色 */
+    border: 2px solid #fff;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
     position: relative;
     z-index: 1;
-    color: #fff; /* 文字改为白色 */
+    color: #fff;
   }
   main h1,
   main h2,
   main h3 {
-    background: var(--border-color); /* 使用新的粉色 #FF6699 */
-    border-bottom: 2px solid #fff; /* 改为白色线条 */
-    border-radius: 20px 20px 0 0; /* 顶部圆角，底部直角 */
-    color: #fff; /* 文字改为白色 */
+    background: var(--border-color);
+    border-bottom: 2px solid #fff;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    padding: 6px 2px !important; /* 垂直 padding 设为 0px，使其更薄 */
+    margin: 0 0 0.5em 0;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 19px !important; /* 字体缩小到 14px */
   }
   #leftColumn {
     width: 92vw;
@@ -391,38 +407,36 @@ footer a:hover {
   #toolsSidebar {
     width: 100%;
     margin: 0.25rem auto;
-    background: #000; /* 改为黑色背景 */
+    background: #000;
     border-radius: 20px;
-    border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 4px solid #fff; /* 顶部加粗白色 */
-    border-left: 4px solid #fff; /* 左侧加粗白色 */
+    border: 2px solid #fff;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
     position: relative;
     z-index: 1;
-    color: #fff; /* 文字改为白色 */
+    color: #fff;
   }
   aside h1,
   aside h2,
   aside h3 {
-    background: var(--border-color); /* 使用新的粉色 #FF6699 */
-    border-bottom: 2px solid #fff; /* 改为白色线条 */
-    border-radius: 20px 20px 0 0; /* 顶部圆角，底部直角 */
-    color: #fff; /* 文字改为白色 */
+    background: var(--border-color);
+    border-bottom: 2px solid #fff;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
   }
   footer {
     width: 92vw;
     margin: 0.25rem auto;
-    background: #000; /* 改为黑色背景 */
+    background: #000;
     border-radius: 20px;
-    border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 4px solid #fff; /* 顶部加粗白色 */
-    border-left: 4px solid #fff; /* 左侧加粗白色 */
+    border: 2px solid #fff;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
     position: relative;
     z-index: 1;
-    color: #fff; /* 文字改为白色 */
+    color: #fff;
   }
 }
 /* 媒体查询 - 纵向屏幕（orientation: portrait） */
@@ -442,24 +456,29 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     flex: 1;
-    background: #000; /* 改为黑色背景 */
+    background: #000;
     border-radius: 20px;
-    border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 4px solid #fff; /* 顶部加粗白色 */
-    border-left: 4px solid #fff; /* 左侧加粗白色 */
+    border: 2px solid #fff;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
     position: relative;
     z-index: 1;
-    color: #fff; /* 文字改为白色 */
+    color: #fff;
   }
   main h1,
   main h2,
   main h3 {
-    background: var(--border-color); /* 使用新的粉色 #FF6699 */
-    border-bottom: 2px solid #fff; /* 改为白色线条 */
-    border-radius: 20px 20px 0 0; /* 顶部圆角，底部直角 */
-    color: #fff; /* 文字改为白色 */
+    background: var(--border-color);
+    border-bottom: 2px solid #fff;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    padding: 6px 2px !important; /* 垂直 padding 设为 0px，使其更薄 */
+    margin: 0 0 0.5em 0;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 19px !important; /* 字体缩小到 14px */
   }
   #leftColumn {
     order: 2;
@@ -474,37 +493,35 @@ footer a:hover {
   #toolsSidebar {
     width: 100%;
     margin: 0.25rem auto;
-    background: #000; /* 改为黑色背景 */
+    background: #000;
     border-radius: 20px;
-    border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 4px solid #fff; /* 顶部加粗白色 */
-    border-left: 4px solid #fff; /* 左侧加粗白色 */
+    border: 2px solid #fff;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
     position: relative;
     z-index: 1;
-    color: #fff; /* 文字改为白色 */
+    color: #fff;
   }
   aside h1,
   aside h2,
   aside h3 {
-    background: var(--border-color); /* 使用新的粉色 #FF6699 */
-    border-bottom: 2px solid #fff; /* 改为白色线条 */
-    border-radius: 20px 20px 0 0; /* 顶部圆角，底部直角 */
-    color: #fff; /* 文字改为白色 */
+    background: var(--border-color);
+    border-bottom: 2px solid #fff;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
   }
   #header {
     width: 92vw;
     margin: 0.25rem auto;
     height: 170px;
-    background: var(--border-color); /* 使用新的粉色 #FF6699 */
+    background: var(--border-color);
     border-radius: 20px;
-    border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 4px solid #fff; /* 顶部加粗白色 */
-    border-left: 4px solid #fff; /* 左侧加粗白色 */
-    border-bottom: 4px solid #fff; /* 底部加粗为 4px */
+    border: 2px solid #fff;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
+    border-bottom: 4px solid #fff;
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
     position: relative;
     z-index: 1;
   }
@@ -512,28 +529,26 @@ footer a:hover {
     width: 92vw;
     margin: 0.25rem auto;
     height: 50px;
-    background: #000; /* 改为黑色背景 */
+    background: #000;
     border-radius: 20px;
-    border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 2px solid #fff; /* 顶部边框调整为 2px */
-    border-left: 4px solid #fff; /* 左侧加粗白色 */
+    border: 2px solid #fff;
+    border-top: 2px solid #fff;
+    border-left: 4px solid #fff;
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 与其他框一致 */
     position: relative;
     z-index: 1;
   }
   footer {
     width: 92vw;
     margin: 0.25rem auto;
-    background: #000; /* 改为黑色背景 */
+    background: #000;
     border-radius: 20px;
-    border: 2px solid #fff; /* 边框改为白色 */
-    border-top: 4px solid #fff; /* 顶部加粗白色 */
-    border-left: 4px solid #fff; /* 左侧加粗白色 */
+    border: 2px solid #fff;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
     position: relative;
     z-index: 1;
-    color: #fff; /* 文字改为白色 */
+    color: #fff;
   }
 }
