@@ -6,7 +6,7 @@
   <link href="http://youkiiiiii.github.io/atom.xml" rel="self"/>
   
   <link href="http://youkiiiiii.github.io/"/>
-  <updated>2025-02-04T07:34:05.135Z</updated>
+  <updated>2025-03-11T16:19:40.249Z</updated>
   <id>http://youkiiiiii.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试</title>
+    <link href="http://youkiiiiii.github.io/2025/03/02/README/"/>
+    <id>http://youkiiiiii.github.io/2025/03/02/README/</id>
+    <published>2025-03-02T15:59:40.000Z</published>
+    <updated>2025-03-11T16:19:40.249Z</updated>
+    
+    
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;&#92;assets&#92;js&#92;Meting.min.js&quot;&gt;&lt;/script&gt;&lt;p&gt;这篇文章包含markdown语法基本的内容, 目的是放在自己的博客园上, 通过开发者控制台快速选中,&lt;br&gt;从而自定义自己博客园markdown样式.当然本文也可以当markdown语法学习之用.  &lt;/p&gt;
+&lt;p&gt;在markdown里强制换行是在末尾添加2个空格+1个回车.&lt;br&gt;在markdown里可以使用 &#92; 对特殊符号进行转义.  &lt;/p&gt;
+&lt;h1&gt;&lt;span id=&quot;1-标题&quot;&gt;1. 标题&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;语法&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plaintext&quot;&gt;# This is an &amp;lt;h1&amp;gt; tag&lt;br&gt;## This is an &amp;lt;h2&amp;gt; tag&lt;br&gt;### This is an &amp;lt;h3&amp;gt; tag&lt;br&gt;#### This is an &amp;lt;h4&amp;gt; tag&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;实例&lt;/strong&gt;&lt;/p&gt;
+&lt;h1&gt;&lt;span id=&quot;this-is-an-h1-tag&quot;&gt;This is an h1 tag&lt;/span&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span id=&quot;this-is-an-h2-tag&quot;&gt;This is an h2 tag&lt;/span&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;this-is-an-h3-tag&quot;&gt;This is an h3 tag&lt;/span&gt;&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="http://youkiiiiii.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="随笔" scheme="http://youkiiiiii.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo＋github搭建个人博客</title>

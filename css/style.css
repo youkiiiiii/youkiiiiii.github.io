@@ -8,6 +8,8 @@
   --border-color: #f69; /* 更新为新的粉色色调 */
   --text-color: #4f3d46; /* 未使用，改为直接用白色 */
   --avatar-border-color: #ffebf5; /* 新头像框边框颜色：浅粉色 */
+  --sidebar-nav-hover-color: #ff8c94; /* 侧边栏导航悬停颜色 */
+  --sidebar-highlight: #ffb6c1; /* 侧边栏高亮颜色 */
 }
 /* 自定义字体 */
 @font-face {
@@ -33,7 +35,7 @@
 /* 引入 ZeroGothic 字体 */
 @font-face {
   font-family: 'ZeroGothic';
-  src: url("/fonts/ZeroGothic-Regular.otf") format('opentype'); /* 修正为 opentype */
+  src: url("/fonts/ZeroGothic-Regular.otf") format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -46,7 +48,7 @@ body {
   background-image: var(--body-bg-image);
   background-size: auto;
   background-repeat: repeat;
-  color: #fff; /* 文字改为白色 */
+  color: #fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -66,14 +68,13 @@ body {
 /* Header 样式 - 美化分隔线和立体感 */
 #header {
   width: 100%;
-  background: var(--border-color); /* 使用新的粉色 #FF6699 */
+  background: var(--border-color);
   height: 170px;
-  border: 2px solid #fff; /* 边框改为白色 */
-  border-top: 4px solid #fff; /* 顶部加粗白色 */
-  border-left: 4px solid #fff; /* 左侧加粗白色 */
-  border-bottom: 2px solid #fff; /* 底部白色 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 修改为粉色光芒，与其他框一致 */
+  border: 2px solid #fff;
+  border-top: 4px solid #fff;
+  border-left: 4px solid #fff;
+  border-bottom: 2px solid #fff;
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
   text-align: center;
   margin-top: 5px;
   position: relative;
@@ -81,28 +82,26 @@ body {
 /* 网站标题样式 - 使用 ZeroGothic 字体 */
 .site-title {
   margin: 0;
-  padding: 40px 20px 20px 20px; /* 顶部 padding 40px，向下移动 */
-  font-family: 'ZeroGothic', 'Nunito', sans-serif !important; /* 强制使用 ZeroGothic */
-  font-size: 3em; /* 字体从 2.5em 增大到 3.0em */
-  font-weight: normal; /* 常规字重 */
-  color: #fff; /* 文字改为白色 */
-  text-shadow: 2px 2px 0 rgba(255,102,153,0.7), -1px -1px 0 rgba(255,255,255,0.5);
-/* 白色高光增强立体感 */
-  letter-spacing: 2px; /* 增加字符间距，可爱复古 */
-  display: inline-block; /* 保持 inline-block 以兼容其他样式 */
+  padding: 40px 20px 20px 20px;
+  font-family: 'ZeroGothic', 'Nunito', sans-serif !important;
+  font-size: 3em;
+  font-weight: normal;
+  color: #fff;
+  text-shadow: 2px 2px 0 rgba(255,102,153,0.7), -1px -1px 0 rgba(255,255,138,0.5);
+  letter-spacing: 2px;
+  display: inline-block;
 }
 /* 导航栏 - 美化立体感 */
 #navbar {
   height: 50px;
-  background: #000; /* 改为黑色背景 */
+  background: #000;
   width: 100%;
   margin-bottom: 10px;
   margin-top: 2px;
-  border: 2px solid #fff; /* 边框改为白色 */
-  border-top: none; /* 移除顶部边框，依靠 header 的白色线条 */
-  border-left: 4px solid #fff; /* 左侧加粗白色 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: 4px solid #fff;
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
   display: flex;
   align-items: center;
   position: relative;
@@ -118,22 +117,24 @@ body {
   max-width: 900px;
 }
 #navbar li a {
-  color: #fff; /* 文字改为白色 */
+  color: #fff;
   font-weight: bold;
   text-decoration: none;
   padding: 5px 10px;
   transition: all 0.3s ease;
 }
 #navbar li a:hover {
-  color: #f69; /* 悬停改为新的粉色 #FF6699 */
+  color: #f69;
   text-decoration: underline;
 }
 /* Flex布局 */
 #flex {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row; /* 确保左右布局 */
   align-items: stretch;
   flex: 1;
+  width: 100%; /* 确保 flex 容器占满 container */
+  gap: 10px; /* 左侧边栏与 main-wrapper 之间的固定间距 */
 }
 /* 左侧栏 */
 #leftColumn {
@@ -141,41 +142,39 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 0 0 200px;
+  flex: 0 0 200px; /* 固定宽度 */
 }
 /* 侧边栏通用样式 - 计算机窗口风格边框 */
 aside {
-  background: #000; /* 改为黑色背景 */
+  background: #000;
   padding: 0;
   font-size: smaller;
-  border: 2px solid #fff; /* 边框改为白色 */
-  border-top: 4px solid #fff; /* 顶部加粗白色 */
-  border-left: 4px solid #fff; /* 左侧加粗白色 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
-  color: #fff; /* 文字改为白色 */
+  border: 2px solid #fff;
+  border-top: 4px solid #fff;
+  border-left: 4px solid #fff;
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
+  color: #fff;
 }
 #updatesSidebar,
 #toolsSidebar {
   margin-bottom: 0;
-  background: #000; /* 改为黑色背景 */
-  border: 2px solid #fff; /* 边框改为白色 */
-  border-top: 4px solid #fff; /* 顶部加粗白色 */
-  border-left: 4px solid #fff; /* 左侧加粗白色 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 修改为粉色光芒，与其他框一致 */
-  color: #fff; /* 文字改为白色 */
+  background: #000;
+  border: 2px solid #fff;
+  border-top: 4px solid #fff;
+  border-left: 4px solid #fff;
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
+  color: #fff;
 }
 /* 侧边栏内的标题和链接 - 调整边框 */
 aside h1,
 aside h2,
 aside h3 {
-  background: var(--border-color); /* 使用新的粉色 #FF6699 */
+  background: var(--border-color);
   margin: 0 0 0.5em 0;
-  padding: 0.35em 0.25em;
+  padding: 0.35em 0.25em; /* 恢复为之前的 0.35em 上下内边距 */
   text-align: center;
-  border-bottom: 2px solid #fff; /* 改为白色线条 */
-  color: #fff; /* 文字改为白色 */
+  border-bottom: 2px solid #fff;
+  color: #fff;
   font-weight: bold;
   letter-spacing: 2px;
 }
@@ -183,21 +182,24 @@ aside h3 {
 aside .inner {
   padding: 0.75em 1em;
   font-size: 0.95em;
-  color: #fff; /* 文字改为白色 */
+  color: #fff;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
 aside p {
   padding: 0 0.5em;
   margin: 0 0 0.5em 0;
   line-height: 1.4;
-  color: #fff; /* 文字改为白色 */
+  color: #fff;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
 aside a {
-  color: #fff; /* 文字改为白色 */
+  color: #fff;
   text-decoration: none;
   font-weight: bold;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
 aside a:hover {
-  color: #f69; /* 悬停改为新的粉色 #FF6699 */
+  color: var(--sidebar-nav-hover-color); /* 使用变量定义的悬停颜色 */
   text-decoration: underline;
 }
 /* 关于我侧边栏 - 调整内容样式 */
@@ -209,7 +211,8 @@ aside a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fff; /* 文字改为白色 */
+  color: #fff;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
 #aboutmeSidebar .inner img {
   width: 100px;
@@ -217,344 +220,838 @@ aside a:hover {
   margin-bottom: 0.5em;
   border: 2px solid var(--avatar-border-color);
   border-radius: 0;
-  box-shadow: 2px 2px 4px rgba(255,102,153,0.5); /* 调整阴影色调以匹配 #FF6699 */
+  box-shadow: 1px 1px 2px rgba(255,102,153,0.3);
 }
 #aboutmeSidebar .inner p {
   padding: 0 0.5em;
   margin: 0;
   text-align: center;
-  color: #fff; /* 文字改为白色 */
+  color: #fff;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
-/* Main区域 - 计算机窗口风格边框 */
+/* Main区域 - 固定宽度 */
 main {
-  background: #000; /* 改为黑色背景 */
-  flex: 1;
-  padding: 0 0 0.25em 0; /* 添加底部内边距 1.5em，约 21px */
-  margin-left: 10px;
-  color: #fff; /* 文字改为白色 */
+  background: #000;
+  width: 690px; /* 固定宽度 = 900px - 200px - 10px gap */
+  padding: 0 0 0.25em 0;
+  color: #fff;
   text-align: justify;
   line-height: 1.4;
   font-size: 16px;
-  border: 2px solid #fff; /* 边框改为白色 */
-  border-top: 4px solid #fff; /* 顶部加粗白色 */
-  border-left: 4px solid #fff; /* 左侧加粗白色 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
+  border: 2px solid #fff;
+  border-top: 4px solid #fff;
+  border-left: 4px solid #fff;
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
-/* Main标题 - 调整边框 */
-main h1,
-main h2,
-main h3 {
-  background: var(--border-color); /* 使用新的粉色 #FF6699 */
+/* Main标题 - 调整边框（仅用于框顶部标题） */
+main h1 {
+  background: var(--border-color);
   margin: 0 0 0.5em 0;
-  padding: 0.35em 0.25em; /* 电脑端保持不变，与侧边栏一致 */
+  padding: 0.4em 0.25em; /* 调整为更小的上下内边距，与侧边栏标题一致 */
   text-align: center;
-  border-bottom: 2px solid #fff; /* 改为白色线条 */
-  color: #fff; /* 文字改为白色 */
+  border-bottom: 2px solid #fff;
+  color: #fff;
   font-weight: bold;
   letter-spacing: 2px;
+  font-size: 1.8em; /* 略微调整字体大小，与整体排版协调 */
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
-/* main 内文字颜色调整 */
-main .inner {
-  padding: 0; /* 移除此处的 padding，依赖 main 的 padding */
-  font-size: 0.95em;
-  color: #fff; /* 文字改为白色 */
+/* Main标题链接样式 - 无动态效果 */
+main h1 a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
-main p {
+/* 文章内容中的标题 - 添加 # 符号并调整大小 */
+main .post-content {
+  counter-reset: h1 h2 h3 h4 h5 h6; /* 初始化标题计数器，但不再使用自动编号 */
+}
+main .post-content h1 {
+  font-size: 2em; /* 调整为 32px，最高层级 */
+  font-weight: bold;
+  margin: 0.5em 0;
+  padding: 0.2em 0.5em;
+  color: #fff; /* 保持白色 */
+  background: none; /* 无背景色 */
+  border: none;
+  text-align: left;
+  position: relative;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h1::before {
+  content: "# "; /* 添加 # 符号 */
+  color: #f69; /* 粉色 # */
+  margin-right: 0.2em;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h2 {
+  font-size: 1.75em; /* 调整为 28px，次一级 */
+  font-weight: bold;
+  margin: 0.5em 0;
+  padding: 0.2em 0.5em;
+  color: #fff; /* 保持白色 */
+  background: none; /* 无背景色 */
+  border: none;
+  text-align: left; /* 默认左对齐 */
+  position: relative;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h2::before {
+  content: "## "; /* 添加 ## 符号 */
+  color: #f69; /* 粉色 ## */
+  margin-right: 0.2em;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h3 {
+  font-size: 1.5em; /* 调整为 24px，更小一级 */
+  font-weight: bold;
+  margin: 0.5em 0;
+  padding: 0.2em 0.5em;
+  color: #fff; /* 保持白色 */
+  background: none; /* 无背景色 */
+  border: none;
+  text-align: left;
+  position: relative;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h3::before {
+  content: "### "; /* 添加 ### 符号 */
+  color: #f69; /* 粉色 ### */
+  margin-right: 0.2em;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h4 {
+  font-size: 1.25em; /* 调整为 20px */
+  font-weight: bold;
+  margin: 0.5em 0;
+  padding: 0.2em 0.5em;
+  color: #fff; /* 保持白色 */
+  background: none; /* 无背景色 */
+  border: none;
+  text-align: left;
+  position: relative;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h4::before {
+  content: "#### "; /* 添加 #### 符号 */
+  color: #f69; /* 粉色 #### */
+  margin-right: 0.2em;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h5 {
+  font-size: 1.125em; /* 调整为 18px */
+  font-weight: bold;
+  margin: 0.5em 0;
+  padding: 0.2em 0.5em;
+  color: #fff; /* 保持白色 */
+  background: none; /* 无背景色 */
+  border: none;
+  text-align: left;
+  position: relative;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h5::before {
+  content: "##### "; /* 添加 ##### 符号 */
+  color: #f69; /* 粉色 ##### */
+  margin-right: 0.2em;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h6 {
+  font-size: 1em; /* 调整为 16px */
+  font-weight: bold;
+  margin: 0.5em 0;
+  padding: 0.2em 0.5em;
+  color: #fff; /* 保持白色 */
+  background: none; /* 无背景色 */
+  border: none;
+  text-align: left;
+  position: relative;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content h6::before {
+  content: "###### "; /* 添加 ###### 符号 */
+  color: #f69; /* 粉色 ###### */
+  margin-right: 0.2em;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+/* Markdown 文本样式 - 增强斜体和加粗 */
+main .post-content p {
   padding: 0 0.5em;
   margin: 0 0 0.5em 0;
   line-height: 1.4;
-  color: #fff; /* 文字改为白色 */
+  color: #fff; /* 保持白色文本 */
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content strong {
+  color: #ffb6c1; /* 替换为粉色系浅色 */
+  font-weight: 800; /* 减轻加粗效果 */
+  text-shadow: none; /* 移除阴影 */
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content em {
+  color: #ff8c94; /* 替换为粉色系中色 */
+  font-style: italic; /* 保持 italic */
+  transform: skew(-25deg); /* 增大倾斜幅度到 25 度 */
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+/* Markdown 列表样式 - 调整点/数字位置 */
+main .post-content ul,
+main .post-content ol {
+  padding: 0 0 0 1.5em; /* 调整左内边距 */
+  margin: 0 0 0.5em 0;
+  color: #fff;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+main .post-content ul {
+  list-style-position: outside; /* 确保点在列表内容外 */
+  margin-left: 0.25em; /* 与标题左对齐，配合 padding */
+}
+main .post-content ol {
+  list-style-position: outside; /* 确保数字在列表内容外 */
+  margin-left: 0.25em; /* 与标题左对齐，配合 padding */
+}
+main .post-content li {
+  margin: 0.2em 0;
+  line-height: 1.4;
+  color: #fff;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+/* Markdown 引用块样式 */
+main .post-content blockquote {
+  background: rgba(255,102,153,0.1); /* 替换为粉色系极淡背景 */
+  border-left: 4px solid #f69; /* 粉色边框 */
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  color: #fff;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+}
+/* Markdown 代码块样式 - 简单单层框 */
+main .post-content .highlight {
+  position: relative !important;
+  margin: 0.5em 0 !important;
+  border-radius: 4px !important;
+  line-height: 1.2em !important;
+  background-color: #1e1e2f !important; /* 保持深色背景 */
+  overflow-x: auto !important;
+  border: 1px solid #f69 !important; /* 简单粉色边框 */
+  width: 100% !important;
+  box-sizing: border-box !important;
+  font-family: 'Nunito', monospace !important;
+  padding: 0 !important; /* 移除所有内边距，确保分割线与边框对齐 */
+  display: flex !important; /* 使用 flex 布局 */
+  box-shadow: none !important; /* 移除所有阴影 */
+}
+/* 使用 flex 布局，确保行号和代码并排 */
+main .post-content .highlight .gutter {
+  background-color: #2d2d3d !important; /* 行号背景 */
+  color: #a0a0a0 !important; /* 灰色行号 */
+  padding: 0 1em 0 0.5em !important; /* 仅保留左右内边距，移除上下内边距 */
+  text-align: right !important;
+  width: 3em !important; /* 固定行号宽度 */
+  flex-shrink: 0 !important; /* 防止行号区域被压缩 */
+  user-select: none !important; /* 防止选中行号 */
+  border-right: 1px solid #f69 !important; /* 粉色分隔线 */
+  box-shadow: none !important; /* 强制移除阴影 */
+  border-left: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  margin: 0 !important; /* 确保无额外间距 */
+}
+main .post-content .highlight .code {
+  flex-grow: 1 !important; /* 代码区域占满剩余空间 */
+  padding: 0 0.5em !important; /* 仅保留左右内边距，移除上下内边距 */
+  color: #e0e0e0 !important; /* 浅灰色文本 */
+  background-color: #1e1e2f !important; /* 确保背景一致 */
+  box-shadow: none !important; /* 强制移除阴影 */
+  border: none !important;
+  margin: 0 !important; /* 确保无额外间距 */
+}
+/* 强制移除内部元素的背景覆盖和阴影 */
+main .post-content .highlight .code pre,
+main .post-content .highlight .code pre code {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #1e1e2f !important; /* 强制背景一致 */
+  border: none !important; /* 移除边框 */
+  box-shadow: none !important; /* 强制移除阴影 */
+  line-height: 1.2em !important; /* 确保行高一致 */
+}
+main .post-content .highlight .gutter pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important; /* 移除背景色 */
+  border: none !important; /* 移除边框 */
+  box-shadow: none !important; /* 强制移除阴影 */
+  line-height: 1.2em !important; /* 确保行高一致 */
+}
+/* 确保代码行高度一致 */
+main .post-content .highlight .code pre .line {
+  height: 1.2em !important; /* 与 line-height 一致 */
+  box-shadow: none !important; /* 强制移除行阴影 */
+  margin: 0 !important; /* 确保无额外间距 */
+  padding: 0 !important; /* 确保无额外内边距 */
+}
+/* 覆盖默认的 pre 和 code 样式 */
+main .post-content pre,
+main .post-content code {
+  font-family: 'Nunito', monospace !important;
+  font-size: 0.9em !important;
+  box-shadow: none !important; /* 确保无阴影 */
+}
+/* 行内代码样式 */
+main .post-content code {
+  background: rgba(255,102,153,0.15) !important; /* 保持背景透明度 */
+  color: #ff8c94 !important; /* 保持粉色系中色 */
+  padding: 0.1em 0.3em !important; /* 保持内边距 */
+  border-radius: 2px !important; /* 保持圆角 */
+  margin: 0 0.2em !important; /* 保持水平外边距 */
+  border: none !important; /* 移除所有边框 */
+  border-left: 1px solid rgba(255,102,153,0.3) !important; /* 仅保留左右边框 */
+  border-right: 1px solid rgba(255,102,153,0.3) !important;
+  box-shadow: none !important; /* 确保无阴影 */
+  display: inline !important; /* 确保为行内元素 */
+  vertical-align: middle !important; /* 垂直居中对齐 */
+  line-height: 1 !important; /* 确保内部行高不影响外部 */
+}
+/* highlight.js 高亮颜色自定义 */
+main .post-content .highlight .hljs-keyword {
+  color: #f69 !important; /* 粉色关键字 */
+}
+main .post-content .highlight .hljs-string {
+  color: #ffb6c1 !important; /* 浅粉色字符串 */
+}
+main .post-content .highlight .hljs-comment,
+main .post-content .highlight .hljs-quote {
+  color: #a0a0a0 !important; /* 灰色注释 */
+}
+main .post-content .highlight .hljs-function {
+  color: #ff8c94 !important; /* 中粉色函数 */
+}
+main .post-content .highlight .hljs-number {
+  color: #ffd700 !important; /* 金色数字 */
+}
+main .post-content .highlight .hljs-operator,
+main .post-content .highlight .hljs-punctuation {
+  color: #e0e0e0 !important; /* 默认颜色 */
+}
+main .post-content .highlight .hljs-property,
+main .post-content .highlight .hljs-tag {
+  color: #ff8c94 !important; /* 中粉色标签 */
+}
+main .post-content .highlight .hljs-literal,
+main .post-content .highlight .hljs-constant {
+  color: #ffb6c1 !important; /* 浅粉色常量 */
+}
+/* Markdown 表格样式 - 限制宽度并贴边 */
+main .post-content table {
+  width: 100% !important; /* 确保宽度占满 */
+  border-collapse: collapse !important;
+  margin: 0.5em 0 !important;
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+  box-sizing: border-box !important; /* 确保宽度计算包含边框 */
+}
+main .post-content thead {
+  background: rgba(255,102,153,0.3) !important; /* 替换为粉色系半透明背景 */
+}
+main .post-content th,
+main .post-content td {
+  border: 1px solid #ffb6c1 !important; /* 替换为粉色系浅色边框 */
+  padding: 0.5em !important;
+  text-align: left !important;
+  color: #fff !important; /* 保持白色文本 */
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+}
+/* Markdown 高亮文本样式 */
+main .post-content mark {
+  background: rgba(255,102,153,0.3) !important; /* 替换为粉色系半透明背景 */
+  padding: 0.1em 0.3em !important;
+  color: #fff !important; /* 白色文本 */
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+}
+/* Markdown 分割线样式 */
+main .post-content hr {
+  border: none !important;
+  border-top: 1px solid #ffb6c1 !important; /* 替换为粉色系浅色 */
+  margin: 1em 0 !important;
+}
+/* Markdown 图片样式 - 移除边框 */
+main .post-content img {
+  max-width: 100% !important; /* 限制图片宽度不超过框 */
+  height: auto !important;
+  display: block !important;
+  margin: 0.5em auto !important;
+  border: none !important; /* 移除边框 */
+}
+/* 文章页面 - 多个 main 框的容器 */
+#main-wrapper {
+  width: 690px !important; /* 与 main 一致 */
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important; /* 每个 main 框之间的间距，露出背景图 */
+}
+/* main 内文字颜色调整 */
+main .inner {
+  padding: 0 !important;
+  font-size: 0.95em !important;
+  color: #fff !important;
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+}
+main p {
+  padding: 0 0.5em !important;
+  margin: 0 0 0.5em 0 !important;
+  line-height: 1.4 !important;
+  color: #fff !important;
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
 }
 main strong {
-  color: #fff; /* 文字改为白色 */
-  font-weight: bold;
+  color: #fff !important;
+  font-weight: 800 !important; /* 减轻加粗效果 */
+  text-shadow: none !important; /* 移除阴影 */
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
 }
 /* Markdown 列表样式 */
 main ul,
 main ol {
-  padding: 0 1.25em;
-  margin: 0 0 0.5em 0;
-  color: #fff; /* 文字改为白色 */
+  padding: 0 1.25em !important;
+  margin: 0 0 0.5em 0 !important;
+  color: #fff !important;
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
 }
 main li {
-  margin: 0.2em 0;
-  line-height: 1.4;
-  color: #fff; /* 文字改为白色 */
+  margin: 0.2em 0 !important;
+  line-height: 1.4 !important;
+  color: #fff !important;
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
 }
-/* Markdown 代码块样式 - 计算机窗口风格边框 */
-main pre,
-main code {
-  background: #f0f0f0;
-  padding: 0.75em;
-  margin: 0.5em 0;
-  font-family: 'Nunito', monospace;
-  font-size: 0.9em;
-  border: 1px solid #fff; /* 边框改为白色 */
-  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.5), inset -1px -1px 0 rgba(0,0,0,0.2), 2px 2px 4px rgba(255,102,153,0.3);
-/* 调整阴影色调以匹配 #FF6699 */
-  overflow-x: auto;
-  color: #000; /* 代码块文字保持黑色以确保可读性 */
+/* More 标签样式 - 确保默认白色，悬停时粉色加下划线 */
+main .more-link {
+  text-align: left !important; /* 保持左对齐 */
+  padding: 0 0.5em !important;
+  margin: 0.5em 0 !important;
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+}
+main .more-link .more-toggle {
+  color: #fff !important; /* 强制白色，覆盖其他样式 */
+  text-decoration: none !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+}
+main .more-link .more-toggle:hover {
+  color: #f69 !important; /* 强制粉色 */
+  text-decoration: underline !important; /* 悬停时加下划线 */
+}
+/* 文章内容中的链接样式 - 排除 .more-toggle */
+main .post-content a:not(.more-toggle) {
+  color: var(--border-color) !important; /* 默认粉色 */
+  text-decoration: none !important; /* 默认无下划线 */
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+  box-shadow: none !important; /* 移除任何可能的阴影 */
+  text-shadow: none !important; /* 移除任何可能的文本阴影 */
+}
+main .post-content a:not(.more-toggle):hover {
+  color: var(--border-color) !important; /* 悬停时保持粉色 */
+  text-decoration: none !important; /* 移除下划线 */
+  border-bottom: 2px solid #f69 !important; /* 使用边框代替阴影 */
+  box-shadow: none !important; /* 确保无阴影 */
+  text-shadow: none !important; /* 确保无文本阴影 */
 }
 /* Footer - 计算机窗口风格边框 */
 footer {
-  background: #000; /* 改为黑色背景 */
+  background: #000;
   width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #fff; /* 边框改为白色 */
-  border-top: 4px solid #fff; /* 顶部加粗白色 */
-  border-left: 4px solid #fff; /* 左侧加粗白色 */
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-/* 调整阴影色调以匹配 #FF6699 */
-  color: #fff; /* 文字改为白色 */
+  border: 2px solid #fff;
+  border-top: 4px solid #fff;
+  border-left: 4px solid #fff;
+  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
+  color: #fff;
   font-weight: bold;
   position: relative;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
 /* Footer 内的链接 */
 footer a {
-  color: #fff; /* 文字改为白色 */
+  color: #fff;
   text-decoration: none;
+  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
 footer a:hover {
-  color: #f69; /* 悬停改为新的粉色 #FF6699 */
+  color: #f69;
   text-decoration: underline;
 }
 /* 移除.box的独立样式 */
 .box {
   display: none;
 }
+/* 归档页面样式 - main 框居中 */
+.archive-main-wrapper {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  width: 100%;
+}
+.archive-main {
+  text-align: left; /* 改为左对齐 */
+  width: 100%;
+  max-width: 690px; /* 与其他 main 框一致 */
+}
+/* 分类和标签区域样式 */
+.y2k-category,
+.y2k-tag {
+  margin: 0;
+  padding: 0; /* 移除左右内边距 */
+}
+/* 分类和标签的大标题样式 */
+.y2k-category h2,
+.y2k-tag h2 {
+  margin: 0 0 0.5em 0;
+  padding: 0.2em 0.5em; /* 统一左内边距为 0.5em */
+}
+/* 横向排列分类和标签的内容 */
+.archive-main .centered-list {
+  display: flex;
+  flex-wrap: wrap; /* 允许换行 */
+  justify-content: flex-start; /* 从左开始排列 */
+  list-style: none;
+  padding: 0 0.5em 0 0; /* 移除左侧内边距，仅保留右侧内边距 */
+  margin: 0 0 0 0.2em; /* 左侧外边距保持 0.2em */
+}
+/* 调整每个分类和标签项的间距 */
+.archive-main .centered-list li {
+  margin: 5px 10px 5px 0 !important; /* 上右下左：上5px，右30px（从25px调整为10px），下5px，左0px，强制生效 */
+}
+/* 统一链接样式 - 无下沉，仅底部横线 */
+.y2k-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease; /* 只过渡颜色 */
+  font-family: 'Nunito', monospace;
+  line-height: 1; /* 固定行高 */
+  display: inline-block; /* 确保为行内块 */
+  vertical-align: middle; /* 垂直居中 */
+}
+.y2k-link:hover {
+  color: var(--border-color); /* 悬停时变为粉色 */
+  text-decoration: none; /* 移除下划线 */
+  border-bottom: 2px solid #f69; /* 悬停时加底部横线 */
+  padding: 0; /* 保持内边距不变 */
+  margin: 0; /* 保持外边距不变 */
+}
+/* 移除 y2k-button 样式，因为已替换为 y2k-link */
+.y2k-button {
+  display: none; /* 禁用 y2k-button 样式 */
+}
+/* 文章归档区域样式 */
+.y2k-post-archive {
+  text-align: left; /* 保持文章列表左对齐 */
+  margin: 0; /* 移除 margin，确保与上方对齐 */
+  padding: 0; /* 移除左右内边距 */
+  max-width: 690px; /* 与 main 宽度一致 */
+}
+/* 文章归档的大标题样式 */
+.y2k-post-archive h2 {
+  margin: 0 0 0.5em 0;
+  padding: 0.2em 0.5em; /* 统一左内边距为 0.5em，与分类和标签大标题对齐 */
+}
+/* 文章归档的列表样式 */
+.y2k-post-archive ul {
+  list-style: none;
+  padding: 0 0.5em 0 0; /* 移除左侧内边距，仅保留右侧内边距 */
+  margin: 0 0 0 0.2em; /* 减少左侧外边距，从 0.5em 调整为 0.2em */
+}
+/* 文章归档的年份和文章标题样式 */
+.y2k-post-archive li {
+  margin: 5px 0; /* 与分类和标签的上下间距一致 */
+  padding-left: 1em; /* 为白点留出空间 */
+  position: relative; /* 用于伪元素定位 */
+}
+/* 为文章标题的列表项添加白点 */
+.y2k-post-archive li:not(.year)::before {
+  content: "•"; /* 添加白点 */
+  color: #fff; /* 白色 */
+  position: absolute;
+  left: 0; /* 与列表项左边缘对齐 */
+  font-size: 1em; /* 与文本大小一致 */
+}
+/* 文章归档的年份样式 */
+.y2k-post-archive li.year {
+  padding-left: 0; /* 年份不缩进 */
+}
+/* 文章归档的日期和标题样式 */
+.y2k-post-archive .y2k-post-item {
+  display: flex;
+  align-items: center;
+  line-height: 1; /* 保持紧凑 */
+}
+/* 确保 y2k-post-item 在 hover 时不移动 */
+.y2k-post-archive .y2k-post-item .y2k-date {
+  margin-right: 0.5em; /* 日期与标题之间的间距 */
+  white-space: nowrap; /* 防止日期换行 */
+}
 /* 媒体查询 - 移动端（max-width: 880px） */
 @media only screen and (max-width: 880px) {
   #container {
-    width: calc(340px + 50vw);
+    width: 92vw !important; /* 固定为 92vw，不随内容变化 */
   }
   #leftColumn {
-    width: 160px;
-    border: none;
-    box-shadow: none;
-    margin: 0;
-    padding: 0;
+    width: 92vw !important; /* 移动端固定宽度 */
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   main {
-    width: 50vw;
-    margin-left: 170px;
+    width: 92vw !important; /* 移动端固定宽度 */
+    margin: 0.25rem auto !important; /* 居中对齐 */
+    background: #000 !important;
+    border-radius: 20px !important;
+    border: 2px solid #fff !important;
+    border-top: 4px solid #fff !important;
+    border-left: 4px solid #fff !important;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  #main-wrapper {
+    width: 92vw !important; /* 与 main 一致 */
+    margin: 0.25rem auto !important; /* 居中对齐 */
+    gap: 10px !important; /* 移动端缩小间距 */
+  }
+  .archive-main-wrapper {
+    width: 92vw !important; /* 移动端与 main 一致 */
+    margin: 0.25rem auto !important;
+  }
+  .archive-main {
+    max-width: 92vw !important; /* 移动端占满宽度 */
   }
   #header {
-    width: 92vw;
-    margin: 0.25rem auto;
-    background: var(--border-color);
-    border-radius: 20px;
-    border: 2px solid #fff;
-    border-top: 4px solid #fff;
-    border-left: 4px solid #fff;
-    border-bottom: 4px solid #fff;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-    position: relative;
-    z-index: 1;
+    width: 92vw !important;
+    margin: 0.25rem auto !important;
+    background: var(--border-color) !important;
+    border-radius: 20px !important;
+    border: 2px solid #fff !important;
+    border-top: 4px solid #fff !important;
+    border-left: 4px solid #fff !important;
+    border-bottom: 4px solid #fff !important;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
   .site-title {
-    padding: 60px 20px 20px 20px !important; /* 顶部 padding 从 50px 增加到 60px */
+    padding: 60px 20px 20px 20px !important;
   }
   #navbar {
-    width: 92vw;
-    margin: 0.25rem auto;
-    height: 50px;
-    background: #000;
-    border-radius: 20px;
-    border: 2px solid #fff;
-    border-top: 2px solid #fff;
-    border-left: 4px solid #fff;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-    position: relative;
-    z-index: 1;
+    width: 92vw !important;
+    margin: 0.25rem auto !important;
+    height: 50px !important;
+    background: #000 !important;
+    border-radius: 20px !important;
+    border: 2px solid #fff !important;
+    border-top: 2px solid #fff !important;
+    border-left: 4px solid #fff !important;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
-  main {
-    width: 92vw;
-    margin: 0.25rem auto;
-    background: #000;
-    border-radius: 20px;
-    border: 2px solid #fff;
-    border-top: 4px solid #fff;
-    border-left: 4px solid #fff;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-    position: relative;
-    z-index: 1;
-    color: #fff;
+  main h1 {
+    background: var(--border-color) !important;
+    border-bottom: 2px solid #fff !important;
+    border-radius: 20px 20px 0 0 !important;
+    color: #fff !important;
+    padding: 6px 2px !important; /* 移动端保持不变 */
+    margin: 0 0 0.5em 0 !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    letter-spacing: 2px !important;
+    font-size: 19px !important; /* 移动端保持不变 */
   }
-  main h1,
-  main h2,
-  main h3 {
-    background: var(--border-color);
-    border-bottom: 2px solid #fff;
-    border-radius: 20px 20px 0 0;
-    color: #fff;
-    padding: 6px 2px !important;
-    margin: 0 0 0.5em 0;
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 19px !important;
+  main .post-content h1 {
+    font-size: 1.75em !important; /* 移动端调整为 28px */
+    font-weight: bold !important;
   }
-  #leftColumn {
-    width: 92vw;
-    margin: 0.25rem auto;
-    border: none;
-    box-shadow: none;
-    padding: 0;
+  main .post-content h2 {
+    font-size: 1.5em !important; /* 移动端调整为 24px */
+    font-weight: bold !important;
+  }
+  main .post-content h3 {
+    font-size: 1.25em !important; /* 移动端调整为 20px */
+    font-weight: bold !important;
+  }
+  main .post-content ul,
+  main .post-content ol {
+    padding: 0 0 0 1.5em !important; /* 移动端保持一致 */
+    margin-left: 0.25em !important; /* 移动端保持对齐 */
+  }
+  main .post-content .highlight {
+    width: 100% !important; /* 移动端确保宽度占满 */
+    padding: 0 !important; /* 移除所有内边距 */
+  }
+  main .post-content .highlight .gutter {
+    width: 3em !important; /* 移动端保持行号宽度 */
   }
   aside,
   #updatesSidebar,
   #toolsSidebar {
-    width: 100%;
-    margin: 0.25rem auto;
-    background: #000;
-    border-radius: 20px;
-    border: 2px solid #fff;
-    border-top: 4px solid #fff;
-    border-left: 4px solid #fff;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-    position: relative;
-    z-index: 1;
-    color: #fff;
+    width: 100% !important;
+    margin: 0.25rem auto !important;
+    background: #000 !important;
+    border-radius: 20px !important;
+    border: 2px solid #fff !important;
+    border-top: 4px solid #fff !important;
+    border-left: 4px solid #fff !important;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
   }
   aside h1,
   aside h2,
   aside h3 {
-    background: var(--border-color);
-    border-bottom: 2px solid #fff;
-    border-radius: 20px 20px 0 0;
-    color: #fff;
+    background: var(--border-color) !important;
+    border-bottom: 2px solid #fff !important;
+    border-radius: 20px 20px 0 0 !important;
+    color: #fff !important;
   }
   footer {
-    width: 92vw;
-    margin: 0.25rem auto;
-    background: #000;
-    border-radius: 20px;
-    border: 2px solid #fff;
-    border-top: 4px solid #fff;
-    border-left: 4px solid #fff;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-    position: relative;
-    z-index: 1;
-    color: #fff;
+    width: 92vw !important;
+    margin: 0.25rem auto !important;
+    background: #000 !important;
+    border-radius: 20px !important;
+    border: 2px solid #fff !important;
+    border-top: 4px solid #fff !important;
+    border-left: 4px solid #fff !important;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    color: #fff !important;
   }
 }
 /* 媒体查询 - 纵向屏幕（orientation: portrait） */
 @media only screen and (orientation: portrait) {
   #container {
-    width: 96vw;
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
+    width: 96vw !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    position: relative !important;
   }
   #flex {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important; /* 移动端移除左右间距 */
   }
   main {
-    order: 1;
-    width: 92vw;
-    margin: 0.25rem auto;
-    flex: 1;
-    background: #000;
-    border-radius: 20px;
-    border: 2px solid #fff;
-    border-top: 4px solid #fff;
-    border-left: 4px solid #fff;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-    position: relative;
-    z-index: 1;
-    color: #fff;
+    order: 1 !important;
+    width: 92vw !important; /* 固定宽度 */
+    margin: 0.25rem auto !important;
+    background: #000 !important;
+    border-radius: 20px !important;
+    border: 2px solid #fff !important;
+    border-top: 4px solid #fff !important;
+    border-left: 4px solid #fff !important;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    color: #fff !important;
   }
-  main h1,
-  main h2,
-  main h3 {
-    background: var(--border-color);
-    border-bottom: 2px solid #fff;
-    border-radius: 20px 20px 0 0;
-    color: #fff;
-    padding: 6px 2px !important;
-    margin: 0 0 0.5em 0;
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 19px !important;
+  #main-wrapper {
+    order: 1 !important;
+    width: 92vw !important; /* 与 main 一致 */
+    margin: 0.25rem auto !important;
+    gap: 10px !important; /* 移动端缩小间距 */
+  }
+  .archive-main-wrapper {
+    width: 92vw !important; /* 移动端与 main 一致 */
+    margin: 0.25rem auto !important;
+  }
+  .archive-main {
+    max-width: 92vw !important; /* 移动端占满宽度 */
   }
   #leftColumn {
-    order: 2;
-    width: 92vw;
-    margin: 0.25rem auto;
-    border: none;
-    box-shadow: none;
-    padding: 0;
+    order: 2 !important;
+    width: 92vw !important; /* 固定宽度 */
+    margin: 0.25rem auto !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
   }
   aside,
   #updatesSidebar,
   #toolsSidebar {
-    width: 100%;
-    margin: 0.25rem auto;
-    background: #000;
-    border-radius: 20px;
-    border: 2px solid #fff;
-    border-top: 4px solid #fff;
-    border-left: 4px solid #fff;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-    position: relative;
-    z-index: 1;
-    color: #fff;
+    width: 100% !important;
+    margin: 0.25rem auto !important;
+    background: #000 !important;
+    border-radius: 20px !important;
+    border: 2px solid #fff !important;
+    border-top: 4px solid #fff !important;
+    border-left: 4px solid #fff !important;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    color: #fff !important;
   }
   aside h1,
   aside h2,
   aside h3 {
-    background: var(--border-color);
-    border-bottom: 2px solid #fff;
-    border-radius: 20px 20px 0 0;
-    color: #fff;
+    background: var(--border-color) !important;
+    border-bottom: 2px solid #fff !important;
+    border-radius: 20px 20px 0 0 !important;
+    color: #fff !important;
   }
   #header {
-    width: 92vw;
-    margin: 0.25rem auto;
-    height: 170px;
-    background: var(--border-color);
-    border-radius: 20px;
-    border: 2px solid #fff;
-    border-top: 4px solid #fff;
-    border-left: 4px solid #fff;
-    border-bottom: 4px solid #fff;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-    position: relative;
-    z-index: 1;
+    width: 92vw !important;
+    margin: 0.25rem auto !important;
+    height: 170px !important;
+    background: var(--border-color) !important;
+    border-radius: 20px !important;
+    border: 2px solid #fff !important;
+    border-top: 4px solid #fff !important;
+    border-left: 4px solid #fff !important;
+    border-bottom: 4px solid #fff !important;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
   .site-title {
-    padding: 60px 20px 20px 20px !important; /* 顶部 padding 从 50px 增加到 60px */
+    padding: 60px 20px 20px 20px !important;
   }
   #navbar {
-    width: 92vw;
-    margin: 0.25rem auto;
-    height: 50px;
-    background: #000;
-    border-radius: 20px;
-    border: 2px solid #fff;
-    border-top: 2px solid #fff;
-    border-left: 4px solid #fff;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-    position: relative;
-    z-index: 1;
+    width: 92vw !important;
+    margin: 0.25rem auto !important;
+    height: 50px !important;
+    background: #000 !important;
+    border-radius: 20px !important;
+    border: 2px solid #fff !important;
+    border-top: 2px solid #fff !important;
+    border-left: 4px solid #fff !important;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
   footer {
-    width: 92vw;
-    margin: 0.25rem auto;
-    background: #000;
-    border-radius: 20px;
-    border: 2px solid #fff;
-    border-top: 4px solid #fff;
-    border-left: 4px solid #fff;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 4px 4px 8px rgba(255,102,153,0.5);
-    position: relative;
-    z-index: 1;
-    color: #fff;
+    width: 92vw !important;
+    margin: 0.25rem auto !important;
+    background: #000 !important;
+    border-radius: 20px !important;
+    border: 2px solid #fff !important;
+    border-top: 4px solid #fff !important;
+    border-left: 4px solid #fff !important;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    color: #fff !important;
+  }
+  main .post-content .highlight {
+    width: 100% !important; /* 移动端确保宽度占满 */
+    padding: 0 !important; /* 移除所有内边距 */
+  }
+  main .post-content .highlight .gutter {
+    width: 3em !important; /* 移动端保持行号宽度 */
   }
 }
