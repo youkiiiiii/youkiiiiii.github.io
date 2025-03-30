@@ -395,27 +395,48 @@ main .post-content em {
   transform: skew(-25deg); /* 增大倾斜幅度到 25 度 */
   font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
-/* Markdown 列表样式 - 调整点/数字位置 */
+/* Markdown 列表样式 - 自定义标记位置 */
 main .post-content ul,
 main .post-content ol {
-  padding: 0 0 0 1.5em; /* 调整左内边距 */
+  padding: 0 0 0 0.5em; /* 保持与正文相同的左内边距 */
   margin: 0 0 0.5em 0;
   color: #fff;
   font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+  list-style: none; /* 移除默认标记 */
 }
-main .post-content ul {
-  list-style-position: outside; /* 确保点在列表内容外 */
-  margin-left: 0.25em; /* 与标题左对齐，配合 padding */
-}
-main .post-content ol {
-  list-style-position: outside; /* 确保数字在列表内容外 */
-  margin-left: 0.25em; /* 与标题左对齐，配合 padding */
-}
-main .post-content li {
+main .post-content ul li {
+  position: relative;
   margin: 0.2em 0;
   line-height: 1.4;
   color: #fff;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+  font-family: 'Nunito', monospace;
+  padding-left: 1.5em; /* 留出空间给自定义标记 */
+}
+main .post-content ul li::before {
+  content: "•"; /* 自定义无序列表的圆点 */
+  position: absolute;
+  left: 0.5em; /* 与正文的第一个字对齐 */
+  color: #fff;
+  font-family: 'Nunito', monospace;
+}
+main .post-content ol {
+  counter-reset: list-counter; /* 初始化计数器 */
+}
+main .post-content ol li {
+  position: relative;
+  margin: 0.2em 0;
+  line-height: 1.4;
+  color: #fff;
+  font-family: 'Nunito', monospace;
+  padding-left: 1.5em; /* 留出空间给自定义数字 */
+  counter-increment: list-counter; /* 计数器递增 */
+}
+main .post-content ol li::before {
+  content: counter(list-counter) "."; /* 自定义有序列表的数字 */
+  position: absolute;
+  left: 0.5em; /* 与正文的第一个字对齐 */
+  color: #fff;
+  font-family: 'Nunito', monospace;
 }
 /* Markdown 引用块样式 */
 main .post-content blockquote {
@@ -543,24 +564,33 @@ main .post-content .highlight .hljs-literal,
 main .post-content .highlight .hljs-constant {
   color: #ffb6c1 !important; /* 浅粉色常量 */
 }
-/* Markdown 表格样式 - 限制宽度并贴边 */
+/* Markdown 表格样式 - 移除白色立体边框 */
 main .post-content table {
   width: 100% !important; /* 确保宽度占满 */
   border-collapse: collapse !important;
-  margin: 0.5em 0 !important;
+  margin: 0.5em 0 !important; /* 保持上下外边距，左右外边距为 0 */
   font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
   box-sizing: border-box !important; /* 确保宽度计算包含边框 */
+  border: none !important; /* 移除外边框 */
+  box-shadow: none !important; /* 移除阴影 */
 }
 main .post-content thead {
-  background: rgba(255,102,153,0.3) !important; /* 替换为粉色系半透明背景 */
+  background: rgba(255,102,153,0.3) !important; /* 保持粉色系半透明背景 */
 }
 main .post-content th,
 main .post-content td {
-  border: 1px solid #ffb6c1 !important; /* 替换为粉色系浅色边框 */
+  border: 1px solid #ffb6c1 !important; /* 单元格边框保持浅粉色 */
   padding: 0.5em !important;
   text-align: left !important;
   color: #fff !important; /* 保持白色文本 */
   font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+}
+/* 确保表格贴边，移除多余的内边距 */
+main .post-content table tr,
+main .post-content table tbody,
+main .post-content table thead {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 /* Markdown 高亮文本样式 */
 main .post-content mark {
@@ -610,19 +640,41 @@ main strong {
   text-shadow: none !important; /* 移除阴影 */
   font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
 }
-/* Markdown 列表样式 */
+/* Markdown 列表样式 - 自定义标记位置 */
 main ul,
 main ol {
-  padding: 0 1.25em !important;
+  padding: 0 0.5em !important; /* 保持与正文相同的左内边距 */
   margin: 0 0 0.5em 0 !important;
   color: #fff !important;
   font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+  list-style: none; /* 移除默认标记 */
 }
-main li {
+main ul li {
+  position: relative;
   margin: 0.2em 0 !important;
   line-height: 1.4 !important;
   color: #fff !important;
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+  font-family: 'Nunito', monospace !important;
+  padding-left: 1.5em !important; /* 留出空间给自定义标记 */
+}
+main ul li::before {
+  content: "•"; /* 自定义无序列表的圆点 */
+  position: absolute;
+  left: 0.5em; /* 与正文的第一个字对齐 */
+  color: #fff;
+  font-family: 'Nunito', monospace;
+}
+main ol {
+  counter-reset: list-counter; /* 初始化计数器 */
+}
+main ol li {
+  position: relative;
+  margin: 0.2em 0 !important;
+  line-height: 1.4 !important;
+  color: #fff !important;
+  font-family: 'Nunito', monospace !important;
+  padding-left: 1.5em !important; /* 留出空间给自定义数字 */
+  counter-increment: list-counter; /* 计数器递增 */
 }
 /* More 标签样式 - 确保默认白色，悬停时粉色加下划线 */
 main .more-link {
@@ -724,7 +776,7 @@ footer a:hover {
 }
 /* 调整每个分类和标签项的间距 */
 .archive-main .centered-list li {
-  margin: 5px 10px 5px 0 !important; /* 上右下左：上5px，右30px（从25px调整为10px），下5px，左0px，强制生效 */
+  margin: 5px 10px 5px 0 !important; /* 上右下左：上5px，右10px，下5px，左0px，强制生效 */
 }
 /* 统一链接样式 - 无下沉，仅底部横线 */
 .y2k-link {
@@ -759,36 +811,44 @@ footer a:hover {
 .y2k-post-archive h2 {
   margin: 0 0 0.5em 0;
   padding: 0.2em 0.5em; /* 统一左内边距为 0.5em，与分类和标签大标题对齐 */
+  position: relative; /* 为基准对齐提供参考 */
+}
+/* 文章归档的年份样式 */
+.y2k-post-archive .y2k-year {
+  margin: 0.5em 0; /* 添加上下间距 */
+}
+/* 文章归档的年份标题样式 */
+.y2k-post-archive .y2k-year-title {
+  padding: 0 0.5em; /* 与大标题对齐 */
+  position: relative;
+  color: #fff;
+  font-weight: bold;
 }
 /* 文章归档的列表样式 */
-.y2k-post-archive ul {
+.y2k-post-archive .y2k-year ul {
   list-style: none;
-  padding: 0 0.5em 0 0; /* 移除左侧内边距，仅保留右侧内边距 */
-  margin: 0 0 0 0.2em; /* 减少左侧外边距，从 0.5em 调整为 0.2em */
+  padding: 0 0.5em 0 0; /* 移除左内边距，交给 li 控制 */
+  margin: 0 0 0 0.2em; /* 保持左侧外边距，微调对齐 */
 }
-/* 文章归档的年份和文章标题样式 */
-.y2k-post-archive li {
-  margin: 5px 0; /* 与分类和标签的上下间距一致 */
-  padding-left: 1em; /* 为白点留出空间 */
+/* 文章归档的列表项样式 */
+.y2k-post-archive .y2k-year ul li {
+  margin: 5px 0; /* 保持上下间距 */
   position: relative; /* 用于伪元素定位 */
 }
 /* 为文章标题的列表项添加白点 */
-.y2k-post-archive li:not(.year)::before {
+.y2k-post-archive .y2k-year ul li::before {
   content: "•"; /* 添加白点 */
   color: #fff; /* 白色 */
   position: absolute;
-  left: 0; /* 与列表项左边缘对齐 */
+  left: 0.5em; /* 调整白点位置，相对于年份第一个数字对齐 */
   font-size: 1em; /* 与文本大小一致 */
-}
-/* 文章归档的年份样式 */
-.y2k-post-archive li.year {
-  padding-left: 0; /* 年份不缩进 */
 }
 /* 文章归档的日期和标题样式 */
 .y2k-post-archive .y2k-post-item {
   display: flex;
   align-items: center;
   line-height: 1; /* 保持紧凑 */
+  padding-left: 2em; /* 右移约 2em，独立控制日期和标题 */
 }
 /* 确保 y2k-post-item 在 hover 时不移动 */
 .y2k-post-archive .y2k-post-item .y2k-date {
@@ -875,26 +935,329 @@ footer a:hover {
   main .post-content h1 {
     font-size: 1.75em !important; /* 移动端调整为 28px */
     font-weight: bold !important;
+    margin: 0.5em 0 !important;
+    padding: 0.2em 0.5em !important;
+    color: #fff !important;
+    background: none !important;
+    border: none !important;
+    text-align: left !important;
+    position: relative !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content h1::before {
+    content: "# " !important;
+    color: #f69 !important;
+    margin-right: 0.2em !important;
+    font-family: 'Nunito', monospace !important;
   }
   main .post-content h2 {
     font-size: 1.5em !important; /* 移动端调整为 24px */
     font-weight: bold !important;
+    margin: 0.5em 0 !important;
+    padding: 0.2em 0.5em !important;
+    color: #fff !important;
+    background: none !important;
+    border: none !important;
+    text-align: left !important;
+    position: relative !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content h2::before {
+    content: "## " !important;
+    color: #f69 !important;
+    margin-right: 0.2em !important;
+    font-family: 'Nunito', monospace !important;
   }
   main .post-content h3 {
     font-size: 1.25em !important; /* 移动端调整为 20px */
     font-weight: bold !important;
+    margin: 0.5em 0 !important;
+    padding: 0.2em 0.5em !important;
+    color: #fff !important;
+    background: none !important;
+    border: none !important;
+    text-align: left !important;
+    position: relative !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content h3::before {
+    content: "### " !important;
+    color: #f69 !important;
+    margin-right: 0.2em !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content h4 {
+    font-size: 1.25em !important; /* 保持与电脑端一致 */
+    font-weight: bold !important;
+    margin: 0.5em 0 !important;
+    padding: 0.2em 0.5em !important;
+    color: #fff !important;
+    background: none !important;
+    border: none !important;
+    text-align: left !important;
+    position: relative !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content h4::before {
+    content: "#### " !important;
+    color: #f69 !important;
+    margin-right: 0.2em !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content h5 {
+    font-size: 1.125em !important; /* 保持与电脑端一致 */
+    font-weight: bold !important;
+    margin: 0.5em 0 !important;
+    padding: 0.2em 0.5em !important;
+    color: #fff !important;
+    background: none !important;
+    border: none !important;
+    text-align: left !important;
+    position: relative !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content h5::before {
+    content: "##### " !important;
+    color: #f69 !important;
+    margin-right: 0.2em !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content h6 {
+    font-size: 1em !important; /* 保持与电脑端一致 */
+    font-weight: bold !important;
+    margin: 0.5em 0 !important;
+    padding: 0.2em 0.5em !important;
+    color: #fff !important;
+    background: none !important;
+    border: none !important;
+    text-align: left !important;
+    position: relative !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content h6::before {
+    content: "###### " !important;
+    color: #f69 !important;
+    margin-right: 0.2em !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content p {
+    padding: 0 0.5em !important;
+    margin: 0 0 0.5em 0 !important;
+    line-height: 1.4 !important;
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content strong {
+    color: #ffb6c1 !important;
+    font-weight: 800 !important;
+    text-shadow: none !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content em {
+    color: #ff8c94 !important;
+    font-style: italic !important;
+    transform: skew(-25deg) !important;
+    font-family: 'Nunito', monospace !important;
   }
   main .post-content ul,
   main .post-content ol {
-    padding: 0 0 0 1.5em !important; /* 移动端保持一致 */
-    margin-left: 0.25em !important; /* 移动端保持对齐 */
+    padding: 0 0 0 0.5em !important; /* 保持与正文相同的左内边距 */
+    margin: 0 0 0.5em 0 !important;
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
+    list-style: none !important; /* 移除默认标记 */
+  }
+  main .post-content ul li {
+    position: relative !important;
+    margin: 0.2em 0 !important;
+    line-height: 1.4 !important;
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
+    padding-left: 1.5em !important; /* 留出空间给自定义标记 */
+  }
+  main .post-content ul li::before {
+    content: "•" !important; /* 自定义无序列表的圆点 */
+    position: absolute !important;
+    left: 0.5em !important; /* 与正文的第一个字对齐 */
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content ol {
+    counter-reset: list-counter !important; /* 初始化计数器 */
+  }
+  main .post-content ol li {
+    position: relative !important;
+    margin: 0.2em 0 !important;
+    line-height: 1.4 !important;
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
+    padding-left: 1.5em !important; /* 留出空间给自定义数字 */
+    counter-increment: list-counter !important; /* 计数器递增 */
+  }
+  main .post-content ol li::before {
+    content: counter(list-counter) "." !important; /* 自定义有序列表的数字 */
+    position: absolute !important;
+    left: 0.5em !important; /* 与正文的第一个字对齐 */
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content blockquote {
+    background: rgba(255,102,153,0.1) !important;
+    border-left: 4px solid #f69 !important;
+    margin: 0.5em 0 !important;
+    padding: 0.5em 1em !important;
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
   }
   main .post-content .highlight {
-    width: 100% !important; /* 移动端确保宽度占满 */
-    padding: 0 !important; /* 移除所有内边距 */
+    position: relative !important;
+    margin: 0.5em 0 !important;
+    border-radius: 4px !important;
+    line-height: 1.2em !important;
+    background-color: #1e1e2f !important;
+    overflow-x: auto !important;
+    border: 1px solid #f69 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-family: 'Nunito', monospace !important;
+    padding: 0 !important;
+    display: flex !important;
+    box-shadow: none !important;
   }
   main .post-content .highlight .gutter {
-    width: 3em !important; /* 移动端保持行号宽度 */
+    background-color: #2d2d3d !important;
+    color: #a0a0a0 !important;
+    padding: 0 1em 0 0.5em !important;
+    text-align: right !important;
+    width: 3em !important;
+    flex-shrink: 0 !important;
+    user-select: none !important;
+    border-right: 1px solid #f69 !important;
+    box-shadow: none !important;
+    border-left: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    margin: 0 !important;
+  }
+  main .post-content .highlight .code {
+    flex-grow: 1 !important;
+    padding: 0 0.5em !important;
+    color: #e0e0e0 !important;
+    background-color: #1e1e2f !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+  }
+  main .post-content .highlight .code pre,
+  main .post-content .highlight .code pre code {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #1e1e2f !important;
+    border: none !important;
+    box-shadow: none !important;
+    line-height: 1.2em !important;
+  }
+  main .post-content .highlight .gutter pre {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    line-height: 1.2em !important;
+  }
+  main .post-content .highlight .code pre .line {
+    height: 1.2em !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  main .post-content code {
+    background: rgba(255,102,153,0.15) !important;
+    color: #ff8c94 !important;
+    padding: 0.1em 0.3em !important;
+    border-radius: 2px !important;
+    margin: 0 0.2em !important;
+    border: none !important;
+    border-left: 1px solid rgba(255,102,153,0.3) !important;
+    border-right: 1px solid rgba(255,102,153,0.3) !important;
+    box-shadow: none !important;
+    display: inline !important;
+    vertical-align: middle !important;
+    line-height: 1 !important;
+    font-family: 'Nunito', monospace !important;
+    font-size: 0.9em !important;
+  }
+  main .post-content .highlight .hljs-keyword {
+    color: #f69 !important;
+  }
+  main .post-content .highlight .hljs-string {
+    color: #ffb6c1 !important;
+  }
+  main .post-content .highlight .hljs-comment,
+  main .post-content .highlight .hljs-quote {
+    color: #a0a0a0 !important;
+  }
+  main .post-content .highlight .hljs-function {
+    color: #ff8c94 !important;
+  }
+  main .post-content .highlight .hljs-number {
+    color: #ffd700 !important;
+  }
+  main .post-content .highlight .hljs-operator,
+  main .post-content .highlight .hljs-punctuation {
+    color: #e0e0e0 !important;
+  }
+  main .post-content .highlight .hljs-property,
+  main .post-content .highlight .hljs-tag {
+    color: #ff8c94 !important;
+  }
+  main .post-content .highlight .hljs-literal,
+  main .post-content .highlight .hljs-constant {
+    color: #ffb6c1 !important;
+  }
+  main .post-content table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0.5em 0 !important;
+    font-family: 'Nunito', monospace !important;
+    box-sizing: border-box !important;
+    border: none !important; /* 移除外边框 */
+    box-shadow: none !important; /* 移除阴影 */
+  }
+  main .post-content thead {
+    background: rgba(255,102,153,0.3) !important;
+  }
+  main .post-content th,
+  main .post-content td {
+    border: 1px solid #ffb6c1 !important;
+    padding: 0.5em !important;
+    text-align: left !important;
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content table tr,
+  main .post-content table tbody,
+  main .post-content table thead {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  main .post-content mark {
+    background: rgba(255,102,153,0.3) !important;
+    padding: 0.1em 0.3em !important;
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content hr {
+    border: none !important;
+    border-top: 1px solid #ffb6c1 !important;
+    margin: 1em 0 !important;
+  }
+  main .post-content img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0.5em auto !important;
+    border: none !important;
   }
   aside,
   #updatesSidebar,
@@ -909,7 +1272,7 @@ footer a:hover {
     box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
     position: relative !important;
     z-index: 1 !important;
-    font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+    font-family: 'Nunito', monospace !important;
   }
   aside h1,
   aside h2,
@@ -1053,5 +1416,323 @@ footer a:hover {
   }
   main .post-content .highlight .gutter {
     width: 3em !important; /* 移动端保持行号宽度 */
+  }
+}
+/* 为所有 .excerpt 设置左边距 */
+main .post-content .excerpt {
+  padding-left: 0.5em;
+  margin: 0 0 0.5em 0;
+  line-height: 1.4;
+  color: #fff;
+  font-family: 'Nunito', monospace;
+}
+/* 排除普通 <more> 标签的 .excerpt（假设包含 <p> 标签） */
+main .post-content .excerpt:has(p) {
+  padding-left: 0; /* 恢复默认左边距 */
+}
+/* 移动端适配 - 媒体查询（max-width: 880px） */
+@media only screen and (max-width: 880px) {
+  main .post-content .excerpt {
+    padding-left: 0.5em !important;
+    margin: 0 0 0.5em 0 !important;
+    line-height: 1.4 !important;
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content .excerpt:has(p) {
+    padding-left: 0 !important;
+  }
+}
+/* 媒体查询 - 纵向屏幕（orientation: portrait） */
+@media only screen and (orientation: portrait) {
+  main .post-content .excerpt {
+    padding-left: 0.5em !important;
+    margin: 0 0 0.5em 0 !important;
+    line-height: 1.4 !important;
+    color: #fff !important;
+    font-family: 'Nunito', monospace !important;
+  }
+  main .post-content .excerpt:has(p) {
+    padding-left: 0 !important;
+  }
+}
+/* 播放器 */
+/* 引入像素化字体 */
+@font-face {
+  font-family: "Pixelated MS Sans Serif";
+  src: url("https://files.catbox.moe/1za99g.woff") format("woff"), url("https://files.catbox.moe/8fwbkl.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pixelated MS Sans Serif";
+  src: url("https://files.catbox.moe/z7csle.woff") format("woff"), url("https://files.catbox.moe/moqhx6.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+/* APlayer Windows 98 Y2K Retro Style */
+.aplayer {
+  font-family: "Pixelated MS Sans Serif", "Nunito", monospace !important;
+  -webkit-font-smoothing: none !important;
+  font-size: 11px !important;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px #808080, inset 2px 2px #fff !important; /* Windows 98 风格立体边框 */
+  background: #c0c0c0 !important; /* 灰色背景 */
+  padding: 3px !important;
+  width: 294px !important; /* 电脑端宽度保持不变 */
+  border-radius: 0 !important;
+  margin: 0 auto !important;
+  display: block !important;
+  position: relative !important;
+  overflow: hidden !important;
+  color: #000 !important; /* 默认文字颜色为黑色 */
+}
+/* 标题栏 */
+.aplayer::before {
+  content: "CD Player" !important;
+  display: block !important;
+  background: linear-gradient(90deg, #f69, #ff8c94, #ffb6c1) !important; /* 网站粉色系渐变 */
+  padding: 2px 2px 2px 3px !important; /* 调整 padding 确保对齐 */
+  font-weight: bold !important;
+  color: #fff !important; /* 白色标题文字 */
+  letter-spacing: 0 !important;
+  font-size: 11px !important;
+  line-height: 16px !important; /* 调整行高以匹配按钮高度 */
+  position: relative !important;
+  z-index: 10 !important; /* 确保标题栏在按钮之上 */
+  width: 100% !important; /* 确保标题栏宽度与播放器一致 */
+  box-sizing: border-box !important; /* 包含 padding 在宽度计算中 */
+}
+/* 信息区域 */
+.aplayer .aplayer-info {
+  margin-left: 88px !important; /* 调整为封面宽度，留出空间 */
+  padding: 5px 7px 5px 10px !important;
+  height: 88px !important; /* 与封面高度一致 */
+  background: #c0c0c0 !important; /* 灰色背景 */
+  border-bottom: 1px solid #808080 !important; /* 灰色边框 */
+  box-shadow: inset 0 -1px #fff !important; /* 白色内阴影 */
+  display: block !important;
+  position: relative !important;
+  width: calc(100% - 88px) !important; /* 确保宽度与播放器对齐 */
+  box-sizing: border-box !important; /* 包含 padding 在宽度计算中 */
+}
+/* 歌曲信息 */
+.aplayer .aplayer-info .aplayer-music {
+  margin: 0 0 5px 0 !important;
+  padding-bottom: 0 !important;
+  height: 20px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  color: #000 !important; /* 黑色文字 */
+  line-height: 27px !important;
+}
+.aplayer .aplayer-info .aplayer-music .aplayer-title {
+  font-size: 14px !important;
+  color: #000 !important; /* 黑色标题 */
+}
+.aplayer .aplayer-info .aplayer-music .aplayer-author {
+  font-size: 12px !important;
+  color: #666 !important; /* 灰色作者 */
+}
+/* 封面样式 */
+.aplayer .aplayer-pic {
+  box-shadow: inset -1px 0 #fff, inset 1px 0 #808080, inset 0 1px #808080, inset 0 -1px #dfdfdf !important; /* 移除底部的白色内阴影 */
+  border: 2px solid #c0c0c0 !important; /* 统一边框颜色为灰色 */
+  border-bottom: 1px solid #808080 !important; /* 与右边底栏一致的灰色边框 */
+  box-shadow: inset 0 -1px #fff !important; /* 与右边底栏一致的白色内阴影 */
+  width: 88px !important; /* 调整高度，与信息区域一致 */
+  height: 88px !important; /* 调整高度，与信息区域一致 */
+  background-size: cover !important;
+  background-position: center !important;
+  position: relative !important;
+  float: left !important;
+  display: block !important;
+  background-color: transparent !important;
+  margin-left: 0px !important; /* 调整间距，增加与左边框的距离 */
+  margin-top: -3px !important; /* 向上延伸，与标题栏对齐 */
+}
+/* 控制区域 */
+.aplayer .aplayer-controller {
+  display: flex !important;
+  flex-direction: column !important; /* 垂直排列 */
+  align-items: stretch !important;
+  position: relative !important;
+  height: 65px !important; /* 保持高度 */
+  margin-top: 5px !important;
+  width: 100% !important; /* 确保宽度与播放器对齐 */
+}
+/* 进度条 */
+.aplayer .aplayer-bar-wrap {
+  margin: 0 0 5px 0 !important;
+  padding: 10px 0 !important;
+  flex: 0 0 auto !important; /* 固定高度 */
+}
+.aplayer .aplayer-bar {
+  background: #000 !important; /* 黑色背景 */
+  box-shadow: 1px 0 0 #fff, 1px 1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #808080, -1px -1px 0 #808080, 0 -1px 0 #808080, -1px 1px 0 #fff, 1px -1px #808080 !important; /* 立体边框 */
+  height: 2px !important;
+}
+.aplayer .aplayer-loaded {
+  background: #808080 !important; /* 灰色加载进度 */
+}
+.aplayer .aplayer-played {
+  background: var(--border-color) !important; /* 使用网站粉色 #FF6699 */
+}
+.aplayer .aplayer-thumb {
+  background-image: url("https://raw.githubusercontent.com/jdan/98.css/main/icon/indicator-horizontal.svg") !important;
+  width: 11px !important;
+  height: 21px !important;
+  margin-top: -10px !important;
+  transform: scale(1) !important;
+}
+/* 时间显示 */
+.aplayer .aplayer-time {
+  color: #222 !important;
+  font-family: "Pixelated MS Sans Serif", "Nunito", monospace !important;
+  font-size: 11px !important;
+  padding-left: 7px !important;
+  bottom: 6px !important; /* 调整位置，向上移动 */
+  height: 16px !important; /* 与标题栏高度一致 */
+  line-height: 16px !important; /* 与标题栏对齐 */
+}
+/* 控制按钮容器 */
+.aplayer .aplayer-controller .aplayer-time + div {
+  display: none !important; /* 隐藏原始控制按钮区域 */
+}
+/* 移动控制按钮到标题栏 */
+.aplayer .aplayer-icon-back,
+.aplayer .aplayer-icon-play,
+.aplayer .aplayer-icon-forward,
+.aplayer .aplayer-icon-loop,
+.aplayer .aplayer-icon-menu {
+  display: inline-block !important; /* 确保按钮显示 */
+  position: absolute !important;
+  top: 0px !important; /* 向下调整，与时间对齐 */
+  width: 16px !important;
+  height: 16px !important; /* 调整高度与标题栏一致 */
+  background: transparent !important; /* 移除背景 */
+  box-shadow: none !important; /* 移除立体效果 */
+  cursor: pointer !important;
+  z-index: 20 !important; /* 确保按钮在标题栏之上 */
+}
+/* 调整每个按钮的位置 */
+.aplayer .aplayer-icon-back {
+  right: 82px !important; /* 上一首 */
+}
+.aplayer .aplayer-icon-play {
+  right: 64px !important; /* 播放/暂停 */
+}
+.aplayer .aplayer-icon-forward {
+  right: 46px !important; /* 下一首 */
+}
+.aplayer .aplayer-icon-loop {
+  right: 28px !important; /* 循环模式 */
+}
+.aplayer .aplayer-icon-menu {
+  right: 10px !important; /* 歌单展开/收起 */
+}
+/* 控制按钮样式 */
+.aplayer .aplayer-icon path {
+  fill: #333 !important; /* 深灰色图标 */
+}
+.aplayer .aplayer-icon:hover path {
+  fill: var(--border-color) !important; /* 悬停时图标变为粉色 #FF6699 */
+}
+/* 播放列表 */
+.aplayer.aplayer-withlist .aplayer-info {
+  border-bottom: 1px solid #808080 !important;
+  box-shadow: inset 0 -1px #fff !important;
+}
+.aplayer .aplayer-list {
+  background: #fff !important;
+  box-shadow: inset -1px -1px #fff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a !important; /* 调整立体边框 */
+  border-top: 2px solid #c0c0c0 !important; /* 灰色边框 */
+  margin: 0 !important;
+  width: 100% !important; /* 确保宽度与播放器对齐 */
+  display: block !important;
+}
+/* 播放列表内容 */
+.aplayer .aplayer-list ol {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.aplayer .aplayer-list ol li {
+  border-top: 1px dotted #000 !important; /* 黑色虚线分隔 */
+  padding: 4px 8px 4px 12px !important; /* 增加左内边距，避免背景覆盖左边框 */
+  margin-left: 2px !important; /* 向右偏移，避免背景覆盖左边框 */
+  font-size: 11px !important;
+  color: #000 !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  position: relative !important;
+}
+/* 紫色条样式 */
+.aplayer .aplayer-list ol li .aplayer-list-cur {
+  background-color: #ad7a86 !important; /* 紫色条颜色 */
+  width: 3px !important; /* 宽度保持不变 */
+  height: 16px !important; /* 加长紫色条，从 11px 增加到 16px */
+  position: absolute !important;
+  left: 2px !important; /* 与左边框对齐，但不覆盖边框 */
+  top: 50% !important; /* 垂直居中 */
+  transform: translateY(-50%) !important; /* 调整垂直居中 */
+}
+/* 歌曲序号 */
+.aplayer .aplayer-list ol li .aplayer-list-index {
+  color: #666 !important;
+  margin-right: 12px !important;
+  cursor: pointer !important;
+  line-height: 32px !important; /* 与 li 高度一致，确保垂直居中 */
+}
+/* 歌曲作者 */
+.aplayer .aplayer-list ol li .aplayer-list-author {
+  color: #666 !important;
+  float: right !important;
+  cursor: pointer !important;
+}
+/* 悬停和选中状态 */
+.aplayer .aplayer-list ol li:hover {
+  background: #dfdfdf !important; /* 深灰色背景 */
+  color: #000 !important;
+}
+.aplayer .aplayer-list ol li.aplayer-list-light {
+  background: #e9e9e9 !important; /* 选中时的深灰色背景 */
+  color: #000 !important;
+}
+/* 滚动条 */
+.aplayer .aplayer-list ol::-webkit-scrollbar {
+  width: 5px !important;
+}
+.aplayer .aplayer-list ol::-webkit-scrollbar-thumb {
+  border-radius: 0 !important;
+  background-color: #c0c0c0 !important;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff !important;
+}
+.aplayer .aplayer-list ol::-webkit-scrollbar-thumb:hover {
+  background-color: #dfdfdf !important;
+}
+/* 移除不必要的元素 */
+.aplayer .aplayer-pic .aplayer-button {
+  display: none !important; /* 移除封面上的播放/暂停按钮 */
+}
+.aplayer .aplayer-volume-wrap {
+  display: none !important; /* 移除音量控制 */
+}
+.aplayer .aplayer-icon-order {
+  display: none !important; /* 移除顺序播放图标 */
+}
+.aplayer .aplayer-lrc {
+  display: none !important; /* 移除歌词 */
+}
+/* 移动端适配 */
+@media only screen and (max-width: 880px) {
+  .aplayer {
+    width: 280px !important; /* 移动端宽度调整为 280px，比电脑端 294px 略小 */
+    margin: 0.25rem auto !important;
+  }
+}
+@media only screen and (orientation: portrait) {
+  .aplayer {
+    width: 280px !important; /* 移动端宽度调整为 280px，比电脑端 294px 略小 */
+    margin: 0.25rem auto !important;
   }
 }

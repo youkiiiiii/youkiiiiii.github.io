@@ -1,0 +1,7 @@
+.aplayer {
+    background: #fff; /* 修改背景颜色 */
+    color: #333;      /* 修改文字颜色 */
+  }
+  .aplayer .aplayer-list {
+    background: #f9f9f9; /* 修改播放列表背景颜色 */
+  }
