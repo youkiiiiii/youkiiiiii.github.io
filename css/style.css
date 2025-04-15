@@ -3,7 +3,7 @@
 /* these are variables that are being used in the code */
 :root {
   --header-image: url("https://nyaa.neocities.org/sozai/decometest6.png");
-  --body-bg-image: url("https://sadhost.neocities.org/images/tiles/nurple-static-bright.gif");
+  --body-bg-image: url("https://pic1.imgdb.cn/item/67f3ea5de381c3632beea05c.gif");
   --content: #43256e;
   --border-color: #f69; /* 更新为新的粉色色调 */
   --text-color: #4f3d46; /* 未使用，改为直接用白色 */
@@ -450,90 +450,192 @@ main .post-content blockquote {
 /* Markdown 代码块样式 - 简单单层框 */
 main .post-content .highlight {
   position: relative !important;
-  margin: 0.5em 0 !important;
-  border-radius: 4px !important;
-  line-height: 1.2em !important;
-  background-color: #1e1e2f !important; /* 保持深色背景 */
+  margin: 0.8em 0 !important;
+  border-radius: 8px !important;
+  line-height: 1.4em !important;
+  background: linear-gradient(145deg, #1a1a2a, #252535) !important;
   overflow-x: auto !important;
-  border: 1px solid #f69 !important; /* 简单粉色边框 */
+  border: 2px solid transparent !important;
+  border-image: linear-gradient(to right, #f69, #fcf) 1 !important;
   width: 100% !important;
   box-sizing: border-box !important;
   font-family: 'Nunito', monospace !important;
-  padding: 0 !important; /* 移除所有内边距，确保分割线与边框对齐 */
-  display: flex !important; /* 使用 flex 布局 */
-  box-shadow: none !important; /* 移除所有阴影 */
+  padding: 0 !important;
+  display: flex !important;
+  box-shadow: 0 3px 10px rgba(255,102,153,0.25) !important;
+  transition: box-shadow 0.3s ease, max-height 0.4s ease;
+}
+/* 悬停增强效果 */
+main .post-content .highlight:hover {
+  box-shadow: 0 5px 15px rgba(255,102,153,0.35) !important;
+}
+/* 折叠和展开状态 */
+main .post-content .highlight.collapsed {
+  max-height: 320px;
+  overflow-y: hidden;
+}
+main .post-content .highlight.expanded {
+  max-height: none;
+  overflow-y: auto;
+}
+/* 确保折叠时内部元素受限 */
+main .post-content .highlight.collapsed .code,
+main .post-content .highlight.collapsed .gutter,
+main .post-content .highlight.collapsed .code pre,
+main .post-content .highlight.collapsed .gutter pre {
+  max-height: 300px; /* 留出按钮空间 */
+  overflow: hidden;
+}
+/* 移除底部多余空间 */
+main .post-content .highlight .code pre,
+main .post-content .highlight .gutter pre {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 /* 使用 flex 布局，确保行号和代码并排 */
 main .post-content .highlight .gutter {
-  background-color: #2d2d3d !important; /* 行号背景 */
-  color: #a0a0a0 !important; /* 灰色行号 */
-  padding: 0 1em 0 0.5em !important; /* 仅保留左右内边距，移除上下内边距 */
+  background: linear-gradient(to bottom, #2a2a3a, #323248) !important;
+  color: #c0c0c0 !important;
+  padding: 0 !important;
   text-align: right !important;
-  width: 3em !important; /* 固定行号宽度 */
-  flex-shrink: 0 !important; /* 防止行号区域被压缩 */
-  user-select: none !important; /* 防止选中行号 */
-  border-right: 1px solid #f69 !important; /* 粉色分隔线 */
-  box-shadow: none !important; /* 强制移除阴影 */
+  width: 3.8em !important;
+  flex-shrink: 0 !important;
+  user-select: none !important;
+  border-right: 1px solid #f69 !important;
+  box-shadow: none !important;
   border-left: none !important;
   border-top: none !important;
   border-bottom: none !important;
-  margin: 0 !important; /* 确保无额外间距 */
+  margin: 0 !important;
 }
-main .post-content .highlight .code {
-  flex-grow: 1 !important; /* 代码区域占满剩余空间 */
-  padding: 0 0.5em !important; /* 仅保留左右内边距，移除上下内边距 */
-  color: #e0e0e0 !important; /* 浅灰色文本 */
-  background-color: #1e1e2f !important; /* 确保背景一致 */
-  box-shadow: none !important; /* 强制移除阴影 */
+/* 行号内部对齐 */
+main .post-content .highlight .gutter pre {
+  margin: 0 !important;
+  padding: 0.6em 1.2em 0 0.6em !important;
+  background: none !important;
   border: none !important;
-  margin: 0 !important; /* 确保无额外间距 */
+  box-shadow: none !important;
+  line-height: 1.4em !important;
 }
-/* 强制移除内部元素的背景覆盖和阴影 */
+main .post-content .highlight .gutter pre code {
+  line-height: 1.4em !important;
+  display: block !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  white-space: pre !important;
+}
+/* 代码区域 */
+main .post-content .highlight .code {
+  flex-grow: 1 !important;
+  padding: 0.6em 0.8em 0 0.8em !important;
+  color: #f5f5f5 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  margin: 0 !important;
+}
+/* 强制同步代码行和行号 */
 main .post-content .highlight .code pre,
 main .post-content .highlight .code pre code {
   margin: 0 !important;
   padding: 0 !important;
-  background: #1e1e2f !important; /* 强制背景一致 */
-  border: none !important; /* 移除边框 */
-  box-shadow: none !important; /* 强制移除阴影 */
-  line-height: 1.2em !important; /* 确保行高一致 */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  line-height: 1.4em !important;
+  display: block !important;
+  white-space: pre !important;
 }
-main .post-content .highlight .gutter pre {
+main .post-content .highlight .code pre .line {
+  height: 1.4em !important;
+  box-shadow: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  background: none !important; /* 移除背景色 */
-  border: none !important; /* 移除边框 */
-  box-shadow: none !important; /* 强制移除阴影 */
-  line-height: 1.2em !important; /* 确保行高一致 */
-}
-/* 确保代码行高度一致 */
-main .post-content .highlight .code pre .line {
-  height: 1.2em !important; /* 与 line-height 一致 */
-  box-shadow: none !important; /* 强制移除行阴影 */
-  margin: 0 !important; /* 确保无额外间距 */
-  padding: 0 !important; /* 确保无额外内边距 */
 }
 /* 覆盖默认的 pre 和 code 样式 */
 main .post-content pre,
 main .post-content code {
   font-family: 'Nunito', monospace !important;
-  font-size: 0.9em !important;
-  box-shadow: none !important; /* 确保无阴影 */
+  font-size: 1em !important;
+  box-shadow: none !important;
 }
 /* 行内代码样式 */
 main .post-content code {
-  background: rgba(255,102,153,0.15) !important; /* 保持背景透明度 */
-  color: #ff8c94 !important; /* 保持粉色系中色 */
-  padding: 0.1em 0.3em !important; /* 保持内边距 */
-  border-radius: 2px !important; /* 保持圆角 */
-  margin: 0 0.2em !important; /* 保持水平外边距 */
-  border: none !important; /* 移除所有边框 */
-  border-left: 1px solid rgba(255,102,153,0.3) !important; /* 仅保留左右边框 */
-  border-right: 1px solid rgba(255,102,153,0.3) !important;
-  box-shadow: none !important; /* 确保无阴影 */
-  display: inline !important; /* 确保为行内元素 */
-  vertical-align: middle !important; /* 垂直居中对齐 */
-  line-height: 1 !important; /* 确保内部行高不影响外部 */
+  background: rgba(255,102,153,0.25) !important;
+  color: #f9a !important;
+  padding: 0.15em 0.5em !important;
+  border-radius: 4px !important;
+  margin: 0 0.3em !important;
+  border: none !important;
+  border-left: 1px solid rgba(255,102,153,0.5) !important;
+  border-right: 1px solid rgba(255,102,153,0.5) !important;
+  box-shadow: none !important;
+  display: inline !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+}
+/* 按钮容器 */
+main .post-content .highlight .button-container {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  display: flex !important;
+  gap: 8px !important;
+  z-index: 100 !important; /* 提高层级，避免被遮挡 */
+}
+/* 复制按钮样式 */
+main .post-content .highlight .copy-button {
+  display: block !important; /* 强制显示 */
+  padding: 4px 12px;
+  background: rgba(255,102,153,0.5);
+  border: 1px solid #f69;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Nunito', monospace;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+main .post-content .highlight .copy-button:hover {
+  background: rgba(255,102,153,0.7);
+  transform: scale(1.08);
+  box-shadow: 0 2px 6px rgba(255,102,153,0.5);
+}
+/* 展开/收起按钮样式 */
+main .post-content .highlight .toggle-button {
+  display: block !important; /* 强制显示 */
+  padding: 4px 12px;
+  background: rgba(255,102,153,0.5);
+  border: 1px solid #f69;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Nunito', monospace;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+main .post-content .highlight .toggle-button:hover {
+  background: rgba(255,102,153,0.7);
+  transform: scale(1.08);
+  box-shadow: 0 2px 6px rgba(255,102,153,0.5);
+}
+/* 优化滚动条样式 */
+main .post-content .highlight::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+main .post-content .highlight::-webkit-scrollbar-track {
+  background: #2a2a3a !important;
+  border-radius: 3px !important;
+  box-shadow: inset 0 0 4px rgba(255,102,153,0.3) !important;
+}
+main .post-content .highlight::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #f69, #fcf) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 0 6px rgba(255,102,153,0.5) !important;
+}
+main .post-content .highlight::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #fcf, #f69) !important;
 }
 /* highlight.js 高亮颜色自定义 */
 main .post-content .highlight .hljs-keyword {
@@ -607,11 +709,32 @@ main .post-content hr {
 }
 /* Markdown 图片样式 - 移除边框 */
 main .post-content img {
-  max-width: 100% !important; /* 限制图片宽度不超过框 */
+  max-width: 100% !important; /* 限制图片宽度不超过容器 */
   height: auto !important;
   display: block !important;
-  margin: 0.5em auto !important;
-  border: none !important; /* 移除边框 */
+  margin: 0.5em auto !important; /* 上下外边距 0.5em，左右自动居中 */
+  border: none !important;
+}
+/* 针对列表中的图片，抵消缩进并强制居中 */
+main .post-content ul li img,
+main .post-content ol li img {
+  position: relative !important; /* 使用相对定位 */
+  left: -1.5em !important; /* 抵消 li 的 padding-left: 1.5em */
+  width: calc(100% + 1.5em) !important; /* 扩展宽度以匹配原始可用空间 */
+  max-width: none !important; /* 防止 max-width 限制宽度 */
+  margin: 0.5em auto !important; /* 保持居中 */
+}
+/* 针对嵌套列表中的图片（二级列表） */
+main .post-content ul ul li img,
+main .post-content ol ol li img {
+  left: -3em !important; /* 抵消两级缩进 (1.5em + 1.5em) */
+  width: calc(100% + 3em) !important; /* 扩展宽度以匹配 */
+}
+/* 针对更深层嵌套列表（三级列表） */
+main .post-content ul ul ul li img,
+main .post-content ol ol ol li img {
+  left: -4.5em !important; /* 抵消三级缩进 (1.5em + 1.5em + 1.5em) */
+  width: calc(100% + 4.5em) !important;
 }
 /* 文章页面 - 多个 main 框的容器 */
 #main-wrapper {
@@ -1061,11 +1184,20 @@ footer a:hover {
   }
   main .post-content ul,
   main .post-content ol {
-    padding: 0 0 0 0.5em !important; /* 保持与正文相同的左内边距 */
-    margin: 0 0 0.5em 0 !important;
-    color: #fff !important;
-    font-family: 'Nunito', monospace !important;
-    list-style: none !important; /* 移除默认标记 */
+    padding-right: 0.5em !important; /* 与段落的右内边距一致 */
+    padding-left: 0.5em !important; /* 保持左内边距 */
+    margin-right: 0 !important; /* 确保无额外外边距 */
+  }
+  main .post-content ul li,
+  main .post-content ol li {
+    padding-right: 0 !important; /* 移除 li 的右内边距，确保内容不溢出 */
+  }
+  main .post-content ul ul,
+  main .post-content ol ol,
+  main .post-content ul ol,
+  main .post-content ol ul {
+    padding-right: 0.5em !important; /* 嵌套列表的右内边距 */
+    margin-right: 0 !important; /* 确保嵌套列表无额外外边距 */
   }
   main .post-content ul li {
     position: relative !important;
@@ -1259,6 +1391,24 @@ footer a:hover {
     margin: 0.5em auto !important;
     border: none !important;
   }
+  main .post-content ul li img,
+  main .post-content ol li img {
+    position: relative !important;
+    left: -1.5em !important;
+    width: calc(100% + 1.5em) !important;
+    max-width: none !important;
+    margin: 0.5em auto !important;
+  }
+  main .post-content ul ul li img,
+  main .post-content ol ol li img {
+    left: -3em !important;
+    width: calc(100% + 3em) !important;
+  }
+  main .post-content ul ul ul li img,
+  main .post-content ol ol ol li img {
+    left: -4.5em !important;
+    width: calc(100% + 4.5em) !important;
+  }
   aside,
   #updatesSidebar,
   #toolsSidebar {
@@ -1417,6 +1567,48 @@ footer a:hover {
   main .post-content .highlight .gutter {
     width: 3em !important; /* 移动端保持行号宽度 */
   }
+  main .post-content ul,
+  main .post-content ol {
+    padding-right: 0.5em !important; /* 与段落的右内边距一致 */
+    padding-left: 0.5em !important; /* 保持左内边距 */
+    margin-right: 0 !important; /* 确保无额外外边距 */
+  }
+  main .post-content ul li,
+  main .post-content ol li {
+    padding-right: 0 !important; /* 移除 li 的右内边距，确保内容不溢出 */
+  }
+  main .post-content ul ul,
+  main .post-content ol ol,
+  main .post-content ul ol,
+  main .post-content ol ul {
+    padding-right: 0.5em !important; /* 嵌套列表的右内边距 */
+    margin-right: 0 !important; /* 确保嵌套列表无额外外边距 */
+  }
+  main .post-content img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0.5em auto !important;
+    border: none !important;
+  }
+  main .post-content ul li img,
+  main .post-content ol li img {
+    position: relative !important;
+    left: -1.5em !important;
+    width: calc(100% + 1.5em) !important;
+    max-width: none !important;
+    margin: 0.5em auto !important;
+  }
+  main .post-content ul ul li img,
+  main .post-content ol ol li img {
+    left: -3em !important;
+    width: calc(100% + 3em) !important;
+  }
+  main .post-content ul ul ul li img,
+  main .post-content ol ol ol li img {
+    left: -4.5em !important;
+    width: calc(100% + 4.5em) !important;
+  }
 }
 /* 为所有 .excerpt 设置左边距 */
 main .post-content .excerpt {
@@ -1456,7 +1648,46 @@ main .post-content .excerpt:has(p) {
     padding-left: 0 !important;
   }
 }
+/* 防止 main 和 #main-wrapper 产生滚动条 */
+main,
+#main-wrapper {
+  overflow: hidden !important; /* 隐藏溢出内容，避免外部滚动条 */
+}
+/* 确保 main 的宽度包含边框和内边距 */
+main {
+  box-sizing: border-box !important; /* 确保宽度计算包含边框和内边距 */
+  width: 690px !important; /* 保持固定宽度 */
+  padding: 0 0 0.25em 0 !important; /* 原有内边距 */
+}
+/* 移动端适配 */
+@media only screen and (max-width: 880px) {
+  main,
+  #main-wrapper {
+    width: 92vw !important;
+    overflow: hidden !important; /* 移动端也隐藏溢出 */
+  }
+}
+@media only screen and (orientation: portrait) {
+  main,
+  #main-wrapper {
+    width: 92vw !important;
+    overflow: hidden !important; /* 纵向屏幕也隐藏溢出 */
+  }
+}
+figure {
+  text-align: center;
+  margin: 10px 0;
+  padding: 0; /* 确保 figure 无额外内边距 */
+}
+figcaption {
+  font-size: 14px;
+  color: #fff;
+  margin-top: 2px !important; /* 强制设置顶部间距为 2px */
+  padding: 0; /* 移除可能影响间距的内边距 */
+  line-height: 0.1; /* 防止行高影响间距 */
+}
 /* 播放器 */
+/* aplayer-custom.css */
 /* 引入像素化字体 */
 @font-face {
   font-family: "Pixelated MS Sans Serif";
@@ -1655,7 +1886,10 @@ main .post-content .excerpt:has(p) {
 .aplayer .aplayer-list ol {
   padding: 0 !important;
   margin: 0 !important;
+  list-style-type: none !important; /* 移除默认序号 */
+  list-style: none !important; /* 确保无默认样式 */
 }
+/* 播放列表项 */
 .aplayer .aplayer-list ol li {
   border-top: 1px dotted #000 !important; /* 黑色虚线分隔 */
   padding: 4px 8px 4px 12px !important; /* 增加左内边距，避免背景覆盖左边框 */
@@ -1665,6 +1899,14 @@ main .post-content .excerpt:has(p) {
   height: 32px !important;
   line-height: 32px !important;
   position: relative !important;
+  list-style-type: none !important; /* 移除默认序号 */
+  list-style: none !important; /* 确保无默认样式 */
+  counter-reset: none !important; /* 移除可能的计数器 */
+}
+/* 移除 Markdown 样式添加的 ::before 伪元素 */
+.aplayer .aplayer-list ol li::before {
+  content: none !important; /* 移除 Markdown 样式添加的序号 */
+  display: none !important;
 }
 /* 紫色条样式 */
 .aplayer .aplayer-list ol li .aplayer-list-cur {
