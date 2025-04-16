@@ -1688,293 +1688,922 @@ figcaption {
 }
 /* 播放器 */
 /* aplayer-custom.css */
-/* 引入像素化字体 */
+/* 加载字体 - 使用 Noto Sans 系列，支持多语言（简体中文、日文、韩文、拉丁字母） */
 @font-face {
-  font-family: "Pixelated MS Sans Serif";
-  src: url("https://files.catbox.moe/1za99g.woff") format("woff"), url("https://files.catbox.moe/8fwbkl.woff2") format("woff2");
-  font-weight: normal;
+  font-family: 'Noto Sans SC';
+  src: url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.17/files/noto-sans-sc-chinese-simplified-700-normal.woff2") format('woff2'), url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.17/files/noto-sans-sc-chinese-simplified-700-normal.woff") format('woff');
+  font-weight: 700; /* Bold */
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
-  font-family: "Pixelated MS Sans Serif";
-  src: url("https://files.catbox.moe/z7csle.woff") format("woff"), url("https://files.catbox.moe/moqhx6.woff2") format("woff2");
-  font-weight: bold;
+  font-family: 'Noto Sans JP';
+  src: url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-jp@5.0.17/files/noto-sans-jp-japanese-700-normal.woff2") format('woff2'), url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-jp@5.0.17/files/noto-sans-jp-japanese-700-normal.woff") format('woff');
+  font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
-/* APlayer Windows 98 Y2K Retro Style */
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-kr@5.0.17/files/noto-sans-kr-korean-700-normal.woff2") format('woff2'), url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-kr@5.0.17/files/noto-sans-kr-korean-700-normal.woff") format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  src: url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans@5.0.17/files/noto-sans-latin-700-normal.woff2") format('woff2'), url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans@5.0.17/files/noto-sans-latin-700-normal.woff") format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* 定义全局变量，方便后续维护 */
+:root {
+  --primary-pink: #f69; /* 主色调：粉色 */
+  --secondary-purple: #d8bfd8; /* 辅助色调：紫色 */
+  --light-pink: #ffb6c1; /* 浅粉色 */
+  --glow-pink: rgba(255,102,153,0.7); /* 粉色光晕 */
+  --glow-purple: rgba(216,191,216,0.3); /* 紫色光晕 */
+  --glow-blue: rgba(176,224,230,0.3); /* 浅蓝色光晕 */
+  --inner-glow: rgba(255,235,245,0.3); /* 极浅粉色内发光 */
+  --border-radius: 20px; /* 默认圆角 */
+  --border-radius-mobile: 25px; /* 移动端圆角 */
+  --player-height: 90px; /* 播放器高度 */
+  --list-max-height: 310px; /* 歌曲列表最大高度 */
+  --list-max-height-mobile: 210px; /* 移动端歌曲列表最大高度 */
+}
+/* APlayer Y2K Retro Japanese Cute Style */
 .aplayer {
-  font-family: "Pixelated MS Sans Serif", "Nunito", monospace !important;
-  -webkit-font-smoothing: none !important;
-  font-size: 11px !important;
-  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px #808080, inset 2px 2px #fff !important; /* Windows 98 风格立体边框 */
-  background: #c0c0c0 !important; /* 灰色背景 */
-  padding: 3px !important;
-  width: 294px !important; /* 电脑端宽度保持不变 */
-  border-radius: 0 !important;
+  background: linear-gradient(135deg, rgba(255,102,153,0.2), rgba(216,191,216,0.2)) !important;
+  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans', sans-serif !important;
+  font-weight: 700 !important;
   margin: 0 auto !important;
-  display: block !important;
+  border: none !important;
+  border-radius: var(--border-radius) !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  line-height: normal !important;
   position: relative !important;
+  color: #fff !important;
+  width: 100% !important;
+  max-width: 650px !important;
+  height: auto !important;
+  min-height: var(--player-height) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 15px var(--glow-pink), 0 0 20px var(--glow-purple), 0 0 25px var(--glow-blue) !important;
   overflow: hidden !important;
-  color: #000 !important; /* 默认文字颜色为黑色 */
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
-/* 标题栏 */
-.aplayer::before {
-  content: "CD Player" !important;
-  display: block !important;
-  background: linear-gradient(90deg, #f69, #ff8c94, #ffb6c1) !important; /* 网站粉色系渐变 */
-  padding: 2px 2px 2px 3px !important; /* 调整 padding 确保对齐 */
-  font-weight: bold !important;
-  color: #fff !important; /* 白色标题文字 */
-  letter-spacing: 0 !important;
-  font-size: 11px !important;
-  line-height: 16px !important; /* 调整行高以匹配按钮高度 */
-  position: relative !important;
-  z-index: 10 !important; /* 确保标题栏在按钮之上 */
-  width: 100% !important; /* 确保标题栏宽度与播放器一致 */
-  box-sizing: border-box !important; /* 包含 padding 在宽度计算中 */
+.aplayer::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
-/* 信息区域 */
-.aplayer .aplayer-info {
-  margin-left: 88px !important; /* 调整为封面宽度，留出空间 */
-  padding: 5px 7px 5px 10px !important;
-  height: 88px !important; /* 与封面高度一致 */
-  background: #c0c0c0 !important; /* 灰色背景 */
-  border-bottom: 1px solid #808080 !important; /* 灰色边框 */
-  box-shadow: inset 0 -1px #fff !important; /* 白色内阴影 */
-  display: block !important;
-  position: relative !important;
-  width: calc(100% - 88px) !important; /* 确保宽度与播放器对齐 */
-  box-sizing: border-box !important; /* 包含 padding 在宽度计算中 */
-}
-/* 歌曲信息 */
-.aplayer .aplayer-info .aplayer-music {
-  margin: 0 0 5px 0 !important;
-  padding-bottom: 0 !important;
-  height: 20px !important;
+/* 播放器部分（封面和控制区域） */
+.aplayer .aplayer-body {
+  border-top: 3px double var(--primary-pink) !important;
+  border-bottom: 3px double var(--primary-pink) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: 0 0 15px var(--glow-pink), 0 0 20px var(--glow-purple), 0 0 25px var(--glow-blue), inset 0 0 8px var(--inner-glow) !important;
+  background: rgba(0,0,0,0.8) !important;
+  height: var(--player-height) !important;
   overflow: hidden !important;
-  white-space: nowrap !important;
-  text-overflow: ellipsis !important;
-  color: #000 !important; /* 黑色文字 */
-  line-height: 27px !important;
-}
-.aplayer .aplayer-info .aplayer-music .aplayer-title {
-  font-size: 14px !important;
-  color: #000 !important; /* 黑色标题 */
-}
-.aplayer .aplayer-info .aplayer-music .aplayer-author {
-  font-size: 12px !important;
-  color: #666 !important; /* 灰色作者 */
-}
-/* 封面样式 */
-.aplayer .aplayer-pic {
-  box-shadow: inset -1px 0 #fff, inset 1px 0 #808080, inset 0 1px #808080, inset 0 -1px #dfdfdf !important; /* 移除底部的白色内阴影 */
-  border: 2px solid #c0c0c0 !important; /* 统一边框颜色为灰色 */
-  border-bottom: 1px solid #808080 !important; /* 与右边底栏一致的灰色边框 */
-  box-shadow: inset 0 -1px #fff !important; /* 与右边底栏一致的白色内阴影 */
-  width: 88px !important; /* 调整高度，与信息区域一致 */
-  height: 88px !important; /* 调整高度，与信息区域一致 */
-  background-size: cover !important;
-  background-position: center !important;
   position: relative !important;
-  float: left !important;
-  display: block !important;
-  background-color: transparent !important;
-  margin-left: 0px !important; /* 调整间距，增加与左边框的距离 */
-  margin-top: -3px !important; /* 向上延伸，与标题栏对齐 */
 }
-/* 控制区域 */
-.aplayer .aplayer-controller {
-  display: flex !important;
-  flex-direction: column !important; /* 垂直排列 */
-  align-items: stretch !important;
+/* 歌曲列表部分（展开时显示） */
+.aplayer.aplayer-withlist .aplayer-list {
+  display: block !important;
+  background: rgba(0,0,0,0.8) !important;
+  border-top: none !important;
+  border-bottom: 3px double var(--primary-pink) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0 0 var(--border-radius) var(--border-radius) !important;
+  box-shadow: 0 0 15px var(--glow-pink), 0 0 20px var(--glow-purple), 0 0 25px var(--glow-blue), inset 0 0 8px var(--inner-glow) !important;
+  height: auto !important;
+  max-height: var(--list-max-height) !important;
+  overflow-y: hidden !important;
   position: relative !important;
-  height: 65px !important; /* 保持高度 */
-  margin-top: 5px !important;
-  width: 100% !important; /* 确保宽度与播放器对齐 */
+  top: 0 !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  opacity: 1 !important;
+  transform: scaleY(1) !important;
+  transform-origin: top !important;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
 }
-/* 进度条 */
-.aplayer .aplayer-bar-wrap {
-  margin: 0 0 5px 0 !important;
-  padding: 10px 0 !important;
-  flex: 0 0 auto !important; /* 固定高度 */
+/* 歌曲列表收起时的样式 */
+.aplayer.aplayer-withlist.aplayer-list-hide .aplayer-list {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  transform: scaleY(0.95) !important;
+  transform-origin: top !important;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
 }
-.aplayer .aplayer-bar {
-  background: #000 !important; /* 黑色背景 */
-  box-shadow: 1px 0 0 #fff, 1px 1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #808080, -1px -1px 0 #808080, 0 -1px 0 #808080, -1px 1px 0 #fff, 1px -1px #808080 !important; /* 立体边框 */
-  height: 2px !important;
+/* 收起歌曲列表时，播放器部分调整 */
+.aplayer.aplayer-withlist.aplayer-list-hide .aplayer-body {
+  border-top: 3px double var(--primary-pink) !important;
+  border-bottom: 3px double var(--primary-pink) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: none !important;
+  background: rgba(0,0,0,0.8) !important;
+  height: var(--player-height) !important;
 }
-.aplayer .aplayer-loaded {
-  background: #808080 !important; /* 灰色加载进度 */
+/* 收起歌曲列表时，整体高度调整 */
+.aplayer.aplayer-withlist.aplayer-list-hide {
+  border: none !important;
+  box-shadow: none !important;
+  min-height: var(--player-height) !important;
+  height: var(--player-height) !important;
 }
-.aplayer .aplayer-played {
-  background: var(--border-color) !important; /* 使用网站粉色 #FF6699 */
+/* 针对 .aplayer-list 的滚动条，强制隐藏 */
+.aplayer .aplayer-list::-webkit-scrollbar,
+.aplayer-wrap .aplayer .aplayer-list::-webkit-scrollbar,
+.aplayer-container .aplayer .aplayer-list::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
-.aplayer .aplayer-thumb {
-  background-image: url("https://raw.githubusercontent.com/jdan/98.css/main/icon/indicator-horizontal.svg") !important;
-  width: 11px !important;
-  height: 21px !important;
-  margin-top: -10px !important;
-  transform: scale(1) !important;
-}
-/* 时间显示 */
-.aplayer .aplayer-time {
-  color: #222 !important;
-  font-family: "Pixelated MS Sans Serif", "Nunito", monospace !important;
-  font-size: 11px !important;
-  padding-left: 7px !important;
-  bottom: 6px !important; /* 调整位置，向上移动 */
-  height: 16px !important; /* 与标题栏高度一致 */
-  line-height: 16px !important; /* 与标题栏对齐 */
-}
-/* 控制按钮容器 */
-.aplayer .aplayer-controller .aplayer-time + div {
-  display: none !important; /* 隐藏原始控制按钮区域 */
-}
-/* 移动控制按钮到标题栏 */
-.aplayer .aplayer-icon-back,
-.aplayer .aplayer-icon-play,
-.aplayer .aplayer-icon-forward,
-.aplayer .aplayer-icon-loop,
-.aplayer .aplayer-icon-menu {
-  display: inline-block !important; /* 确保按钮显示 */
-  position: absolute !important;
-  top: 0px !important; /* 向下调整，与时间对齐 */
-  width: 16px !important;
-  height: 16px !important; /* 调整高度与标题栏一致 */
-  background: transparent !important; /* 移除背景 */
-  box-shadow: none !important; /* 移除立体效果 */
-  cursor: pointer !important;
-  z-index: 20 !important; /* 确保按钮在标题栏之上 */
-}
-/* 调整每个按钮的位置 */
-.aplayer .aplayer-icon-back {
-  right: 82px !important; /* 上一首 */
-}
-.aplayer .aplayer-icon-play {
-  right: 64px !important; /* 播放/暂停 */
-}
-.aplayer .aplayer-icon-forward {
-  right: 46px !important; /* 下一首 */
-}
-.aplayer .aplayer-icon-loop {
-  right: 28px !important; /* 循环模式 */
-}
-.aplayer .aplayer-icon-menu {
-  right: 10px !important; /* 歌单展开/收起 */
-}
-/* 控制按钮样式 */
-.aplayer .aplayer-icon path {
-  fill: #333 !important; /* 深灰色图标 */
-}
-.aplayer .aplayer-icon:hover path {
-  fill: var(--border-color) !important; /* 悬停时图标变为粉色 #FF6699 */
-}
-/* 播放列表 */
-.aplayer.aplayer-withlist .aplayer-info {
-  border-bottom: 1px solid #808080 !important;
-  box-shadow: inset 0 -1px #fff !important;
-}
-.aplayer .aplayer-list {
-  background: #fff !important;
-  box-shadow: inset -1px -1px #fff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a !important; /* 调整立体边框 */
-  border-top: 2px solid #c0c0c0 !important; /* 灰色边框 */
-  margin: 0 !important;
-  width: 100% !important; /* 确保宽度与播放器对齐 */
-  display: block !important;
-}
-/* 播放列表内容 */
+/* 针对播放器列表的 ol 元素，设置滚动条样式 */
 .aplayer .aplayer-list ol {
-  padding: 0 !important;
+  list-style-type: none !important;
   margin: 0 !important;
-  list-style-type: none !important; /* 移除默认序号 */
-  list-style: none !important; /* 确保无默认样式 */
+  padding: 0 !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+  box-sizing: border-box !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--primary-pink) transparent !important;
 }
-/* 播放列表项 */
+/* Webkit 浏览器滚动条样式 - 针对 ol */
+.aplayer .aplayer-list ol::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+  display: block !important;
+}
+.aplayer .aplayer-list ol::-webkit-scrollbar-track {
+  background: transparent !important;
+  border-radius: 3px !important;
+}
+.aplayer .aplayer-list ol::-webkit-scrollbar-thumb {
+  border-radius: 3px !important;
+  background: linear-gradient(90deg, var(--primary-pink), var(--secondary-purple)) !important;
+}
+.aplayer .aplayer-list ol::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, var(--secondary-purple), var(--primary-pink)) !important;
+}
+/* 列表项样式 */
 .aplayer .aplayer-list ol li {
-  border-top: 1px dotted #000 !important; /* 黑色虚线分隔 */
-  padding: 4px 8px 4px 12px !important; /* 增加左内边距，避免背景覆盖左边框 */
-  margin-left: 2px !important; /* 向右偏移，避免背景覆盖左边框 */
-  font-size: 11px !important;
-  color: #000 !important;
+  list-style-type: none !important;
+  position: relative !important;
   height: 32px !important;
   line-height: 32px !important;
-  position: relative !important;
-  list-style-type: none !important; /* 移除默认序号 */
-  list-style: none !important; /* 确保无默认样式 */
-  counter-reset: none !important; /* 移除可能的计数器 */
+  padding: 0 15px !important;
+  font-size: 12px !important;
+  border-top: 1px dashed var(--secondary-purple) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  overflow: hidden !important;
+  color: #fff !important;
+  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans', sans-serif !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 5px var(--glow-pink) !important;
 }
-/* 移除 Markdown 样式添加的 ::before 伪元素 */
 .aplayer .aplayer-list ol li::before {
-  content: none !important; /* 移除 Markdown 样式添加的序号 */
+  content: none !important;
   display: none !important;
 }
-/* 紫色条样式 */
-.aplayer .aplayer-list ol li .aplayer-list-cur {
-  background-color: #ad7a86 !important; /* 紫色条颜色 */
-  width: 3px !important; /* 宽度保持不变 */
-  height: 16px !important; /* 加长紫色条，从 11px 增加到 16px */
-  position: absolute !important;
-  left: 2px !important; /* 与左边框对齐，但不覆盖边框 */
-  top: 50% !important; /* 垂直居中 */
-  transform: translateY(-50%) !important; /* 调整垂直居中 */
+.aplayer .aplayer-list ol li:first-child {
+  border-top: none !important;
 }
-/* 歌曲序号 */
+.aplayer .aplayer-list ol li:hover {
+  background: rgba(216,191,216,0.3) !important;
+}
+.aplayer .aplayer-list ol li.aplayer-list-light {
+  background: rgba(255,102,153,0.5) !important;
+}
+.aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-cur {
+  display: inline-block !important;
+}
+.aplayer .aplayer-list ol li .aplayer-list-cur {
+  display: none !important;
+  width: 3px !important;
+  height: 22px !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 5px !important;
+  cursor: pointer !important;
+  background: var(--primary-pink) !important;
+}
 .aplayer .aplayer-list ol li .aplayer-list-index {
-  color: #666 !important;
+  color: var(--light-pink) !important;
   margin-right: 12px !important;
   cursor: pointer !important;
-  line-height: 32px !important; /* 与 li 高度一致，确保垂直居中 */
+  display: inline-block !important;
+  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans', sans-serif !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 3px var(--glow-purple) !important;
 }
-/* 歌曲作者 */
 .aplayer .aplayer-list ol li .aplayer-list-author {
-  color: #666 !important;
+  color: var(--secondary-purple) !important;
   float: right !important;
   cursor: pointer !important;
 }
-/* 悬停和选中状态 */
-.aplayer .aplayer-list ol li:hover {
-  background: #dfdfdf !important; /* 深灰色背景 */
-  color: #000 !important;
+/* 歌曲标题和作者 */
+.aplayer .aplayer-info .aplayer-music {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  margin: 0 0 13px 5px !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  cursor: default !important;
+  padding-bottom: 2px !important;
+  height: 20px !important;
+  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans', sans-serif !important;
+  font-weight: 700 !important;
 }
-.aplayer .aplayer-list ol li.aplayer-list-light {
-  background: #e9e9e9 !important; /* 选中时的深灰色背景 */
-  color: #000 !important;
+.aplayer .aplayer-info .aplayer-music .aplayer-title {
+  font-size: 16px !important;
+  color: #fff !important;
+  text-shadow: 0 0 5px var(--glow-pink), 1px 1px 0 var(--secondary-purple) !important;
 }
-/* 滚动条 */
-.aplayer .aplayer-list ol::-webkit-scrollbar {
-  width: 5px !important;
+.aplayer .aplayer-info .aplayer-music .aplayer-author {
+  font-size: 14px !important;
+  color: var(--light-pink) !important;
+  text-shadow: 0 0 3px var(--glow-purple) !important;
 }
-.aplayer .aplayer-list ol::-webkit-scrollbar-thumb {
-  border-radius: 0 !important;
-  background-color: #c0c0c0 !important;
-  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff !important;
+/* 播放器图标样式 */
+.aplayer svg {
+  width: 100% !important;
+  height: 100% !important;
 }
-.aplayer .aplayer-list ol::-webkit-scrollbar-thumb:hover {
-  background-color: #dfdfdf !important;
+.aplayer svg circle,
+.aplayer svg path {
+  fill: var(--light-pink) !important;
+  transition: fill 0.3s ease !important;
 }
-/* 移除不必要的元素 */
+.aplayer svg path:hover {
+  fill: #ff8c94 !important;
+}
+.aplayer .aplayer-icon {
+  width: 15px !important;
+  height: 15px !important;
+  border: none !important;
+  background-color: transparent !important;
+  outline: none !important;
+  cursor: pointer !important;
+  opacity: 0.8 !important;
+  vertical-align: middle !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  margin: 0 !important;
+  display: inline-block !important;
+}
+.aplayer .aplayer-icon path {
+  transition: all 0.2s ease-in-out !important;
+  fill: var(--light-pink) !important;
+}
+.aplayer .aplayer-icon:hover path {
+  fill: #ff8c94 !important;
+}
+.aplayer .aplayer-icon-back,
+.aplayer .aplayer-icon-forward,
+.aplayer .aplayer-icon-lrc,
+.aplayer .aplayer-icon-order,
+.aplayer .aplayer-icon-play {
+  display: none !important;
+}
+.aplayer .aplayer-icon-lrc-inactivity svg {
+  opacity: 0.4 !important;
+}
+.aplayer .aplayer-icon-forward {
+  transform: rotate(180deg) !important;
+}
+/* 播放器封面 */
+.aplayer.aplayer-withlrc .aplayer-pic {
+  height: var(--player-height) !important;
+  width: var(--player-height) !important;
+  border-radius: 10px !important;
+  border: 3px double #ffebf5 !important;
+  box-shadow: 0 0 10px var(--glow-pink), 0 0 15px var(--glow-purple) !important;
+}
+.aplayer .aplayer-pic {
+  position: relative !important;
+  float: left !important;
+  height: 66px !important;
+  width: 66px !important;
+  background-size: cover !important;
+  background-position: 50% !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  border-right: 1px dashed var(--secondary-purple) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 8px var(--glow-pink) !important;
+}
+.aplayer .aplayer-pic:hover .aplayer-button {
+  opacity: 1 !important;
+}
 .aplayer .aplayer-pic .aplayer-button {
-  display: none !important; /* 移除封面上的播放/暂停按钮 */
+  position: absolute !important;
+  border-radius: 50% !important;
+  opacity: 0.8 !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2) !important;
+  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-purple)) !important;
+  transition: all 0.1s ease !important;
+  box-shadow: 0 0 8px var(--glow-pink) !important;
 }
-.aplayer .aplayer-volume-wrap {
-  display: none !important; /* 移除音量控制 */
+.aplayer .aplayer-pic .aplayer-button path {
+  fill: #fff !important;
 }
-.aplayer .aplayer-icon-order {
-  display: none !important; /* 移除顺序播放图标 */
+.aplayer .aplayer-pic .aplayer-hide {
+  display: none !important;
+}
+.aplayer .aplayer-pic .aplayer-play {
+  width: 26px !important;
+  height: 26px !important;
+  border: 3px double #ffebf5 !important;
+  bottom: 50% !important;
+  right: 50% !important;
+  margin: 0 -15px -15px 0 !important;
+}
+.aplayer .aplayer-pic .aplayer-pause {
+  width: 16px !important;
+  height: 16px !important;
+  border: 3px double #ffebf5 !important;
+  bottom: 4px !important;
+  right: 4px !important;
+}
+.aplayer .aplayer-pic .aplayer-pause svg {
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  height: 12px !important;
+  width: 12px !important;
+}
+/* 播放器信息区域 */
+.aplayer.aplayer-withlrc .aplayer-info {
+  margin-left: var(--player-height) !important;
+  height: var(--player-height) !important;
+  padding: 10px 7px 0 !important;
+}
+.aplayer .aplayer-info {
+  margin-left: 66px !important;
+  padding: 14px 7px 0 10px !important;
+  height: 66px !important;
+  box-sizing: border-box !important;
+}
+.aplayer.aplayer-withlist .aplayer-info {
+  border-bottom: 1px dashed var(--secondary-purple) !important;
+}
+.aplayer .aplayer-info .aplayer-controller {
+  position: relative !important;
+  display: flex !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap {
+  margin: 0 0 0 5px !important;
+  padding: 4px 0 !important;
+  cursor: pointer !important;
+  flex: 1 !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap:hover .aplayer-bar .aplayer-played .aplayer-thumb {
+  transform: scale(1) !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
+  position: relative !important;
+  height: 4px !important;
+  width: 100% !important;
+  background: rgba(216,191,216,0.3) !important;
+  border-radius: 2px !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  background: rgba(216,191,216,0.6) !important;
+  height: 4px !important;
+  transition: all 0.5s ease !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, var(--primary-pink), var(--secondary-purple)) !important;
+  border-radius: 2px !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
+  position: absolute !important;
+  top: 0 !important;
+  right: 5px !important;
+  margin-top: -6px !important;
+  margin-right: -10px !important;
+  height: 12px !important;
+  width: 12px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease-in-out !important;
+  transform: scale(0) !important;
+  background: var(--light-pink) !important;
+  border: 3px double var(--secondary-purple) !important;
+  box-shadow: 0 0 8px var(--glow-pink) !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-time {
+  position: relative !important;
+  right: 0 !important;
+  bottom: 4px !important;
+  height: 17px !important;
+  color: var(--light-pink) !important;
+  font-size: 11px !important;
+  padding-left: 7px !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-time-inner {
+  vertical-align: middle !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon {
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path {
+  fill: var(--light-pink) !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-loop {
+  margin-right: 2px !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon:hover path {
+  fill: #ff8c94 !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-menu,
+.aplayer .aplayer-info .aplayer-controller .aplayer-time.aplayer-time-narrow .aplayer-icon-menu,
+.aplayer .aplayer-info .aplayer-controller .aplayer-time.aplayer-time-narrow .aplayer-icon-mode {
+  display: none !important;
+}
+.aplayer.aplayer-withlist .aplayer-icon-order,
+.aplayer.aplayer-withlist .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-menu {
+  display: inline !important;
+}
+/* 音量控制 */
+.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap {
+  position: relative !important;
+  display: inline-block !important;
+  margin-left: 3px !important;
+  cursor: pointer !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap:hover .aplayer-volume-bar-wrap {
+  height: 40px !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap {
+  position: absolute !important;
+  bottom: 15px !important;
+  right: -3px !important;
+  width: 25px !important;
+  height: 0 !important;
+  z-index: 99 !important;
+  overflow: hidden !important;
+  transition: all 0.2s ease-in-out !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap.aplayer-volume-bar-wrap-active {
+  height: 40px !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume-bar {
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 10px !important;
+  width: 5px !important;
+  height: 35px !important;
+  background: rgba(216,191,216,0.3) !important;
+  border-radius: 2.5px !important;
+  overflow: hidden !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume {
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  width: 5px !important;
+  background: linear-gradient(0deg, var(--primary-pink), var(--secondary-purple)) !important;
+  transition: all 0.1s ease !important;
+  border-radius: 2.5px !important;
+}
+/* 加载动画 */
+.aplayer.aplayer-loading .aplayer-info .aplayer-controller .aplayer-loading-icon {
+  display: block !important;
+}
+.aplayer.aplayer-loading .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
+  transform: scale(1) !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-loading-icon {
+  display: none !important;
+}
+.aplayer .aplayer-info .aplayer-controller .aplayer-loading-icon svg {
+  position: absolute !important;
+  animation: rotate 1s linear infinite !important;
+}
+/* 歌词样式 */
+.aplayer.aplayer-withlrc .aplayer-lrc {
+  display: block !important;
+  border: none !important;
+  background: transparent !important;
 }
 .aplayer .aplayer-lrc {
-  display: none !important; /* 移除歌词 */
+  display: none !important;
+  position: relative !important;
+  height: 30px !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  margin: -10px 0 7px !important;
+  background: transparent !important;
+}
+.aplayer .aplayer-lrc:before,
+.aplayer .aplayer-lrc:after {
+  display: none !important;
+}
+.aplayer .aplayer-lrc p {
+  font-size: 12px !important;
+  color: #fff !important;
+  line-height: 16px !important;
+  height: 16px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: all 0.5s ease-out !important;
+  opacity: 0.6 !important;
+  overflow: hidden !important;
+  text-shadow: 0 0 8px var(--glow-pink) !important;
+}
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  opacity: 1 !important;
+  overflow: visible !important;
+  height: auto !important;
+  min-height: 16px !important;
+  color: var(--primary-pink) !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 10px var(--glow-pink), 1px 1px 0 var(--secondary-purple) !important;
+}
+.aplayer .aplayer-lrc.aplayer-lrc-hide {
+  display: none !important;
+}
+.aplayer .aplayer-lrc .aplayer-lrc-contents {
+  width: 100% !important;
+  transition: all 0.5s ease-out !important;
+  user-select: text !important;
+  cursor: default !important;
+}
+.aplayer .aplayer-lrc-content {
+  display: none !important;
+}
+/* 通知样式 */
+.aplayer .aplayer-notice {
+  opacity: 0 !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: 12px !important;
+  border-radius: 10px !important;
+  padding: 5px 10px !important;
+  transition: all 0.3s ease-in-out !important;
+  overflow: hidden !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-purple)) !important;
+  box-shadow: 0 0 8px var(--glow-pink) !important;
+}
+/* 迷你模式 */
+.aplayer.aplayer-narrow {
+  width: 66px !important;
+}
+.aplayer.aplayer-narrow .aplayer-info,
+.aplayer.aplayer-narrow .aplayer-list {
+  display: none !important;
+}
+.aplayer.aplayer-narrow .aplayer-body,
+.aplayer.aplayer-narrow .aplayer-pic {
+  height: 66px !important;
+  width: 66px !important;
+}
+/* 固定模式 */
+.aplayer.aplayer-fixed {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 auto !important;
+  z-index: 99 !important;
+  overflow: visible !important;
+  max-width: 650px !important;
+  box-shadow: none !important;
+}
+.aplayer.aplayer-fixed .aplayer-list {
+  margin-bottom: 65px !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  max-height: calc(100vh - 65px) !important;
+  position: fixed !important;
+  bottom: 65px !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: auto !important;
+  opacity: 1 !important;
+  transform: scaleY(1) !important;
+  transform-origin: bottom !important;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
+}
+.aplayer.aplayer-fixed.aplayer-list-hide .aplayer-list {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  transform: scaleY(0.95) !important;
+  transform-origin: bottom !important;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+.aplayer.aplayer-fixed .aplayer-body {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 auto !important;
+  z-index: 99 !important;
+  background: rgba(0,0,0,0.8) !important;
+  padding-right: 18px !important;
+  transition: all 0.3s ease !important;
+  max-width: 650px !important;
+  border-top: 3px double var(--primary-pink) !important;
+  border-bottom: 3px double var(--primary-pink) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+}
+.aplayer.aplayer-fixed .aplayer-lrc {
+  display: block !important;
+  position: fixed !important;
+  bottom: 70px !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
+  z-index: 98 !important;
+  pointer-events: none !important;
+  text-shadow: 0 0 8px var(--glow-pink), 1px 1px 0 var(--secondary-purple) !important;
+  background: transparent !important;
+}
+.aplayer.aplayer-fixed .aplayer-lrc:after,
+.aplayer.aplayer-fixed .aplayer-lrc:before {
+  display: none !important;
+}
+.aplayer.aplayer-fixed .aplayer-info {
+  transform: scaleX(1) !important;
+  transform-origin: 0 0 !important;
+  transition: all 0.3s ease !important;
+  border-bottom: none !important;
+  border-top: 1px dashed var(--secondary-purple) !important;
+}
+.aplayer.aplayer-fixed .aplayer-info .aplayer-music {
+  width: calc(100% - 105px) !important;
+}
+.aplayer.aplayer-fixed .aplayer-miniswitcher {
+  display: block !important;
+}
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-info {
+  display: block !important;
+  transform: scaleX(0) !important;
+}
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  width: 66px !important;
+}
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-miniswitcher .aplayer-icon {
+  transform: rotateY(0) !important;
+}
+.aplayer.aplayer-fixed .aplayer-icon-back,
+.aplayer.aplayer-fixed .aplayer-icon-forward,
+.aplayer.aplayer-fixed .aplayer-icon-lrc,
+.aplayer.aplayer-fixed .aplayer-icon-play {
+  display: inline-block !important;
+}
+.aplayer.aplayer-fixed .aplayer-icon-back,
+.aplayer.aplayer-fixed .aplayer-icon-forward,
+.aplayer.aplayer-fixed .aplayer-icon-menu,
+.aplayer.aplayer-fixed .aplayer-icon-play {
+  position: absolute !important;
+  bottom: 27px !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+.aplayer.aplayer-fixed .aplayer-icon-back {
+  right: 75px !important;
+}
+.aplayer.aplayer-fixed .aplayer-icon-play {
+  right: 50px !important;
+}
+.aplayer.aplayer-fixed .aplayer-icon-forward {
+  right: 25px !important;
+}
+.aplayer.aplayer-fixed .aplayer-icon-menu {
+  right: 0 !important;
+}
+.aplayer.aplayer-arrow .aplayer-icon-loop,
+.aplayer.aplayer-arrow .aplayer-icon-order,
+.aplayer.aplayer-mobile .aplayer-icon-volume-down {
+  display: none !important;
+}
+/* 迷你切换器 */
+.aplayer .aplayer-miniswitcher {
+  display: none !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: 100% !important;
+  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-purple)) !important;
+  width: 18px !important;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
+}
+.aplayer .aplayer-miniswitcher .aplayer-icon {
+  height: 100% !important;
+  width: 100% !important;
+  transform: rotateY(180deg) !important;
+  transition: all 0.3s ease !important;
+}
+.aplayer .aplayer-miniswitcher .aplayer-icon path {
+  fill: #fff !important;
+}
+.aplayer .aplayer-miniswitcher .aplayer-icon:hover path {
+  fill: var(--light-pink) !important;
 }
 /* 移动端适配 */
 @media only screen and (max-width: 880px) {
   .aplayer {
-    width: 280px !important; /* 移动端宽度调整为 280px，比电脑端 294px 略小 */
-    margin: 0.25rem auto !important;
+    max-width: 88vw !important;
+    border-radius: var(--border-radius-mobile) !important;
+  }
+  .aplayer .aplayer-body {
+    border-top: 3px double var(--primary-pink) !important;
+    border-bottom: 3px double var(--primary-pink) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: var(--border-radius-mobile) !important;
+    box-shadow: 0 0 15px var(--glow-pink), 0 0 20px var(--glow-purple), 0 0 25px var(--glow-blue), inset 0 0 8px var(--inner-glow) !important;
+  }
+  .aplayer.aplayer-withlist .aplayer-list {
+    border-top: none !important;
+    border-bottom: 3px double var(--primary-pink) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 0 var(--border-radius-mobile) var(--border-radius-mobile) !important;
+    max-height: var(--list-max-height-mobile) !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    opacity: 1 !important;
+    transform: scaleY(1) !important;
+    transform-origin: top !important;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
+  }
+  .aplayer.aplayer-withlist.aplayer-list-hide .aplayer-list {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    transform: scaleY(0.95) !important;
+    transform-origin: top !important;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+  .aplayer.aplayer-withlist.aplayer-list-hide .aplayer-body {
+    border-top: 3px double var(--primary-pink) !important;
+    border-bottom: 3px double var(--primary-pink) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: var(--border-radius-mobile) !important;
+    box-shadow: none !important;
+  }
+  .aplayer.aplayer-withlist.aplayer-list-hide {
+    min-height: var(--player-height) !important;
+    height: var(--player-height) !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .aplayer.aplayer-fixed {
+    max-width: 88vw !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-body {
+    max-width: 88vw !important;
+    border-top: 3px double var(--primary-pink) !important;
+    border-bottom: 3px double var(--primary-pink) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: var(--border-radius-mobile) var(--border-radius-mobile) 0 0 !important;
   }
 }
+/* 针对纵向屏幕的适配 */
 @media only screen and (orientation: portrait) {
   .aplayer {
-    width: 280px !important; /* 移动端宽度调整为 280px，比电脑端 294px 略小 */
-    margin: 0.25rem auto !important;
+    max-width: 88vw !important;
+    border-radius: var(--border-radius-mobile) !important;
   }
+  .aplayer .aplayer-body {
+    border-top: 3px double var(--primary-pink) !important;
+    border-bottom: 3px double var(--primary-pink) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: var(--border-radius-mobile) !important;
+    box-shadow: 0 0 15px var(--glow-pink), 0 0 20px var(--glow-purple), 0 0 25px var(--glow-blue), inset 0 0 8px var(--inner-glow) !important;
+  }
+  .aplayer.aplayer-withlist .aplayer-list {
+    border-top: none !important;
+    border-bottom: 3px double var(--primary-pink) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 0 var(--border-radius-mobile) var(--border-radius-mobile) !important;
+    max-height: var(--list-max-height-mobile) !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    opacity: 1 !important;
+    transform: scaleY(1) !important;
+    transform-origin: top !important;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
+  }
+  .aplayer.aplayer-withlist.aplayer-list-hide .aplayer-list {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    transform: scaleY(0.95) !important;
+    transform-origin: top !important;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+  .aplayer.aplayer-withlist.aplayer-list-hide .aplayer-body {
+    border-top: 3px double var(--primary-pink) !important;
+    border-bottom: 3px double var(--primary-pink) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: var(--border-radius-mobile) !important;
+    box-shadow: none !important;
+  }
+  .aplayer.aplayer-withlist.aplayer-list-hide {
+    min-height: var(--player-height) !important;
+    height: var(--player-height) !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .aplayer.aplayer-fixed {
+    max-width: 88vw !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-body {
+    max-width: 88vw !important;
+    border-top: 3px double var(--primary-pink) !important;
+    border-bottom: 3px double var(--primary-pink) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: var(--border-radius-mobile) var(--border-radius-mobile) 0 0 !important;
+  }
+}
+/* 针对 iOS Safari 优化 */
+@supports (-webkit-overflow-scrolling: touch) {
+  .aplayer .aplayer-list::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  .aplayer .aplayer-list ol::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+    display: block !important;
+  }
+  .aplayer .aplayer-list ol::-webkit-scrollbar-track {
+    background: transparent !important;
+    border-radius: 3px !important;
+  }
+  .aplayer .aplayer-list ol::-webkit-scrollbar-thumb {
+    border-radius: 3px !important;
+    background: linear-gradient(90deg, var(--primary-pink), var(--secondary-purple)) !important;
+  }
+  .aplayer .aplayer-list ol::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, var(--secondary-purple), var(--primary-pink)) !important;
+  }
+}
+/* 移除不必要的样式 */
+.aplayer * {
+  box-sizing: content-box !important;
+}
+/* 优化动画性能 */
+.aplayer .aplayer-list {
+  will-change: max-height, opacity, transform !important;
 }
