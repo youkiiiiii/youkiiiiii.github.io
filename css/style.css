@@ -489,7 +489,7 @@ main ol {
   margin: 0 0 0.5em 0 !important;
   color: #fff !important;
   font-family: 'Nunito', monospace !important;
-  list-style: none;
+  list-style: none !important; /* 确保移除默认样式 */
 }
 /* 普通列表项样式 */
 main ul li,
@@ -510,14 +510,18 @@ main ul li::before {
   font-family: 'Nunito', monospace;
 }
 /* 有序列表的编号 */
-main ol {
-  counter-reset: list-counter;
+main .post-content {
+  counter-reset: initial; /* 初始重置，仅用于初始化 */
+}
+main h3 + ol,
+main p + ol {
+  counter-reset: section-list-counter; /* 在 h3 或 p 后的第一个 ol 重置计数器 */
 }
 main ol li {
-  counter-increment: list-counter;
+  counter-increment: section-list-counter; /* 递增计数器 */
 }
 main ol li::before {
-  content: counter(list-counter) ".";
+  content: counter(section-list-counter) "."; /* 使用计数器生成编号 */
   position: absolute;
   left: 0.5em;
   color: #fff;
@@ -555,7 +559,7 @@ main .post-content a:not(.more-toggle):not(.hide-toggle):not([data-fancybox="gal
   transition: all 0.3s ease !important;
   font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
   box-shadow: none !important; /* 移除任何可能的阴影 */
-  text-shadow: none !important; /* 移除任何可能的文本阴影 */
+  text-shadow: none !important; /* 确保无文本阴影 */
 }
 main .post-content a:not(.more-toggle):not(.hide-toggle):not([data-fancybox="gallery"]):hover {
   color: var(--border-color) !important; /* 悬停时保持粉色 */

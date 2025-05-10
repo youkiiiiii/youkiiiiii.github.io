@@ -6,7 +6,7 @@
   <link href="http://youkiiiiii.github.io/atom.xml" rel="self"/>
   
   <link href="http://youkiiiiii.github.io/"/>
-  <updated>2025-05-09T20:05:31.534Z</updated>
+  <updated>2025-05-10T00:15:53.838Z</updated>
   <id>http://youkiiiiii.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo d 部署博客时出现 &quot;spawn failed&quot; 解决办法</title>
+    <link href="http://youkiiiiii.github.io/2025/05/19/hexo-d%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%87%BA%E7%8E%B0spawn%20failed%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://youkiiiiii.github.io/2025/05/19/hexo-d%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%87%BA%E7%8E%B0spawn%20failed%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
+    <published>2025-05-19T14:38:38.000Z</published>
+    <updated>2025-05-10T00:15:53.838Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今天在部署hexo博客时，hexo d后出现”&lt;strong&gt;Error: Spawn failed&lt;/strong&gt;“报错日志。&lt;br&gt;这表明在执行hexo d时，Hexo无法通过SSH连接到GitHub，导致博客文件部署失败，新文章未能推送到远程仓库。&lt;br&gt;具体解决办法如下。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="http://youkiiiiii.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="hexo" scheme="http://youkiiiiii.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>英语时态笔记</title>
@@ -42,7 +61,7 @@
     <link href="http://youkiiiiii.github.io/2025/04/27/%E3%80%8A%E7%88%86%E6%AC%BE%E5%B0%8F%E7%BA%A2%E4%B9%A6%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E7%99%BE%E4%B8%87%E7%B2%89%E4%B8%9D%E7%9A%84%E7%8E%A9%E8%B5%9A%E7%AD%96%E7%95%A5%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
     <id>http://youkiiiiii.github.io/2025/04/27/%E3%80%8A%E7%88%86%E6%AC%BE%E5%B0%8F%E7%BA%A2%E4%B9%A6%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E7%99%BE%E4%B8%87%E7%B2%89%E4%B8%9D%E7%9A%84%E7%8E%A9%E8%B5%9A%E7%AD%96%E7%95%A5%E3%80%8B%E7%AC%94%E8%AE%B0/</id>
     <published>2025-04-27T12:57:21.000Z</published>
-    <updated>2025-05-03T18:31:40.343Z</updated>
+    <updated>2025-05-09T23:01:44.349Z</updated>
     
     
     <summary type="html">&lt;p&gt;对于小红书运营新手来说，这本书还是有一定参考价值，基础内容比较全面。&lt;br&gt;不足之处也非常明显：内容偏水，干货较少，并且部分方法已不适用于平台新规。&lt;/p&gt;</summary>
@@ -94,7 +113,7 @@
     <link href="http://youkiiiiii.github.io/2025/04/20/Hexo-%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8-APlayer-%E6%A0%B7%E5%BC%8F%E7%BE%8E%E5%8C%96/"/>
     <id>http://youkiiiiii.github.io/2025/04/20/Hexo-%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8-APlayer-%E6%A0%B7%E5%BC%8F%E7%BE%8E%E5%8C%96/</id>
     <published>2025-04-20T13:59:40.000Z</published>
-    <updated>2025-04-23T16:41:53.353Z</updated>
+    <updated>2025-05-09T20:46:46.472Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于Hexo的APlayer音乐播放器，默认样式和当前主题不太搭配，所以用Grok改了两个样式。&lt;br&gt;使用方法是直接把代码粘贴到主题css文件底部，一般在&lt;code&gt;博客根目录&#92;themes&#92;当前主题&#92;source&#92;css&#92;&lt;/code&gt;文件夹中。 &lt;/p&gt;
@@ -102,19 +121,21 @@
     
     
     
-    <category term="随笔" scheme="http://youkiiiiii.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="教程" scheme="http://youkiiiiii.github.io/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="随笔" scheme="http://youkiiiiii.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="hexo" scheme="http://youkiiiiii.github.io/tags/hexo/"/>
+    
+    <category term="APlayer" scheme="http://youkiiiiii.github.io/tags/APlayer/"/>
     
   </entry>
   
   <entry>
-    <title>hexo＋github搭建个人博客</title>
+    <title>Hexo＋GitHub搭建个人博客</title>
     <link href="http://youkiiiiii.github.io/2024/11/27/hexo%EF%BC%8Bgithub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://youkiiiiii.github.io/2024/11/27/hexo%EF%BC%8Bgithub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
     <published>2024-11-27T13:20:46.000Z</published>
-    <updated>2025-02-04T07:34:05.135Z</updated>
+    <updated>2025-05-09T20:44:03.345Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前试过几个hexo搭建教程，大部分都比较复杂，非技术党很难看懂。&lt;br&gt;魂祈梦大佬的教程非常适合我这种不懂代码的小白，跟着步骤就可以顺利搭建。  &lt;/p&gt;</summary>
