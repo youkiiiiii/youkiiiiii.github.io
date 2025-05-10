@@ -6,7 +6,7 @@
   <link href="http://youkiiiiii.github.io/atom.xml" rel="self"/>
   
   <link href="http://youkiiiiii.github.io/"/>
-  <updated>2025-05-10T00:15:53.838Z</updated>
+  <updated>2025-05-10T00:20:10.964Z</updated>
   <id>http://youkiiiiii.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://youkiiiiii.github.io/2025/05/19/hexo-d%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%87%BA%E7%8E%B0spawn%20failed%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
     <id>http://youkiiiiii.github.io/2025/05/19/hexo-d%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%87%BA%E7%8E%B0spawn%20failed%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
     <published>2025-05-19T14:38:38.000Z</published>
-    <updated>2025-05-10T00:15:53.838Z</updated>
+    <updated>2025-05-10T00:20:10.964Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天在部署hexo博客时，hexo d后出现”&lt;strong&gt;Error: Spawn failed&lt;/strong&gt;“报错日志。&lt;br&gt;这表明在执行hexo d时，Hexo无法通过SSH连接到GitHub，导致博客文件部署失败，新文章未能推送到远程仓库。&lt;br&gt;具体解决办法如下。&lt;/p&gt;</summary>
