@@ -1280,6 +1280,19 @@ footer a:hover {
     font-family: 'Nunito', monospace !important;
   }
 }
+/* 添加移动端表格样式 */
+@media (max-width: 767px) {
+  main .post-content table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  main .post-content th,
+  main .post-content td {
+    min-width: 100px !important;
+    word-wrap: break-word !important;
+  }
+}
 /* 媒体查询 - 纵向屏幕（orientation: portrait） */
 @media only screen and (orientation: portrait) {
   body {
