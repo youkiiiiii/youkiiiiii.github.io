@@ -6,7 +6,7 @@
   <link href="http://youkiiiiii.github.io/atom.xml" rel="self"/>
   
   <link href="http://youkiiiiii.github.io/"/>
-  <updated>2025-05-10T00:20:10.964Z</updated>
+  <updated>2025-05-12T03:40:53.254Z</updated>
   <id>http://youkiiiiii.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://youkiiiiii.github.io/2025/05/19/hexo-d%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%87%BA%E7%8E%B0spawn%20failed%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
     <id>http://youkiiiiii.github.io/2025/05/19/hexo-d%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%87%BA%E7%8E%B0spawn%20failed%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
     <published>2025-05-19T14:38:38.000Z</published>
-    <updated>2025-05-10T00:20:10.964Z</updated>
+    <updated>2025-05-12T03:40:53.254Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天在部署hexo博客时，hexo d后出现”&lt;strong&gt;Error: Spawn failed&lt;/strong&gt;“报错日志。&lt;br&gt;这表明在执行hexo d时，Hexo无法通过SSH连接到GitHub，导致博客文件部署失败，新文章未能推送到远程仓库。&lt;br&gt;具体解决办法如下。&lt;/p&gt;</summary>
@@ -36,11 +36,36 @@
   </entry>
   
   <entry>
+    <title>新媒体运营投流+数据分析笔记</title>
+    <link href="http://youkiiiiii.github.io/2025/05/10/%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5%E6%8A%95%E6%B5%81%E7%AC%94%E8%AE%B0/"/>
+    <id>http://youkiiiiii.github.io/2025/05/10/%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5%E6%8A%95%E6%B5%81%E7%AC%94%E8%AE%B0/</id>
+    <published>2025-05-10T02:50:26.000Z</published>
+    <updated>2025-05-22T15:09:58.211Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;投流不是烧钱游戏，而是&lt;strong&gt;测试—分析—优化—再投&lt;/strong&gt;的科学实验。  &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="http://youkiiiiii.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="文案" scheme="http://youkiiiiii.github.io/tags/%E6%96%87%E6%A1%88/"/>
+    
+    <category term="新媒体运营" scheme="http://youkiiiiii.github.io/tags/%E6%96%B0%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5/"/>
+    
+    <category term="投流" scheme="http://youkiiiiii.github.io/tags/%E6%8A%95%E6%B5%81/"/>
+    
+    <category term="数据分析" scheme="http://youkiiiiii.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>英语时态笔记</title>
     <link href="http://youkiiiiii.github.io/2025/05/07/%E8%8B%B1%E8%AF%AD%E6%97%B6%E6%80%81%E7%AC%94%E8%AE%B0/"/>
     <id>http://youkiiiiii.github.io/2025/05/07/%E8%8B%B1%E8%AF%AD%E6%97%B6%E6%80%81%E7%AC%94%E8%AE%B0/</id>
     <published>2025-05-07T05:22:50.000Z</published>
-    <updated>2025-05-09T20:05:31.534Z</updated>
+    <updated>2025-05-10T14:28:02.406Z</updated>
     
     
     <summary type="html">&lt;p&gt;英语有12种常见时态，可以分成3个主要的时间点：过去、现在、未来。&lt;br&gt;每个时间点可以再细分成4种情况：一般、进行、完成、完成进行。&lt;/p&gt;</summary>

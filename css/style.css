@@ -489,7 +489,6 @@ main ol {
   margin: 0 0 0.5em 0 !important;
   color: #fff !important;
   font-family: 'Nunito', monospace !important;
-  list-style: none !important; /* 确保移除默认样式 */
 }
 /* 普通列表项样式 */
 main ul li,
@@ -502,6 +501,9 @@ main ol li {
   padding-left: 1.5em !important;
 }
 /* 无序列表的符号 */
+main ul {
+  list-style-type: none;
+}
 main ul li::before {
   content: "•";
   position: absolute;
@@ -509,23 +511,34 @@ main ul li::before {
   color: #fff;
   font-family: 'Nunito', monospace;
 }
-/* 有序列表的编号 */
-main .post-content {
-  counter-reset: initial; /* 初始重置，仅用于初始化 */
-}
-main h3 + ol,
-main p + ol {
-  counter-reset: section-list-counter; /* 在 h3 或 p 后的第一个 ol 重置计数器 */
+/* 有序列表的编号 - 使用原生 list-style-type */
+main ol {
+  list-style-type: decimal;
+  padding-left: 2em !important; /* 参考 #write ol 的 padding-left: 40px，调整为适合你的设计 */
 }
 main ol li {
-  counter-increment: section-list-counter; /* 递增计数器 */
+  list-style-position: outside;
+  padding-left: 0 !important; /* 移除额外的 padding，由 list-style 控制 */
 }
-main ol li::before {
-  content: counter(section-list-counter) "."; /* 使用计数器生成编号 */
-  position: absolute;
-  left: 0.5em;
-  color: #fff;
-  font-family: 'Nunito', monospace;
+/* 代码块样式，兼容 <p> 包裹的情况 */
+main ol li > pre,
+main ol li > p > pre,
+main ol li > code,
+main ol li > p > code {
+  margin: 0.5em 0 0.5em 0 !important; /* 移除左边距，保持与文本对齐 */
+  padding: 0.5em !important;
+  background: #2d2d2d !important;
+  color: #fff !important;
+  font-family: 'Nunito', monospace !important;
+  border-radius: 4px !important;
+  display: block;
+  box-sizing: border-box;
+}
+/* 确保 <p> 标签不干扰布局 */
+main ol li > p {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline; /* 防止 <p> 破坏列表结构 */
 }
 /* 嵌套列表的基础样式 */
 main ul ul,
@@ -535,14 +548,17 @@ main ol ol {
 }
 /* 确保嵌套无序列表 (ul) 在有序列表 (ol) 中使用符号 */
 main ol ul {
-  counter-reset: none; /* 确保无计数器干扰 */
+  list-style-type: none;
 }
 main ol ul li {
-  counter-increment: none !important; /* 禁用计数器递增 */
+  padding-left: 1.5em !important;
 }
 main ol ul li::before {
-  content: "•" !important; /* 强制使用符号 */
-  counter-increment: none !important; /* 明确禁用计数器 */
+  content: "•" !important;
+  position: absolute;
+  left: 0.5em;
+  color: #fff;
+  font-family: 'Nunito', monospace;
 }
 /* 确保外部容器背景不干扰 */
 main .post-content {
@@ -559,7 +575,7 @@ main .post-content a:not(.more-toggle):not(.hide-toggle):not([data-fancybox="gal
   transition: all 0.3s ease !important;
   font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
   box-shadow: none !important; /* 移除任何可能的阴影 */
-  text-shadow: none !important; /* 确保无文本阴影 */
+  text-shadow: none !important; /* 移除任何可能的文本阴影 */
 }
 main .post-content a:not(.more-toggle):not(.hide-toggle):not([data-fancybox="gallery"]):hover {
   color: var(--border-color) !important; /* 悬停时保持粉色 */
@@ -619,7 +635,7 @@ main .post-content .highlight .gutter {
   color: #c0c0c0 !important;
   padding: 0 !important;
   text-align: right !important;
-  width: 3em !important; /* 减小宽度，从 3.8em 调整为 3em */
+  width: 3em !important;
   flex-shrink: 0 !important;
   user-select: none !important;
   border-right: 1px solid #f69 !important;
@@ -632,11 +648,11 @@ main .post-content .highlight .gutter {
 /* 行号内部对齐 */
 main .post-content .highlight .gutter pre {
   margin: 0 !important;
-  padding: 0.6em 0.8em 0 0.6em !important; /* 右侧 padding 从 1.2em 减小到 0.8em */
+  padding: 0.6em 0.8em 0 0.6em !important;
   background: none !important;
   border: none !important;
   box-shadow: none !important;
-  line-height: 1.4em !important; /* 统一行高 */
+  line-height: 1.4em !important;
 }
 main .post-content .highlight .gutter pre code {
   line-height: 1.4em !important;
@@ -663,7 +679,7 @@ main .post-content .highlight .code pre code {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  line-height: 1.4em !important; /* 统一行高 */
+  line-height: 1.4em !important;
   display: block !important;
   white-space: pre !important;
 }
