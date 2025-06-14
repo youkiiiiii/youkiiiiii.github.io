@@ -2,53 +2,15 @@
 /* styles are what change the color and sizes of stuff on your site. */
 /* these are variables that are being used in the code */
 :root {
-  --header-image: url("https://nyaa.neocities.org/sozai/decometest6.png");
-  --body-bg-image: url("https://pic1.imgdb.cn/item/67f3ea5de381c3632beea05c.gif");
-  --content: #43256e;
-  --border-color: #f69; /* 更新为新的粉色色调 */
-  --text-color: #4f3d46; /* 未使用，改为直接用白色 */
-  --avatar-border-color: #ffebf5; /* 新头像框边框颜色：浅粉色 */
-  --sidebar-nav-hover-color: #ff8c94; /* 侧边栏导航悬停颜色 */
-  --sidebar-highlight: #ffb6c1; /* 侧边栏高亮颜色 */
-}
-/* 自定义字体 */
-@font-face {
-  font-family: Nunito;
-  src: url("https://sadhost.neocities.org/fonts/Nunito-Regular.ttf");
-}
-@font-face {
-  font-family: Nunito;
-  src: url("https://sadhost.neocities.org/fonts/Nunito-Bold.ttf");
-  font-weight: bold;
-}
-@font-face {
-  font-family: Nunito;
-  src: url("https://sadhost.neocities.org/fonts/Nunito-Italic.ttf");
-  font-style: italic;
-}
-@font-face {
-  font-family: Nunito;
-  src: url("https://sadhost.neocities.org/fonts/Nunito-BoldItalic.ttf");
-  font-style: italic;
-  font-weight: bold;
-}
-/* 引入 XiangcuiZeroHei 字体 */
-@font-face {
-  font-family: 'XiangcuiZeroHei';
-  src: url("/fonts/Xiangcui-ZeroHei.ttf") format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  --text-color: #4f3d46;
 }
 body {
   font-family: 'Nunito', monospace;
-  font-size: 0.875em;
+  font-size: 18px;
   margin: 0;
   padding: 0;
-  background-color: #08031a;
-  background-image: var(--body-bg-image);
-  background-size: auto;
-  background-repeat: repeat;
-  color: #fff;
+  background-color: #f0e5d2;
+  color: var(--text-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -59,2465 +21,559 @@ body {
 /* 布局样式 */
 #container {
   max-width: 900px;
-  margin: 0 auto;
+  width: 100%; /* 确保容器始终占满可用宽度 */
+  margin: 20px auto 0;
   background: none;
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* 左对齐 */
 }
-/* Header 样式 - 美化分隔线和立体感 */
+/* Header as navigation bar */
+#headerArea {
+  width: 100%;
+  margin-bottom: 0;
+}
 #header {
   width: 100%;
-  background: var(--border-color);
-  height: 170px;
-  border: 2px solid #fff;
-  border-top: 4px solid #fff;
-  border-left: 4px solid #fff;
-  border-bottom: 2px solid #fff;
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
-  text-align: center;
-  margin-top: 5px;
+  height: 60px;
+  text-align: left;
   position: relative;
+  padding: 0;
 }
 .site-title {
-  margin: 0;
-  padding: 40px 20px 20px 20px;
-  font-family: 'XiangcuiZeroHei', 'Nunito', sans-serif !important;
-  font-size: 3em;
-  font-weight: normal;
-  color: #fff;
-  text-shadow: 2px 2px 0 rgba(255,102,153,0.7), -1px -1px 0 rgba(255,255,138,0.5);
-  letter-spacing: 2px;
-  display: inline-block;
+  display: none;
 }
-/* 导航栏 - 美化立体感 */
+/* Navigation bar styling */
 #navbar {
-  height: 50px;
-  background: #000;
+  height: 100%;
   width: 100%;
-  margin-bottom: 10px;
-  margin-top: 2px;
-  border: 2px solid #fff;
-  border-top: none;
-  border-left: 4px solid #fff;
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
+  margin: 0;
+  padding: 0;
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: flex-start;
 }
-/* 导航栏内部样式 */
 #navbar ul {
   display: flex;
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
   list-style-type: none;
-  justify-content: space-evenly;
-  width: 100%;
-  max-width: 900px;
+  justify-content: flex-start;
+  width: auto;
 }
 #navbar li a {
-  color: #fff;
+  color: var(--text-color);
   font-weight: bold;
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 5px 10px 5px 0;
   transition: all 0.3s ease;
+  font-size: 18px;
+}
+#navbar li {
+  display: flex;
+  align-items: center;
+}
+#navbar li:not(:last-child)::after {
+  content: " / ";
+  color: var(--text-color);
+  margin: 0 8px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 #navbar li a:hover {
-  color: #f69;
+  color: #000;
   text-decoration: underline;
 }
 /* Flex布局 */
 #flex {
   display: flex;
-  flex-direction: row; /* 确保左右布局 */
-  align-items: stretch;
+  flex-direction: column; /* 纵向排列 */
+  justify-content: flex-start; /* 左对齐 */
+  align-items: flex-start;
   flex: 1;
-  width: 100%; /* 确保 flex 容器占满 container */
-  gap: 10px; /* 左侧边栏与 main-wrapper 之间的固定间距 */
+  margin-top: 0;
+  width: 100%;
 }
-/* 左侧栏 */
-#leftColumn {
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 0 0 200px; /* 固定宽度 */
-}
-/* 侧边栏通用样式 - 计算机窗口风格边框 */
-aside {
-  background: #000;
-  padding: 0;
-  font-size: smaller;
-  border: 2px solid #fff;
-  border-top: 4px solid #fff;
-  border-left: 4px solid #fff;
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
-  color: #fff;
-}
-#updatesSidebar,
-#toolsSidebar {
-  margin-bottom: 0;
-  background: #000;
-  border: 2px solid #fff;
-  border-top: 4px solid #fff;
-  border-left: 4px solid #fff;
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
-  color: #fff;
-}
-/* 侧边栏内的标题和链接 - 调整边框 */
-aside h1,
-aside h2,
-aside h3 {
-  background: var(--border-color);
-  margin: 0 0 0.5em 0;
-  padding: 0.35em 0.25em;
-  text-align: center;
-  border-bottom: 2px solid #fff;
-  color: #fff;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-/* aside 内文字颜色调整 */
-aside .inner {
-  padding: 0.75em 1em;
-  font-size: 0.95em;
-  color: #fff;
-  font-family: 'Nunito', monospace;
-}
-aside p {
-  padding: 0 0.5em;
-  margin: 0 0 0.5em 0;
+/* Main区域 - 统一样式 */
+main,
+.main-content {
+  background: none;
+  flex: 0 0 auto;
+  padding: 10px 0 0 0;
+  margin: 0;
+  color: var(--text-color);
+  text-align: left;
   line-height: 1.4;
-  color: #fff;
-  font-family: 'Nunito', monospace;
+  font-size: 18px;
+  width: 100%;
+  min-width: 100%; /* 确保内容少时不收缩 */
 }
-aside a {
-  color: #fff;
-  text-decoration: none;
+/* 文章页面和归档页面样式 */
+.post-content,
+.y2k-archive,
+.archive-section {
+  width: 100%;
+  min-width: 100%; /* 确保内容少时不收缩 */
+  margin: 0;
+  padding: 0;
+}
+/* 文章列表中的标题 */
+.post-item h1 {
+  font-size: 26px; /* 电脑端保持不变 */
+  margin: 0 0 0.3em 0;
+  padding: 0.3em 0;
+  text-align: left;
+  color: var(--text-color);
   font-weight: bold;
-  font-family: 'Nunito', monospace;
 }
-aside a:hover {
-  color: var(--sidebar-nav-hover-color);
+/* 文章元信息 */
+.post-meta {
+  font-size: 14px;
+  color: var(--text-color);
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.post-meta span {
+  display: inline-flex;
+  align-items: center;
+}
+.post-meta .meta-label {
+  font-weight: bold;
+  margin-right: 4px;
+}
+.post-meta a {
+  color: var(--text-color);
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 4px;
+}
+.post-meta a:hover {
+  color: #000;
   text-decoration: underline;
 }
-/* 仅移动端响应式布局 */
-@media (max-width: 768px) {
-  #toolsSidebar {
-    padding-bottom: 0.8em;
-  }
-  #toolsSidebar ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  #toolsSidebar li {
-    width: 50%;
-    box-sizing: border-box;
-    padding: 0.2em 0.5em;
-    text-align: center;
-    margin-bottom: 0.1em; /* 红框距离：缩小为 0.1em */
-  }
-  #toolsSidebar a {
-    display: block;
-    padding: 0.2em 0;
-    word-break: break-word;
-  }
+.post-meta .separator {
+  margin: 0 8px;
 }
-/* 针对平板设备（纵向模式，分辨率 768px 至 1024px） */
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  #toolsSidebar {
-    padding-bottom: 0.8em !important;
-  }
-  #toolsSidebar ul {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    list-style-type: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  #toolsSidebar li {
-    width: 50% !important;
-    box-sizing: border-box !important;
-    padding: 0.2em 0.5em !important;
-    text-align: center !important;
-    margin-bottom: 0.1em !important; /* 红框距离：缩小为 0.1em */
-  }
-  #toolsSidebar a {
-    display: block !important;
-    padding: 0.2em 0 !important;
-    word-break: break-word !important;
-  }
-}
-/* 关于我侧边栏 - 调整内容样式 */
-#aboutmeSidebar .inner {
-  padding: 0.75em 1em;
-  font-size: 16px;
-  text-align: justify;
-  line-height: 1.4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-  font-family: 'Nunito', monospace;
-}
-#aboutmeSidebar .inner img {
-  width: 100px;
-  height: auto;
-  margin-bottom: 0.5em;
-  border: 2px solid var(--avatar-border-color);
-  border-radius: 0;
-  box-shadow: 1px 1px 2px rgba(255,102,153,0.3);
-}
-#aboutmeSidebar .inner p {
-  padding: 0 0.5em;
-  margin: 0;
-  text-align: center;
-  color: #fff;
-  font-family: 'Nunito', monospace;
-  font-weight: 500; /* 将字重从默认的 400 改为 500 */
-}
-/* 分隔符样式 */
-#aboutmeSidebar .inner .divider {
-  display: block;
-  margin: 0.5em auto;
-  width: 120px;
-  height: auto;
-  border: none;
-  box-shadow: none;
-  opacity: 0.8;
-  filter: drop-shadow(1px 1px 2px rgba(255,102,153,0.3));
-}
-/* 其他图片样式 */
-#aboutmeSidebar .inner .custom-img {
-  display: block;
-  margin: 0.5em auto;
-  width: 150px;
-  height: auto;
-  border: 2px solid var(--avatar-border-color);
-  box-shadow: 1px 1px 2px rgba(255,102,153,0.3);
-}
-/* 移动端调整 - 增大头像图片尺寸 */
-@media only screen and (max-width: 880px) {
-  #aboutmeSidebar .inner img:not(.divider) {
-    width: 110px !important; /* 增大头像图片宽度 */
-    height: auto !important;
-    margin-bottom: 0.75em !important; /* 略增加底部间距以平衡视觉 */
-  }
-}
-/* Main区域 - 固定宽度 */
-main {
-  background: #000;
-  width: 690px; /* 固定宽度 = 900px - 200px - 10px gap */
-  padding: 0 0 0.25em 0;
-  color: #fff;
-  text-align: justify;
-  line-height: 1.4;
-  font-size: 16px;
-  border: 2px solid #fff;
-  border-top: 4px solid #fff;
-  border-left: 4px solid #fff;
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-/* Main标题 - 调整边框（仅用于框顶部标题） */
-main h1 {
-  background: var(--border-color);
+main h1,
+.main-content h1 {
   margin: 0 0 0.5em 0;
-  padding: 0.4em 0.25em; /* 调整为更小的上下内边距，与侧边栏标题一致 */
-  text-align: center;
-  border-bottom: 2px solid #fff;
-  color: #fff;
+  padding: 0.35em 0;
+  text-align: left;
+  color: var(--text-color);
   font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 1.8em; /* 略微调整字体大小，与整体排版协调 */
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
-/* Main标题链接样式 - 无动态效果 */
-main h1 a {
-  color: #fff;
+main h2,
+main h3,
+.main-content h2,
+.main-content h3 {
+  margin: 0.5em 0;
+  font-weight: bold;
+  color: var(--text-color);
+}
+main p,
+.main-content p {
+  padding: 0;
+  margin: 0 0 0.5em 0;
+  line-height: 1.4;
+  text-align: left;
+}
+main p:last-child,
+.main-content p:last-child {
+  margin-bottom: 20px;
+}
+main strong,
+.main-content strong {
+  color: var(--text-color);
+  font-weight: bold;
+}
+main a,
+.main-content a {
+  color: var(--text-color);
+  font-weight: bold;
   text-decoration: none;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
-/* 文章内容中的标题 - 添加 # 符号并调整大小 */
-main .post-content {
-  counter-reset: h1 h2 h3 h4 h5 h6; /* 初始化标题计数器，但不再使用自动编号 */
+main a:hover,
+.main-content a:hover {
+  color: #000;
+  text-decoration: underline;
 }
-main .post-content h1 {
-  font-size: 2em; /* 调整为 32px，最高层级 */
-  font-weight: bold;
-  margin: 0.5em 0;
-  padding: 0.2em 0.5em;
-  color: #fff; /* 保持白色 */
-  background: none; /* 无背景色 */
-  border: none;
-  text-align: left;
-  position: relative;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h1::before {
-  content: "# "; /* 添加 # 符号 */
-  color: #f69; /* 粉色 # */
-  margin-right: 0.2em;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h2 {
-  font-size: 1.75em; /* 调整为 28px，次一级 */
-  font-weight: bold;
-  margin: 0.5em 0;
-  padding: 0.2em 0.5em;
-  color: #fff; /* 保持白色 */
-  background: none; /* 无背景色 */
-  border: none;
-  text-align: left; /* 默认左对齐 */
-  position: relative;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h2::before {
-  content: "## "; /* 添加 ## 符号 */
-  color: #f69; /* 粉色 ## */
-  margin-right: 0.2em;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h3 {
-  font-size: 1.5em; /* 调整为 24px，更小一级 */
-  font-weight: bold;
-  margin: 0.5em 0;
-  padding: 0.2em 0.5em;
-  color: #fff; /* 保持白色 */
-  background: none; /* 无背景色 */
-  border: none;
-  text-align: left;
-  position: relative;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h3::before {
-  content: "### "; /* 添加 ### 符号 */
-  color: #f69; /* 粉色 ### */
-  margin-right: 0.2em;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h4 {
-  font-size: 1.25em; /* 调整为 20px */
-  font-weight: bold;
-  margin: 0.5em 0;
-  padding: 0.2em 0.5em;
-  color: #fff; /* 保持白色 */
-  background: none; /* 无背景色 */
-  border: none;
-  text-align: left;
-  position: relative;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h4::before {
-  content: "#### "; /* 添加 #### 符号 */
-  color: #f69; /* 粉色 #### */
-  margin-right: 0.2em;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h5 {
-  font-size: 1.125em; /* 调整为 18px */
-  font-weight: bold;
-  margin: 0.5em 0;
-  padding: 0.2em 0.5em;
-  color: #fff; /* 保持白色 */
-  background: none; /* 无背景色 */
-  border: none;
-  text-align: left;
-  position: relative;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h5::before {
-  content: "##### "; /* 添加 ##### 符号 */
-  color: #f69; /* 粉色 ##### */
-  margin-right: 0.2em;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h6 {
-  font-size: 1em; /* 调整为 16px */
-  font-weight: bold;
-  margin: 0.5em 0;
-  padding: 0.2em 0.5em;
-  color: #fff; /* 保持白色 */
-  background: none; /* 无背景色 */
-  border: none;
-  text-align: left;
-  position: relative;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content h6::before {
-  content: "###### "; /* 添加 ###### 符号 */
-  color: #f69; /* 粉色 ###### */
-  margin-right: 0.2em;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-/* Markdown 文本样式 - 增强斜体和加粗 */
-main .post-content p {
-  padding: 0 0.5em;
-  margin: 0 0 0.5em 0;
-  line-height: 1.4;
-  color: #fff; /* 保持白色文本 */
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-main .post-content strong {
-  color: #ffb6c1 !important; /* 替换为粉色系浅色 */
-  font-weight: 800; /* 减轻加粗效果 */
-  text-shadow: none; /* 移除阴影 */
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-/* 增加针对标题中 strong 的样式，确保颜色一致 */
-main .post-content h1 strong,
-main .post-content h2 strong,
-main .post-content h3 strong,
-main .post-content h4 strong,
-main .post-content h5 strong,
-main .post-content h6 strong {
-  color: #ffb6c1 !important; /* 强制标题中的 strong 使用粉色 */
-}
-main .post-content em {
-  color: #ff8c94; /* 替换为粉色系中色 */
-  font-style: italic; /* 保持 italic */
-  transform: skew(-25deg); /* 增大倾斜幅度到 25 度 */
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
-}
-/* 重置列表的基础样式 */
 main ul,
-main ol {
-  padding: 0 0.5em !important;
-  margin: 0 0 0.5em 0 !important;
-  color: #fff !important;
-  font-family: 'Nunito', monospace !important;
+main ol,
+.main-content ul,
+.main-content ol {
+  padding-left: 20px;
+  margin: 0 0 0.5em 0;
+  list-style-type: disc;
 }
-/* 普通列表项样式 */
-main ul li,
-main ol li {
-  position: relative;
-  margin: 0.2em 0 !important;
-  line-height: 1.4 !important;
-  color: #fff !important;
-  font-family: 'Nunito', monospace !important;
-  padding-left: 1.5em !important;
-}
-/* 无序列表的符号 */
-main ul {
-  list-style-type: none;
-}
-main ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0.5em;
-  color: #fff;
-  font-family: 'Nunito', monospace;
-}
-/* 有序列表的编号 - 使用原生 list-style-type */
-main ol {
-  list-style-type: decimal;
-  padding-left: 2em !important; /* 参考 #write ol 的 padding-left: 40px，调整为适合你的设计 */
-}
-main ol li {
-  list-style-position: outside;
-  padding-left: 0 !important; /* 移除额外的 padding，由 list-style 控制 */
-}
-/* 代码块样式，兼容 <p> 包裹的情况 */
-main ol li > pre,
-main ol li > p > pre,
-main ol li > code,
-main ol li > p > code {
-  margin: 0.5em 0 0.5em 0 !important; /* 移除左边距，保持与文本对齐 */
-  padding: 0.5em !important;
-  background: #2d2d2d !important;
-  color: #fff !important;
-  font-family: 'Nunito', monospace !important;
-  border-radius: 4px !important;
-  display: block;
-  box-sizing: border-box;
-}
-/* 确保 <p> 标签不干扰布局 */
-main ol li > p {
-  margin: 0 !important;
-  padding: 0 !important;
-  display: inline; /* 防止 <p> 破坏列表结构 */
-}
-/* 嵌套列表的基础样式 */
 main ul ul,
-main ol ol {
-  padding: 0 0.5em !important;
-  margin: 0 0 0.5em 0 !important;
+main ol ol,
+.main-content ul ul,
+.main-content ol ol {
+  padding-left: 20px;
 }
-/* 确保嵌套无序列表 (ul) 在有序列表 (ol) 中使用符号 */
-main ol ul {
-  list-style-type: none;
+main li,
+.main-content li {
+  margin-bottom: 0.25em;
 }
-main ol ul li {
-  padding-left: 1.5em !important;
+main table,
+.main-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5em 0;
 }
-main ol ul li::before {
-  content: "•" !important;
-  position: absolute;
-  left: 0.5em;
-  color: #fff;
-  font-family: 'Nunito', monospace;
+main th,
+main td,
+.main-content th,
+.main-content td {
+  border: 1px solid var(--text-color);
+  padding: 8px;
+  text-align: left;
 }
-/* 确保外部容器背景不干扰 */
-main .post-content {
-  background: transparent;
-  padding: 0 !important; /* 移除可能的内边距 */
-  margin: 0 auto !important; /* 确保居中 */
-  width: 100% !important; /* 占满宽度 */
+main img,
+.main-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.5em 0;
 }
-/* 文章内容中的链接样式 - 排除 .more-toggle、.hide-toggle 和 fancybox 链接 */
-main .post-content a:not(.more-toggle):not(.hide-toggle):not([data-fancybox="gallery"]) {
-  color: var(--border-color) !important; /* 默认粉色 */
-  text-decoration: none !important; /* 默认无下划线 */
-  font-weight: bold !important;
-  transition: all 0.3s ease !important;
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
-  box-shadow: none !important; /* 移除任何可能的阴影 */
-  text-shadow: none !important; /* 移除任何可能的文本阴影 */
+/* 归档页面样式 */
+.count {
+  font-size: 16px;
+  color: var(--text-color);
+  margin-left: -5px; /* 减少与前面的文字间距 */
 }
-main .post-content a:not(.more-toggle):not(.hide-toggle):not([data-fancybox="gallery"]):hover {
-  color: var(--border-color) !important; /* 悬停时保持粉色 */
-  text-decoration: none !important; /* 移除下划线 */
-  border-bottom: 2px solid #f69 !important; /* 使用边框代替阴影 */
-  box-shadow: none !important; /* 确保无阴影 */
-  text-shadow: none !important; /* 确保无文本阴影 */
+.archive-date {
+  display: inline-block;
+  width: 60px;
+  margin-right: 10px;
+  font-size: 16px;
 }
-/* Markdown 代码块样式 */
-main .post-content .highlight {
-  position: relative !important;
-  margin: 0.8em 0 !important;
-  border-radius: 8px !important;
-  line-height: 1.4em !important;
-  background: linear-gradient(145deg, #1a1a2a, #252535) !important;
-  overflow-x: auto !important;
-  border: 2px solid transparent !important;
-  border-image: linear-gradient(to right, #f69, #fcf) 1 !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  font-family: 'Nunito', monospace !important;
-  padding: 0 !important;
-  display: flex !important;
-  box-shadow: 0 3px 10px rgba(255,102,153,0.25) !important;
-  transition: max-height 0.4s ease, box-shadow 0.3s ease !important;
+/* Y2K 归档页面特有样式 */
+.y2k-category,
+.y2k-tag,
+.y2k-post-archive {
+  margin-bottom: 2em;
 }
-/* 悬停增强效果 */
-main .post-content .highlight:hover {
-  box-shadow: 0 5px 15px rgba(255,102,153,0.35) !important;
+.centered-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* 增加按钮间距 */
 }
-/* 折叠和展开状态 */
-main .post-content .highlight.collapsed {
-  max-height: 320px !important;
-  overflow-y: hidden !important;
+.centered-list li {
+  margin: 0;
+  padding: 0;
 }
-main .post-content .highlight.expanded {
-  max-height: none !important;
-  overflow-y: auto !important;
+.y2k-link {
+  color: var(--text-color);
+  font-weight: bold;
+  text-decoration: none;
 }
-/* 确保折叠时内部元素受限 */
-main .post-content .highlight.collapsed .code,
-main .post-content .highlight.collapsed .gutter,
-main .post-content .highlight.collapsed .code pre,
-main .post-content .highlight.collapsed .gutter pre {
-  max-height: 300px !important; /* 留出按钮空间 */
-  overflow: hidden !important;
+.y2k-link:hover {
+  color: #000;
+  text-decoration: underline;
 }
-/* 移除底部多余空间 */
-main .post-content .highlight .code pre,
-main .post-content .highlight .gutter pre {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+.y2k-year {
+  margin-bottom: 1.5em;
 }
-/* 使用 flex 布局，确保行号和代码并排 */
-main .post-content .highlight .gutter {
-  background: linear-gradient(to bottom, #2a2a3a, #323248) !important;
-  color: #c0c0c0 !important;
-  padding: 0 !important;
-  text-align: right !important;
-  width: 3em !important;
-  flex-shrink: 0 !important;
-  user-select: none !important;
-  border-right: 1px solid #f69 !important;
-  box-shadow: none !important;
-  border-left: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
-  margin: 0 !important;
+.y2k-year-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: var(--text-color);
 }
-/* 行号内部对齐 */
-main .post-content .highlight .gutter pre {
-  margin: 0 !important;
-  padding: 0.6em 0.8em 0 0.6em !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  line-height: 1.4em !important;
+.y2k-post-item {
+  margin-bottom: 0.3em;
+  list-style: none;
 }
-main .post-content .highlight .gutter pre code {
-  line-height: 1.4em !important;
-  display: block !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  white-space: pre !important;
+.y2k-date {
+  display: inline-block;
+  width: 60px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
 }
-/* 代码区域 */
-main .post-content .highlight .code {
-  flex-grow: 1 !important;
-  padding: 0.6em 0.8em 0 0.8em !important;
-  color: #f5f5f5 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  margin: 0 !important;
+/* 文章页面内容切换 */
+.content-toggle-section {
+  display: block;
+  margin-bottom: 20px;
 }
-/* 强制同步代码行和行号 */
-main .post-content .highlight .code pre,
-main .post-content .highlight .code pre code {
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  line-height: 1.4em !important;
-  display: block !important;
-  white-space: pre !important;
+.excerpt,
+.remaining-content {
+  line-height: 1.4;
+  text-align: left;
 }
-main .post-content .highlight .code pre .line {
-  height: 1.4em !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-/* 覆盖默认的 pre 和 code 样式 */
-main .post-content pre,
-main .post-content code {
-  font-family: 'Nunito', monospace !important;
-  font-size: 1em !important;
-  box-shadow: none !important;
-}
-/* 行内代码样式 */
-main .post-content code {
-  background: rgba(255,102,153,0.25) !important;
-  color: #f9a !important;
-  padding: 0.15em 0.5em !important;
-  border-radius: 4px !important;
-  margin: 0 0.3em !important;
-  border: none !important;
-  border-left: 1px solid rgba(255,102,153,0.5) !important;
-  border-right: 1px solid rgba(255,102,153,0.5) !important;
-  box-shadow: none !important;
-  display: inline !important;
-  vertical-align: middle !important;
-  line-height: 1 !important;
-}
-/* 按钮容器 */
-main .post-content .highlight-container {
-  position: relative !important;
-  width: 100% !important;
-}
-main .post-content .highlight-container .button-container {
-  position: absolute !important;
-  top: 10px !important;
-  right: 10px !important;
-  display: flex !important;
-  gap: 8px !important;
-  z-index: 100 !important;
-}
-/* 复制按钮样式 */
-main .post-content .highlight-container .button-container .copy-button {
-  display: block !important;
-  padding: 4px 12px !important;
-  background: rgba(255,102,153,0.5) !important;
-  border: 1px solid #f69 !important;
-  border-radius: 5px !important;
-  color: #fff !important;
-  font-family: 'Nunito', monospace !important;
-  font-size: 13px !important;
-  cursor: pointer !important;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease !important;
-}
-main .post-content .highlight-container .button-container .copy-button:hover {
-  background: rgba(255,102,153,0.7) !important;
-  transform: scale(1.08) !important;
-  box-shadow: 0 2px 6px rgba(255,102,153,0.5) !important;
-}
-/* 展开/收起按钮样式 */
-main .post-content .highlight-container .button-container .toggle-button {
-  display: block !important;
-  padding: 4px 12px !important;
-  background: rgba(255,102,153,0.5) !important;
-  border: 1px solid #f69 !important;
-  border-radius: 5px !important;
-  color: #fff !important;
-  font-family: 'Nunito', monospace !important;
-  font-size: 13px !important;
-  cursor: pointer !important;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease !important;
-}
-main .post-content .highlight-container .button-container .toggle-button:hover {
-  background: rgba(255,102,153,0.7) !important;
-  transform: scale(1.08) !important;
-  box-shadow: 0 2px 6px rgba(255,102,153,0.5) !important;
-}
-/* 优化滚动条样式 */
-main .post-content .highlight::-webkit-scrollbar {
-  width: 6px !important;
-  height: 6px !important;
-  background: transparent !important; /* 强制背景透明 */
-}
-main .post-content .highlight::-webkit-scrollbar-track {
-  background: #2a2a3a !important;
-  border-radius: 3px !important;
-  box-shadow: inset 0 0 4px rgba(255,102,153,0.3) !important;
-}
-main .post-content .highlight::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #f69, #fcf) !important;
-  border-radius: 3px !important;
-  box-shadow: 0 0 6px rgba(255,102,153,0.5) !important;
-}
-main .post-content .highlight::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #fcf, #f69) !important;
-}
-/* highlight.js 高亮颜色自定义 */
-main .post-content .highlight .hljs-keyword {
-  color: #f69 !important;
-}
-main .post-content .highlight .hljs-string {
-  color: #ffb6c1 !important;
-}
-main .post-content .highlight .hljs-comment,
-main .post-content .highlight .hljs-quote {
-  color: #a0a0a0 !important;
-}
-main .post-content .highlight .hljs-function {
-  color: #ff8c94 !important;
-}
-main .post-content .highlight .hljs-number {
-  color: #ffd700 !important;
-}
-main .post-content .highlight .hljs-operator,
-main .post-content .highlight .hljs-punctuation {
-  color: #e0e0e0 !important;
-}
-main .post-content .highlight .hljs-property,
-main .post-content .highlight .hljs-tag {
-  color: #ff8c94 !important;
-}
-main .post-content .highlight .hljs-literal,
-main .post-content .highlight .hljs-constant {
-  color: #ffb6c1 !important;
-}
-/* Markdown 表格样式 - 移除白色立体边框 */
-main .post-content table {
-  width: 100% !important; /* 确保宽度占满 */
-  border-collapse: collapse !important;
-  margin: 0.5em 0 !important; /* 保持上下外边距，左右外边距为 0 */
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
-  box-sizing: border-box !important; /* 确保宽度计算包含边框 */
-  border: none !important; /* 移除外边框 */
-  box-shadow: none !important; /* 移除阴影 */
-}
-main .post-content thead {
-  background: rgba(255,102,153,0.3) !important; /* 保持粉色系半透明背景 */
-}
-main .post-content th,
-main .post-content td {
-  border: 1px solid #ffb6c1 !important; /* 单元格边框保持浅粉色 */
-  padding: 0.5em !important;
-  text-align: left !important;
-  color: #fff !important; /* 保持白色文本 */
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
-}
-/* 确保表格贴边，移除多余的内边距 */
-main .post-content table tr,
-main .post-content table tbody,
-main .post-content table thead {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-/* Markdown 高亮文本样式 */
-main .post-content mark {
-  background: rgba(255,102,153,0.3) !important; /* 替换为粉色系半透明背景 */
-  padding: 0.1em 0.3em !important;
-  color: #fff !important; /* 白色文本 */
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
-}
-/* Markdown 图片样式 - 移除边框 */
-main .post-content img {
-  max-width: 100% !important; /* 限制图片宽度不超过容器 */
-  height: auto !important;
-  display: block !important;
-  margin: 0.5em auto !important; /* 上下外边距 0.5em，左右自动居中 */
-  border: none !important;
-}
-/* 针对列表中的图片，抵消缩进并强制居中 */
-main .post-content ul li img,
-main .post-content ol li img {
-  position: relative !important; /* 使用相对定位 */
-  left: -1.5em !important; /* 抵消 li 的 padding-left: 1.5em */
-  width: calc(100% + 1.5em) !important; /* 扩展宽度以匹配原始可用空间 */
-  max-width: none !important; /* 防止 max-width 限制宽度 */
-  margin: 0.5em auto !important; /* 保持居中 */
-}
-/* 针对嵌套列表中的图片（二级列表） */
-main .post-content ul ul li img,
-main .post-content ol ol li img {
-  left: -3em !important; /* 抵消两级缩进 (1.5em + 1.5em) */
-  width: calc(100% + 3em) !important; /* 扩展宽度以匹配 */
-}
-/* 针对更深层嵌套列表（三级列表） */
-main .post-content ul ul ul li img,
-main .post-content ol ol ol li img {
-  left: -4.5em !important; /* 抵消三级缩进 (1.5em + 1.5em + 1.5em) */
-  width: calc(100% + 4.5em) !important;
-}
-/* figure 和 figcaption 样式 */
-figure {
-  text-align: center;
+.more-link {
   margin: 10px 0;
-  padding: 0; /* 确保 figure 无额外内边距 */
+  text-align: left;
 }
-figcaption {
+.toggle-content-btn {
+  color: var(--text-color);
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.toggle-content-btn:hover {
+  color: #000;
+  text-decoration: underline;
+}
+/* 内容区域 */
+.post-content .toc {
+  margin: 0.5em 0;
+}
+.post-content .toc ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+.post-content .toc li {
+  margin-bottom: 0.25em;
+}
+.post-content .toc a {
+  color: var(--text-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+.post-content .toc a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+/* 代码块样式 */
+.highlight {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 0.5em 0;
+  position: relative;
+  font-size: 16px;
+}
+.highlight-container {
+  position: relative;
+}
+.button-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+.copy-button,
+.toggle-button {
+  background-color: #ddd;
+  border: none;
+  padding: 5px 10px;
   font-size: 14px;
-  color: #fff;
-  margin-top: 2px !important; /* 强制设置顶部间距为 2px */
-  padding: 0; /* 移除可能影响间距的内边距 */
-  line-height: 0.1; /* 防止行高影响间距 */
-  font-family: 'Nunito', monospace !important; /* 统一字体 */
+  cursor: pointer;
+  border-radius: 4px;
 }
-/* 文章页面 - 多个 main 框的容器 */
-#main-wrapper {
-  width: 690px !important; /* 与 main 一致 */
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 20px !important; /* 每个 main 框之间的间距，露出背景图 */
+.copy-button:hover,
+.toggle-button:hover {
+  background-color: #ccc;
 }
-/* main 内文字颜色调整 */
-main .inner {
-  padding: 0 !important;
-  font-size: 0.95em !important;
-  color: #fff !important;
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+.collapsed {
+  max-height: 320px;
+  overflow-y: hidden;
 }
-main p {
-  padding: 0 0.5em !important;
-  margin: 0 0 0.5em 0 !important;
-  line-height: 1.4 !important;
-  color: #fff !important;
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
+.expanded {
+  max-height: none;
+  overflow-y: auto;
 }
-main strong {
-  color: #fff !important;
-  font-weight: 800 !important; /* 减轻加粗效果 */
-  text-shadow: none !important; /* 移除阴影 */
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
-}
-/* More 标签样式 - 确保默认白色，悬停时粉色加下划线 */
-main .more-link {
-  text-align: left !important; /* 保持左对齐 */
-  padding: 0 0.5em !important;
-  margin: 0.5em 0 !important;
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
-}
-main .more-link .more-toggle,
-main .more-link .hide-toggle {
-  color: #fff !important; /* 强制白色，覆盖其他样式 */
-  text-decoration: none !important;
-  font-weight: bold !important;
-  transition: all 0.3s ease !important;
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
-}
-main .more-link .more-toggle:hover,
-main .more-link .hide-toggle:hover {
-  color: #f69 !important; /* 强制粉色 */
-  text-decoration: underline !important; /* 悬停时加下划线 */
-}
-/* 文章内容中的链接样式 - 排除 .more-toggle 和 .hide-toggle */
-main .post-content a:not(.more-toggle):not(.hide-toggle) {
-  color: var(--border-color) !important; /* 默认粉色 */
-  text-decoration: none !important; /* 默认无下划线 */
-  font-weight: bold !important;
-  transition: all 0.3s ease !important;
-  font-family: 'Nunito', monospace !important; /* 统一使用 Nunito 字体 */
-  box-shadow: none !important; /* 移除任何可能的阴影 */
-  text-shadow: none !important; /* 移除任何可能的文本阴影 */
-}
-main .post-content a:not(.more-toggle):not(.hide-toggle):hover {
-  color: var(--border-color) !important; /* 悬停时保持粉色 */
-  text-decoration: none !important; /* 移除下划线 */
-  border-bottom: 2px solid #f69 !important; /* 使用边框代替阴影 */
-  box-shadow: none !important; /* 确保无阴影 */
-  text-shadow: none !important; /* 确保无文本阴影 */
-}
-/* Footer - 计算机窗口风格边框 */
+/* Footer */
 footer {
-  background: #000;
+  background: none;
   width: 100%;
   height: 50px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #fff;
-  border-top: 4px solid #fff;
-  border-left: 4px solid #fff;
-  box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3);
-  color: #fff;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: var(--text-color);
   font-weight: bold;
-  position: relative;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
+  margin-top: 40px;
+  text-align: left;
+  padding-left: 0;
+  font-size: 18px;
 }
-/* Footer 内的链接 */
 footer a {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: none;
-  font-family: 'Nunito', monospace; /* 统一使用 Nunito 字体 */
 }
 footer a:hover {
-  color: #f69;
+  color: #000;
   text-decoration: underline;
 }
-/* 移除.box的独立样式 */
-.box {
-  display: none;
-}
-/* 归档页面样式 - main 框居中 */
-.archive-main-wrapper {
-  display: flex;
-  justify-content: center; /* 水平居中 */
-  width: 100%;
-}
-.archive-main {
-  text-align: left; /* 改为左对齐 */
-  width: 100%;
-  max-width: 690px; /* 与其他 main 框一致 */
-}
-/* 分类和标签区域样式 */
-.y2k-category,
-.y2k-tag {
-  margin: 0;
-  padding: 0; /* 移除左右内边距 */
-}
-/* 分类和标签的大标题样式 */
-.y2k-category h2,
-.y2k-tag h2 {
-  margin: 0 0 0.5em 0;
-  padding: 0.2em 0.5em; /* 统一左内边距为 0.5em */
-}
-/* 横向排列分类和标签的内容 */
-.archive-main .centered-list {
-  display: flex;
-  flex-wrap: wrap; /* 允许换行 */
-  justify-content: flex-start; /* 从左开始排列 */
-  list-style: none;
-  padding: 0 0.5em 0 0; /* 移除左侧内边距，仅保留右侧内边距 */
-  margin: 0 0 0 0.2em; /* 左侧外边距保持 0.2em */
-}
-/* 调整每个分类和标签项的间距 */
-.archive-main .centered-list li {
-  margin: 5px 10px 5px 0 !important; /* 上右下左：上5px，右10px，下5px，左0px，强制生效 */
-}
-/* 统一链接样式 - 无下沉，仅底部横线 */
-.y2k-link {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease; /* 只过渡颜色 */
-  font-family: 'Nunito', monospace;
-  line-height: 1; /* 固定行高 */
-  display: inline-block; /* 确保为行内块 */
-  vertical-align: middle; /* 垂直居中 */
-}
-.y2k-link:hover {
-  color: var(--border-color); /* 悬停时变为粉色 */
-  text-decoration: none; /* 移除下划线 */
-  border-bottom: 2px solid #f69; /* 悬停时加底部横线 */
-  padding: 0; /* 保持内边距不变 */
-  margin: 0; /* 保持外边距不变 */
-}
-/* 移除 y2k-button 样式，因为已替换为 y2k-link */
-.y2k-button {
-  display: none; /* 禁用 y2k-button 样式 */
-}
-/* 文章归档区域样式 */
-.y2k-post-archive {
-  text-align: left; /* 保持文章列表左对齐 */
-  margin: 0; /* 移除 margin，确保与上方对齐 */
-  padding: 0; /* 移除左右内边距 */
-  max-width: 690px; /* 与 main 宽度一致 */
-}
-/* 文章归档的大标题样式 */
-.y2k-post-archive h2 {
-  margin: 0 0 0.5em 0;
-  padding: 0.2em 0.5em; /* 统一左内边距为 0.5em，与分类和标签大标题对齐 */
-  position: relative; /* 为基准对齐提供参考 */
-}
-/* 文章归档的年份样式 */
-.y2k-post-archive .y2k-year {
-  margin: 0.5em 0; /* 添加上下间距 */
-}
-/* 文章归档的年份标题样式 */
-.y2k-post-archive .y2k-year-title {
-  padding: 0 0.5em; /* 与大标题对齐 */
-  position: relative;
-  color: #fff;
-  font-weight: bold;
-}
-/* 文章归档的列表样式 */
-.y2k-post-archive .y2k-year ul {
-  list-style: none;
-  padding: 0 0.5em 0 0; /* 移除左内边距，交给 li 控制 */
-  margin: 0 0 0 0.2em; /* 保持左侧外边距，微调对齐 */
-}
-/* 文章归档的列表项样式 */
-.y2k-post-archive .y2k-year ul li {
-  margin: 5px 0; /* 保持上下间距 */
-  position: relative; /* 用于伪元素定位 */
-}
-/* 为文章标题的列表项添加白点 */
-.y2k-post-archive .y2k-year ul li::before {
-  content: "•"; /* 添加白点 */
-  color: #fff; /* 白色 */
-  position: absolute;
-  left: 0.5em; /* 调整白点位置，相对于年份第一个数字对齐 */
-  font-size: 1em; /* 与文本大小一致 */
-}
-/* 文章归档的日期和标题样式 */
-.y2k-post-archive .y2k-post-item {
-  display: flex;
-  align-items: center;
-  line-height: 1; /* 保持紧凑 */
-  padding-left: 2em; /* 右移约 2em，独立控制日期和标题 */
-}
-/* 确保 y2k-post-item 在 hover 时不移动 */
-.y2k-post-archive .y2k-post-item .y2k-date {
-  margin-right: 0.5em; /* 日期与标题之间的间距 */
-  white-space: nowrap; /* 防止日期换行 */
-}
-/* 媒体查询 - 移动端（max-width: 880px） */
+/* Media queries */
 @media only screen and (max-width: 880px) {
   #container {
-    width: 92vw !important; /* 固定为 92vw，不随内容变化 */
+    width: 88vw;
+    margin: 10px auto 0;
   }
-  #leftColumn {
-    width: 92vw !important; /* 移动端固定宽度 */
-    border: none !important;
-    box-shadow: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  main {
-    width: 92vw !important; /* 移动端固定宽度 */
-    margin: 0.25rem auto !important; /* 居中对齐 */
-    background: #000 !important;
-    border-radius: 20px !important;
-    border: 2px solid #fff !important;
-    border-top: 4px solid #fff !important;
-    border-left: 4px solid #fff !important;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
-    position: relative !important;
-    z-index: 1 !important;
-  }
-  #main-wrapper {
-    width: 92vw !important; /* 与 main 一致 */
-    margin: 0.25rem auto !important; /* 居中对齐 */
-    gap: 10px !important; /* 移动端缩小间距 */
-  }
-  .archive-main-wrapper {
-    width: 92vw !important; /* 移动端与 main 一致 */
-    margin: 0.25rem auto !important;
-  }
-  .archive-main {
-    max-width: 92vw !important; /* 移动端占满宽度 */
+  #headerArea {
+    width: 100%;
+    margin: 0;
   }
   #header {
-    width: 92vw !important;
-    margin: 0.25rem auto !important;
-    background: var(--border-color) !important;
-    border-radius: 20px !important;
-    border: 2px solid #fff !important;
-    border-top: 4px solid #fff !important;
-    border-left: 4px solid #fff !important;
-    border-bottom: 4px solid #fff !important;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
-    position: relative !important;
-    z-index: 1 !important;
-  }
-  .site-title {
-    padding: 55px 20px 20px 20px !important;
-  }
-  #navbar {
-    width: 92vw !important;
-    margin: 0.25rem auto !important;
-    height: 50px !important;
-    background: #000 !important;
-    border-radius: 20px !important;
-    border: 2px solid #fff !important;
-    border-top: 2px solid #fff !important;
-    border-left: 4px solid #fff !important;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
-    position: relative !important;
-    z-index: 1 !important;
-  }
-  main h1 {
-    background: var(--border-color) !important;
-    border-bottom: 2px solid #fff !important;
-    border-radius: 20px 20px 0 0 !important;
-    color: #fff !important;
-    padding: 6px 2px !important; /* 移动端保持不变 */
-    margin: 0 0 0.5em 0 !important;
-    text-align: center !important;
-    font-weight: bold !important;
-    letter-spacing: 2px !important;
-    font-size: 19px !important; /* 移动端保持不变 */
-  }
-  main .post-content h1 {
-    font-size: 1.75em !important; /* 移动端调整为 28px */
-    font-weight: bold !important;
-    margin: 0.5em 0 !important;
-    padding: 0.2em 0.5em !important;
-    color: #fff !important;
-    background: none !important;
-    border: none !important;
-    text-align: left !important;
-    position: relative !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h1::before {
-    content: "# " !important;
-    color: #f69 !important;
-    margin-right: 0.2em !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h2 {
-    font-size: 1.5em !important; /* 移动端调整为 24px */
-    font-weight: bold !important;
-    margin: 0.5em 0 !important;
-    padding: 0.2em 0.5em !important;
-    color: #fff !important;
-    background: none !important;
-    border: none !important;
-    text-align: left !important;
-    position: relative !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h2::before {
-    content: "## " !important;
-    color: #f69 !important;
-    margin-right: 0.2em !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h3 {
-    font-size: 1.25em !important; /* 移动端调整为 20px */
-    font-weight: bold !important;
-    margin: 0.5em 0 !important;
-    padding: 0.2em 0.5em !important;
-    color: #fff !important;
-    background: none !important;
-    border: none !important;
-    text-align: left !important;
-    position: relative !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h3::before {
-    content: "### " !important;
-    color: #f69 !important;
-    margin-right: 0.2em !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h4 {
-    font-size: 1.25em !important; /* 保持与电脑端一致 */
-    font-weight: bold !important;
-    margin: 0.5em 0 !important;
-    padding: 0.2em 0.5em !important;
-    color: #fff !important;
-    background: none !important;
-    border: none !important;
-    text-align: left !important;
-    position: relative !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h4::before {
-    content: "#### " !important;
-    color: #f69 !important;
-    margin-right: 0.2em !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h5 {
-    font-size: 1.125em !important; /* 保持与电脑端一致 */
-    font-weight: bold !important;
-    margin: 0.5em 0 !important;
-    padding: 0.2em 0.5em !important;
-    color: #fff !important;
-    background: none !important;
-    border: none !important;
-    text-align: left !important;
-    position: relative !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h5::before {
-    content: "##### " !important;
-    color: #f69 !important;
-    margin-right: 0.2em !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h6 {
-    font-size: 1em !important; /* 保持与电脑端一致 */
-    font-weight: bold !important;
-    margin: 0.5em 0 !important;
-    padding: 0.2em 0.5em !important;
-    color: #fff !important;
-    background: none !important;
-    border: none !important;
-    text-align: left !important;
-    position: relative !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content h6::before {
-    content: "###### " !important;
-    color: #f69 !important;
-    margin-right: 0.2em !important;
-    font-family: 'Nunito', monospace !important;
-  }
-}
-/* 添加移动端表格样式 */
-@media (max-width: 767px) {
-  main .post-content table {
-    display: block !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-  main .post-content th,
-  main .post-content td {
-    min-width: 100px !important;
-    word-wrap: break-word !important;
-  }
-}
-/* 媒体查询 - 纵向屏幕（orientation: portrait） */
-@media only screen and (orientation: portrait) {
-  body {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-height: 100vh !important;
-    margin: 0 !important;
-    padding: 0 !important;
-/* border: 2px solid red !important; 移除调试边框 */
-  }
-  #container {
-    width: 96vw !important;
-    max-width: 96vw !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-/* border: 2px solid blue !important; 移除调试边框 */
+    width: 100%;
+    margin: 0;
+    height: 50px;
   }
   #flex {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-    width: 100% !important;
-    max-width: 96vw !important;
-    justify-content: center !important;
-    align-items: center !important;
-/* border: 2px solid green !important; 移除调试边框 */
+    width: 100%;
+    flex-direction: column; /* 纵向排列 */
+    justify-content: flex-start; /* 左对齐 */
   }
-  main {
-    order: 1 !important;
-    width: 92vw !important;
-    max-width: 92vw !important;
-    margin: 0.25rem auto !important;
-    background: #000 !important;
-    border-radius: 20px !important;
-    border: 2px solid #fff !important;
-    border-top: 4px solid #fff !important;
-    border-left: 4px solid #fff !important;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
-    position: relative !important;
-    z-index: 1 !important;
-    color: #fff !important;
+  main,
+  .main-content {
+    width: 100%;
+    min-width: 88vw; /* 确保内容少时不收缩 */
+    margin: 0;
+    text-align: left;
   }
-  #main-wrapper {
-    order: 1 !important;
-    width: 92vw !important;
-    max-width: 92vw !important;
-    margin: 0.25rem auto !important;
-    gap: 10px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+  .post-content,
+  .y2k-archive,
+  .archive-section {
+    width: 100%;
+    min-width: 88vw;
+    margin: 0;
+    padding: 0;
   }
-  .archive-main-wrapper {
-    width: 92vw !important;
-    max-width: 92vw !important;
-    margin: 0.25rem auto !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+  .post-item h1 {
+    font-size: 20px; /* 移动端调整为 20px */
+    margin: 0 0 0.4em 0; /* 增加间距 */
+    padding: 0.4em 0;
   }
-  .archive-main {
-    max-width: 92vw !important;
-    width: 100% !important;
-    margin: 0 auto !important;
+  .post-meta {
+    font-size: 12px;
+    gap: 6px;
   }
-  #leftColumn {
-    order: 2 !important;
-    width: 92vw !important;
-    max-width: 92vw !important;
-    margin: 0.25rem auto !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+  main ul,
+  main ol,
+  .main-content ul,
+  .main-content ol {
+    padding-left: 15px;
   }
-  aside,
-  #updatesSidebar,
-  #toolsSidebar {
-    width: 100% !important;
-    max-width: 92vw !important;
-    margin: 0.25rem auto !important;
-    background: #000 !important;
-    border-radius: 20px !important;
-    border: 2px solid #fff !important;
-    border-top: 4px solid #fff !important;
-    border-left: 4px solid #fff !important;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
-    position: relative !important;
-    z-index: 1 !important;
-    color: #fff !important;
-  }
-  aside h1,
-  aside h2,
-  aside h3 {
-    background: var(--border-color) !important;
-    border-bottom: 2px solid #fff !important;
-    border-radius: 20px 20px 0 0 !important;
-    color: #fff !important;
-  }
-  #header {
-    width: 92vw !important;
-    max-width: 92vw !important;
-    margin: 0.25rem auto !important;
-    height: 170px !important;
-    background: var(--border-color) !important;
-    border-radius: 20px !important;
-    border: 2px solid #fff !important;
-    border-top: 4px solid #fff !important;
-    border-left: 4px solid #fff !important;
-    border-bottom: 4px solid #fff !important;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
-    position: relative !important;
-    z-index: 1 !important;
-  }
-  .site-title {
-    padding: 55px 20px 20px 20px !important;
-  }
-  #navbar {
-    width: 92vw !important;
-    max-width: 92vw !important;
-    margin: 0.25rem auto !important;
-    height: 50px !important;
-    background: #000 !important;
-    border-radius: 20px !important;
-    border: 2px solid #fff !important;
-    border-top: 2px solid #fff !important;
-    border-left: 4px solid #fff !important;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
-    position: relative !important;
-    z-index: 1 !important;
+  main ul ul,
+  main ol ol,
+  .main-content ul ul,
+  .main-content ol ol {
+    padding-left: 15px;
   }
   footer {
-    width: 92vw !important;
-    max-width: 92vw !important;
-    margin: 0.25rem auto !important;
-    background: #000 !important;
-    border-radius: 20px !important;
-    border: 2px solid #fff !important;
-    border-top: 4px solid #fff !important;
-    border-left: 4px solid #fff !important;
-    box-shadow: inset 2px 2px 0 rgba(255,255,255,0.5), inset -2px -2px 0 rgba(0,0,0,0.2), 1px 1px 2px rgba(255,102,153,0.3) !important;
-    position: relative !important;
-    z-index: 1 !important;
-    color: #fff !important;
+    width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+  .count {
+    font-size: 14px;
+    margin-left: -5px; /* 减少与前面的文字间距 */
+  }
+  .archive-date,
+  .y2k-date {
+    width: 50px;
+    font-size: 14px;
+  }
+  .highlight {
+    font-size: 14px;
+  }
+  .copy-button,
+  .toggle-button {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  .centered-list {
+    gap: 24px; /* 统一按钮间距 */
+  }
+  .y2k-link {
+    font-size: 16px; /* 调整移动端字体大小 */
   }
 }
-/* 排除普通 <more> 标签的 .excerpt（假设包含 <p> 标签） */
-main .post-content .excerpt:has(p) {
-  padding-left: 0; /* 恢复默认左边距 */
-}
-/* 移动端适配 - 媒体查询（max-width: 880px） */
-@media only screen and (max-width: 880px) {
-  main .post-content .excerpt {
-    padding-left: 0.5em !important;
-    margin: 0 0 0.5em 0 !important;
-    line-height: 1.4 !important;
-    color: #fff !important;
-    font-family: 'Nunito', monospace !important;
-  }
-  main .post-content .excerpt:has(p) {
-    padding-left: 0 !important;
-  }
-}
-/* 媒体查询 - 纵向屏幕（orientation: portrait） */
 @media only screen and (orientation: portrait) {
-  main .post-content .excerpt {
-    padding-left: 0.5em !important;
-    margin: 0 0 0.5em 0 !important;
-    line-height: 1.4 !important;
-    color: #fff !important;
-    font-family: 'Nunito', monospace !important;
+  #container {
+    width: 88vw;
+    margin: 10px auto 0;
   }
-  main .post-content .excerpt:has(p) {
-    padding-left: 0 !important;
+  #flex {
+    flex-direction: column; /* 纵向排列 */
+    justify-content: flex-start; /* 左对齐 */
+    width: 100%;
   }
-}
-/* 防止 main 和 #main-wrapper 产生滚动条 */
-main,
-#main-wrapper {
-  overflow: hidden !important; /* 隐藏溢出内容，避免外部滚动条 */
-}
-/* 确保 main 的宽度包含边框和内边距 */
-main {
-  box-sizing: border-box !important; /* 确保宽度计算包含边框和内边距 */
-  width: 690px !important; /* 保持固定宽度 */
-  padding: 0 0 0.25em 0 !important; /* 原有内边距 */
-}
-/* 移动端适配 */
-@media only screen and (max-width: 880px) {
   main,
-  #main-wrapper {
-    width: 92vw !important;
-    overflow: hidden !important; /* 移动端也隐藏溢出 */
+  .main-content {
+    width: 100%;
+    min-width: 88vw; /* 确保内容少时不收缩 */
+    margin: 0;
+    text-align: left;
   }
-}
-@media only screen and (orientation: portrait) {
-  main,
-  #main-wrapper {
-    width: 92vw !important;
-    overflow: hidden !important; /* 纵向屏幕也隐藏溢出 */
+  .post-content,
+  .y2k-archive,
+  .archive-section {
+    width: 100%;
+    min-width: 88vw;
+    margin: 0;
+    padding: 0;
   }
-}
-figure {
-  text-align: center;
-  margin: 10px 0;
-  padding: 0; /* 确保 figure 无额外内边距 */
-}
-figcaption {
-  font-size: 14px;
-  color: #fff;
-  margin-top: 2px !important; /* 强制设置顶部间距为 2px */
-  padding: 0; /* 移除可能影响间距的内边距 */
-  line-height: 0.1; /* 防止行高影响间距 */
-}
-/* 针对移动端调整所有带有 image-text-container 类的 Flexbox 布局 */
-@media (max-width: 768px) {
-  .image-text-container {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5em !important;
-    align-items: center !important;
+  .post-item h1 {
+    font-size: 20px; /* 移动端调整为 20px */
+    margin: 0 0 0.4em 0; /* 增加间距 */
+    padding: 0.4em 0;
   }
-  .image-text-container img {
-    width: 150px !important;
-    height: auto !important;
-    margin: 0 auto !important;
+  .post-meta {
+    font-size: 12px;
+    gap: 6px;
   }
-  .image-text-container p {
-    text-align: left !important;
-    margin: 0 !important;
-    width: 100% !important;
+  main ul,
+  main ol,
+  .main-content ul,
+  .main-content ol {
+    padding-left: 15px;
   }
-}
-.fancybox-bg {
-  background: #000;
-}
-.fancybox-button {
-  background: transparent;
-  color: #fff;
-  opacity: 0.5;
-  transition: opacity 0.3s;
-}
-.fancybox-button:hover {
-  opacity: 1;
-}
-.fancybox-toolbar {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.fancybox-container:hover .fancybox-toolbar {
-  opacity: 1;
-}
-.fancybox-caption {
-  color: #fff;
-  font-size: 12px;
-  background: transparent;
-  padding: 5px;
-}
-/* 针对平板设备（纵向模式，分辨率 768px 至 1024px） */
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  #live2d-canvas,
-  .live2d-canvas {
-    display: none !important;
+  main ul ul,
+  main ol ol,
+  .main-content ul ul,
+  .main-content ol ol {
+    padding-left: 15px;
   }
-}
-/* 针对桌面端调整加密提示语的对齐 */
-@media only screen and (min-width: 881px) {
-  main .post-content .excerpt:not(:has(p)) {
-    padding-left: 0 !important; /* 重置原始 padding */
-    text-indent: 0.5em !important; /* 强制文本缩进，与 p 一致 */
-    margin-left: 0 !important;
+  #headerArea {
+    width: 100%;
+    margin: 0;
   }
-  main .post-content .excerpt:has(p) {
-    padding-left: 0 !important; /* 避免额外缩进 */
-    text-indent: 0 !important; /* 避免文本缩进 */
+  #header {
+    width: 100%;
+    margin: 0;
+    height: 50px;
   }
-  main .post-content .excerpt p {
-    padding-left: 0.5em !important;
-    margin-left: 0 !important;
+  footer {
+    width: 100%;
+    margin: 0;
+    text-align: left;
   }
-}
-/* 手机端保持原有样式（可删除，为了谨慎保留） */
-@media only screen and (max-width: 880px) {
-  main .post-content .excerpt:not(:has(p)) {
-    padding-left: 0.5em !important;
-    text-indent: 0 !important;
-    margin-left: 0 !important;
+  .count {
+    font-size: 14px;
+    margin-left: -5px; /* 减少与前面的文字间距 */
   }
-  main .post-content .excerpt:has(p) {
-    padding-left: 0 !important;
-    text-indent: 0 !important;
+  .archive-date,
+  .y2k-date {
+    width: 50px;
+    font-size: 14px;
   }
-  main .post-content .excerpt p {
-    padding-left: 0.5em !important;
-    margin-left: 0 !important;
+  .highlight {
+    font-size: 14px;
   }
-}
-/* 播放器 */
-/* aplayer-custom.css */
-/* 加载字体 - 使用 Noto Sans 系列，支持多语言（简体中文、日文、韩文、拉丁字母） */
-@font-face {
-  font-family: 'Noto Sans SC';
-  src: url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.17/files/noto-sans-sc-chinese-simplified-700-normal.woff2") format('woff2'), url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.17/files/noto-sans-sc-chinese-simplified-700-normal.woff") format('woff');
-  font-weight: 700; /* Bold */
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Noto Sans JP';
-  src: url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-jp@5.0.17/files/noto-sans-jp-japanese-700-normal.woff2") format('woff2'), url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-jp@5.0.17/files/noto-sans-jp-japanese-700-normal.woff") format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Noto Sans KR';
-  src: url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-kr@5.0.17/files/noto-sans-kr-korean-700-normal.woff2") format('woff2'), url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-kr@5.0.17/files/noto-sans-kr-korean-700-normal.woff") format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Noto Sans';
-  src: url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans@5.0.17/files/noto-sans-latin-700-normal.woff2") format('woff2'), url("https://cdn.jsdelivr.net/npm/@fontsource/noto-sans@5.0.17/files/noto-sans-latin-700-normal.woff") format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-/* 定义全局变量，方便后续维护 */
-:root {
-  --primary-pink: #f69; /* 主色调：粉色 */
-  --secondary-purple: #d8bfd8; /* 辅助色调：紫色 */
-  --light-pink: #ffb6c1; /* 浅粉色 */
-  --glow-pink: rgba(255,102,153,0.7); /* 粉色光晕 */
-  --glow-purple: rgba(216,191,216,0.3); /* 紫色光晕 */
-  --glow-blue: rgba(176,224,230,0.3); /* 浅蓝色光晕 */
-  --inner-glow: rgba(255,235,245,0.3); /* 极浅粉色内发光 */
-  --border-radius: 20px; /* 默认圆角 */
-  --border-radius-mobile: 25px; /* 移动端圆角 */
-  --player-height: 90px; /* 播放器高度 */
-  --list-max-height: 310px; /* 歌曲列表最大高度 */
-  --list-max-height-mobile: 210px; /* 移动端歌曲列表最大高度 */
-}
-/* APlayer Y2K Retro Japanese Cute Style */
-.aplayer {
-  background: linear-gradient(135deg, rgba(255,102,153,0.2), rgba(216,191,216,0.2)) !important;
-  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans', sans-serif !important;
-  font-weight: 700 !important;
-  margin: 20px auto !important;
-  border: none !important;
-  border-radius: var(--border-radius) !important;
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  -ms-user-select: none !important;
-  user-select: none !important;
-  line-height: normal !important;
-  position: relative !important;
-  color: #fff !important;
-  width: 100% !important;
-  max-width: 650px !important;
-  height: auto !important;
-  min-height: var(--player-height) !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 0 15px var(--glow-pink), 0 0 20px var(--glow-purple), 0 0 25px var(--glow-blue) !important;
-  overflow: hidden !important;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-}
-.aplayer::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-/* 播放器部分（封面和控制区域） */
-.aplayer .aplayer-body {
-  border-top: 3px double var(--primary-pink) !important;
-  border-bottom: 3px double var(--primary-pink) !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-radius: var(--border-radius) !important;
-  box-shadow: 0 0 15px var(--glow-pink), 0 0 20px var(--glow-purple), 0 0 25px var(--glow-blue), inset 0 0 8px var(--inner-glow) !important;
-  background: rgba(0,0,0,0.8) !important;
-  height: var(--player-height) !important;
-  overflow: hidden !important;
-  position: relative !important;
-}
-/* 歌曲列表部分（展开时显示） */
-.aplayer.aplayer-withlist .aplayer-list {
-  display: block !important;
-  background: rgba(0,0,0,0.8) !important;
-  border-top: none !important;
-  border-bottom: 3px double var(--primary-pink) !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-radius: 0 0 var(--border-radius) var(--border-radius) !important;
-  box-shadow: 0 0 15px var(--glow-pink), 0 0 20px var(--glow-purple), 0 0 25px var(--glow-blue), inset 0 0 8px var(--inner-glow) !important;
-  height: auto !important;
-  max-height: var(--list-max-height) !important;
-  overflow-y: hidden !important;
-  position: relative !important;
-  top: 0 !important;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-  opacity: 1 !important;
-  transform: scaleY(1) !important;
-  transform-origin: top !important;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
-}
-/* 歌曲列表收起时的样式 */
-.aplayer.aplayer-withlist.aplayer-list-hide .aplayer-list {
-  max-height: 0 !important;
-  opacity: 0 !important;
-  transform: scaleY(0.95) !important;
-  transform-origin: top !important;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
-  border: none !important;
-  box-shadow: none !important;
-  overflow: hidden !important;
-}
-/* 收起歌曲列表时，播放器部分调整 */
-.aplayer.aplayer-withlist.aplayer-list-hide .aplayer-body {
-  border-top: 3px double var(--primary-pink) !important;
-  border-bottom: 3px double var(--primary-pink) !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-radius: var(--border-radius) !important;
-  box-shadow: none !important;
-  background: rgba(0,0,0,0.8) !important;
-  height: var(--player-height) !important;
-}
-/* 收起歌曲列表时，整体高度调整 */
-.aplayer.aplayer-withlist.aplayer-list-hide {
-  border: none !important;
-  box-shadow: none !important;
-  min-height: var(--player-height) !important;
-  height: var(--player-height) !important;
-}
-/* 针对 .aplayer-list 的滚动条，强制隐藏 */
-.aplayer .aplayer-list::-webkit-scrollbar,
-.aplayer-wrap .aplayer .aplayer-list::-webkit-scrollbar,
-.aplayer-container .aplayer .aplayer-list::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-/* 针对播放器列表的 ol 元素，设置滚动条样式 */
-.aplayer .aplayer-list ol {
-  list-style-type: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-y: auto !important;
-  height: auto !important;
-  min-height: 100% !important;
-  box-sizing: border-box !important;
-  scrollbar-width: thin !important;
-  scrollbar-color: var(--primary-pink) transparent !important;
-}
-/* Webkit 浏览器滚动条样式 - 针对 ol */
-.aplayer .aplayer-list ol::-webkit-scrollbar {
-  width: 5px !important;
-  height: 5px !important;
-  display: block !important;
-}
-.aplayer .aplayer-list ol::-webkit-scrollbar-track {
-  background: transparent !important;
-  border-radius: 3px !important;
-}
-.aplayer .aplayer-list ol::-webkit-scrollbar-thumb {
-  border-radius: 3px !important;
-  background: linear-gradient(90deg, var(--primary-pink), var(--secondary-purple)) !important;
-}
-.aplayer .aplayer-list ol::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(90deg, var(--secondary-purple), var(--primary-pink)) !important;
-}
-/* 列表项样式 */
-.aplayer .aplayer-list ol li {
-  list-style-type: none !important;
-  position: relative !important;
-  height: 32px !important;
-  line-height: 32px !important;
-  padding: 0 15px !important;
-  font-size: 12px !important;
-  border-top: 1px dashed var(--secondary-purple) !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
-  overflow: hidden !important;
-  color: #fff !important;
-  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans', sans-serif !important;
-  font-weight: 700 !important;
-  text-shadow: 0 0 5px var(--glow-pink) !important;
-}
-.aplayer .aplayer-list ol li::before {
-  content: none !important;
-  display: none !important;
-}
-.aplayer .aplayer-list ol li:first-child {
-  border-top: none !important;
-}
-.aplayer .aplayer-list ol li:hover {
-  background: rgba(216,191,216,0.3) !important;
-}
-.aplayer .aplayer-list ol li.aplayer-list-light {
-  background: rgba(255,102,153,0.5) !important;
-}
-.aplayer .aplayer-list ol li.aplayer-list-light .aplayer-list-cur {
-  display: inline-block !important;
-}
-.aplayer .aplayer-list ol li .aplayer-list-cur {
-  display: none !important;
-  width: 3px !important;
-  height: 22px !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 5px !important;
-  cursor: pointer !important;
-  background: var(--primary-pink) !important;
-}
-.aplayer .aplayer-list ol li .aplayer-list-index {
-  color: var(--light-pink) !important;
-  margin-right: 12px !important;
-  cursor: pointer !important;
-  display: inline-block !important;
-  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans', sans-serif !important;
-  font-weight: 700 !important;
-  text-shadow: 0 0 3px var(--glow-purple) !important;
-}
-.aplayer .aplayer-list ol li .aplayer-list-author {
-  color: var(--secondary-purple) !important;
-  float: right !important;
-  cursor: pointer !important;
-}
-/* 歌曲标题和作者 */
-.aplayer .aplayer-info .aplayer-music {
-  overflow: hidden !important;
-  white-space: nowrap !important;
-  text-overflow: ellipsis !important;
-  margin: 0 0 13px 5px !important;
-  -webkit-user-select: text !important;
-  -moz-user-select: text !important;
-  -ms-user-select: text !important;
-  user-select: text !important;
-  cursor: default !important;
-  padding-bottom: 2px !important;
-  height: 20px !important;
-  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans', sans-serif !important;
-  font-weight: 700 !important;
-}
-.aplayer .aplayer-info .aplayer-music .aplayer-title {
-  font-size: 16px !important;
-  color: #fff !important;
-  text-shadow: 0 0 5px var(--glow-pink), 1px 1px 0 var(--secondary-purple) !important;
-}
-.aplayer .aplayer-info .aplayer-music .aplayer-author {
-  font-size: 14px !important;
-  color: var(--light-pink) !important;
-  text-shadow: 0 0 3px var(--glow-purple) !important;
-}
-/* 播放器图标样式 */
-.aplayer svg {
-  width: 100% !important;
-  height: 100% !important;
-}
-.aplayer svg circle,
-.aplayer svg path {
-  fill: var(--light-pink) !important;
-  transition: fill 0.3s ease !important;
-}
-.aplayer svg path:hover {
-  fill: #ff8c94 !important;
-}
-.aplayer .aplayer-icon {
-  width: 15px !important;
-  height: 15px !important;
-  border: none !important;
-  background-color: transparent !important;
-  outline: none !important;
-  cursor: pointer !important;
-  opacity: 0.8 !important;
-  vertical-align: middle !important;
-  padding: 0 !important;
-  font-size: 12px !important;
-  margin: 0 !important;
-  display: inline-block !important;
-}
-.aplayer .aplayer-icon path {
-  transition: all 0.2s ease-in-out !important;
-  fill: var(--light-pink) !important;
-}
-.aplayer .aplayer-icon:hover path {
-  fill: #ff8c94 !important;
-}
-.aplayer .aplayer-icon-back,
-.aplayer .aplayer-icon-forward,
-.aplayer .aplayer-icon-lrc,
-.aplayer .aplayer-icon-order,
-.aplayer .aplayer-icon-play {
-  display: none !important;
-}
-.aplayer .aplayer-icon-lrc-inactivity svg {
-  opacity: 0.4 !important;
-}
-.aplayer .aplayer-icon-forward {
-  transform: rotate(180deg) !important;
-}
-/* 播放器封面 */
-.aplayer.aplayer-withlrc .aplayer-pic {
-  height: var(--player-height) !important;
-  width: var(--player-height) !important;
-  border-radius: 10px !important;
-  border: 3px double #ffebf5 !important;
-  box-shadow: 0 0 10px var(--glow-pink), 0 0 15px var(--glow-purple) !important;
-}
-.aplayer .aplayer-pic {
-  position: relative !important;
-  float: left !important;
-  height: 66px !important;
-  width: 66px !important;
-  background-size: cover !important;
-  background-position: 50% !important;
-  transition: all 0.3s ease !important;
-  cursor: pointer !important;
-  border-right: 1px dashed var(--secondary-purple) !important;
-  border-radius: 10px !important;
-  box-shadow: 0 0 8px var(--glow-pink) !important;
-}
-.aplayer .aplayer-pic:hover .aplayer-button {
-  opacity: 1 !important;
-}
-.aplayer .aplayer-pic .aplayer-button {
-  position: absolute !important;
-  border-radius: 50% !important;
-  opacity: 0.8 !important;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.2) !important;
-  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-purple)) !important;
-  transition: all 0.1s ease !important;
-  box-shadow: 0 0 8px var(--glow-pink) !important;
-}
-.aplayer .aplayer-pic .aplayer-button path {
-  fill: #fff !important;
-}
-.aplayer .aplayer-pic .aplayer-hide {
-  display: none !important;
-}
-.aplayer .aplayer-pic .aplayer-play {
-  width: 26px !important;
-  height: 26px !important;
-  border: 3px double #ffebf5 !important;
-  bottom: 50% !important;
-  right: 50% !important;
-  margin: 0 -15px -15px 0 !important;
-}
-.aplayer .aplayer-pic .aplayer-pause {
-  width: 16px !important;
-  height: 16px !important;
-  border: 3px double #ffebf5 !important;
-  bottom: 4px !important;
-  right: 4px !important;
-}
-.aplayer .aplayer-pic .aplayer-pause svg {
-  position: absolute !important;
-  top: 2px !important;
-  left: 2px !important;
-  height: 12px !important;
-  width: 12px !important;
-}
-/* 播放器信息区域 */
-.aplayer.aplayer-withlrc .aplayer-info {
-  margin-left: var(--player-height) !important;
-  height: var(--player-height) !important;
-  padding: 10px 7px 0 !important;
-}
-.aplayer .aplayer-info {
-  margin-left: 66px !important;
-  padding: 14px 7px 0 10px !important;
-  height: 66px !important;
-  box-sizing: border-box !important;
-}
-.aplayer.aplayer-withlist .aplayer-info {
-  border-bottom: 1px dashed var(--secondary-purple) !important;
-}
-.aplayer .aplayer-info .aplayer-controller {
-  position: relative !important;
-  display: flex !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap {
-  margin: 0 0 0 5px !important;
-  padding: 4px 0 !important;
-  cursor: pointer !important;
-  flex: 1 !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap:hover .aplayer-bar .aplayer-played .aplayer-thumb {
-  transform: scale(1) !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
-  position: relative !important;
-  height: 4px !important;
-  width: 100% !important;
-  background: rgba(216,191,216,0.3) !important;
-  border-radius: 2px !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  bottom: 0 !important;
-  background: rgba(216,191,216,0.6) !important;
-  height: 4px !important;
-  transition: all 0.5s ease !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  bottom: 0 !important;
-  height: 4px !important;
-  background: linear-gradient(90deg, var(--primary-pink), var(--secondary-purple)) !important;
-  border-radius: 2px !important;
-}
-.aplayer .aplayer-info .aplayer time {
-  position: absolute !important;
-  top: 0 !important;
-  right: 5px !important;
-  margin-top: -6px !important;
-  margin-right: -10px !important;
-  height: 12px !important;
-  width: 12px !important;
-  border-radius: 50% !important;
-  cursor: pointer !important;
-  transition: all 0.3s ease-in-out !important;
-  transform: scale(0) !important;
-  background: var(--light-pink) !important;
-  border: 3px double var(--secondary-purple) !important;
-  box-shadow: 0 0 8px var(--glow-pink) !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-time {
-  position: relative !important;
-  right: 0 !important;
-  bottom: 4px !important;
-  height: 17px !important;
-  color: var(--light-pink) !important;
-  font-size: 11px !important;
-  padding-left: 7px !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-time-inner {
-  vertical-align: middle !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon {
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path {
-  fill: var(--light-pink) !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-loop {
-  margin-right: 2px !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon:hover path {
-  fill: #ff8c94 !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-menu,
-.aplayer .aplayer-info .aplayer-controller .aplayer-time.aplayer-time-narrow .aplayer-icon-menu,
-.aplayer .aplayer-info .aplayer-controller .aplayer-time.aplayer-time-narrow .aplayer-icon-mode {
-  display: none !important;
-}
-.aplayer.aplayer-withlist .aplayer-icon-order,
-.aplayer.aplayer-withlist .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-menu {
-  display: inline !important;
-}
-/* 音量控制 */
-.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap {
-  position: relative !important;
-  display: inline-block !important;
-  margin-left: 3px !important;
-  cursor: pointer !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap:hover .aplayer-volume-bar-wrap {
-  height: 40px !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap {
-  position: absolute !important;
-  bottom: 15px !important;
-  right: -3px !important;
-  width: 25px !important;
-  height: 0 !important;
-  z-index: 99 !important;
-  overflow: hidden !important;
-  transition: all 0.2s ease-in-out !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap.aplayer-volume-bar-wrap-active {
-  height: 40px !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume-bar {
-  position: absolute !important;
-  bottom: 0 !important;
-  right: 10px !important;
-  width: 5px !important;
-  height: 35px !important;
-  background: rgba(216,191,216,0.3) !important;
-  border-radius: 2.5px !important;
-  overflow: hidden !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume {
-  position: absolute !important;
-  bottom: 0 !important;
-  right: 0 !important;
-  width: 5px !important;
-  background: linear-gradient(0deg, var(--primary-pink), var(--secondary-purple)) !important;
-  transition: all 0.1s ease !important;
-  border-radius: 2.5px !important;
-}
-/* 加载动画 */
-.aplayer.aplayer-loading .aplayer-info .aplayer-controller .aplayer-loading-icon {
-  display: block !important;
-}
-.aplayer.aplayer-loading .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
-  transform: scale(1) !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-loading-icon {
-  display: none !important;
-}
-.aplayer .aplayer-info .aplayer-controller .aplayer-loading-icon svg {
-  position: absolute !important;
-  animation: rotate 1s linear infinite !important;
-}
-/* 歌词样式 */
-.aplayer.aplayer-withlrc .aplayer-lrc {
-  display: block !important;
-  border: none !important;
-  background: transparent !important;
-}
-.aplayer .aplayer-lrc {
-  display: none !important;
-  position: relative !important;
-  height: 30px !important;
-  text-align: center !important;
-  overflow: hidden !important;
-  margin: -10px 0 7px !important;
-  background: transparent !important;
-}
-.aplayer .aplayer-lrc:before,
-.aplayer .aplayer-lrc:after {
-  display: none !important;
-}
-.aplayer .aplayer-lrc p {
-  font-size: 12px !important;
-  color: #fff !important;
-  line-height: 16px !important;
-  height: 16px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  transition: all 0.5s ease-out !important;
-  opacity: 0.6 !important;
-  overflow: hidden !important;
-  text-shadow: 0 0 8px var(--glow-pink) !important;
-}
-.aplayer .aplayer-lrc p.aplayer-lrc-current {
-  opacity: 1 !important;
-  overflow: visible !important;
-  height: auto !important;
-  min-height: 16px !important;
-  color: var(--primary-pink) !important;
-  font-size: 14px !important;
-  text-shadow: 0 0 10px var(--glow-pink), 1px 1px 0 var(--secondary-purple) !important;
-}
-.aplayer .aplayer-lrc.aplayer-lrc-hide {
-  display: none !important;
-}
-.aplayer .aplayer-lrc .aplayer-lrc-contents {
-  width: 100% !important;
-  transition: all 0.5s ease-out !important;
-  user-select: text !important;
-  cursor: default !important;
-}
-.aplayer .aplayer-lrc-content {
-  display: none !important;
-}
-/* 通知样式 */
-.aplayer .aplayer-notice {
-  opacity: 0 !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  font-size: 12px !important;
-  border-radius: 10px !important;
-  padding: 5px 10px !important;
-  transition: all 0.3s ease-in-out !important;
-  overflow: hidden !important;
-  color: #fff !important;
-  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-purple)) !important;
-  box-shadow: 0 0 8px var(--glow-pink) !important;
-}
-/* 迷你模式 */
-.aplayer.aplayer-narrow {
-  width: 66px !important;
-}
-.aplayer.aplayer-narrow .aplayer-info,
-.aplayer.aplayer-narrow .aplayer-list {
-  display: none !important;
-}
-.aplayer.aplayer-narrow .aplayer-body,
-.aplayer.aplayer-narrow .aplayer-pic {
-  height: 66px !important;
-  width: 66px !important;
-}
-/* 固定模式 */
-.aplayer.aplayer-fixed {
-  position: fixed !important;
-  bottom: 20px !important;
-  left: 0 !important;
-  right: 0 !important;
-  margin: 0 auto !important;
-  z-index: 99 !important;
-  overflow: visible !important;
-  max-width: 650px !important;
-  box-shadow: none !important;
-}
-.aplayer.aplayer-fixed .aplayer-list {
-  margin-bottom: 65px !important;
-  border-top: none !important;
-  border-bottom: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  max-height: calc(100vh - 85px) !important;
-  position: fixed !important;
-  bottom: 85px !important;
-  left: 0 !important;
-  right: 0 !important;
-  top: auto !important;
-  opacity: 1 !important;
-  transform: scaleY(1) !important;
-  transform-origin: bottom !important;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
-}
-.aplayer.aplayer-fixed.aplayer-list-hide .aplayer-list {
-  max-height: 0 !important;
-  opacity: 0 !important;
-  transform: scaleY(0.95) !important;
-  transform-origin: bottom !important;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
-  border: none !important;
-  box-shadow: none !important;
-  overflow: hidden !important;
-}
-.aplayer.aplayer-fixed .aplayer-body {
-  position: fixed !important;
-  bottom: 20px !important;
-  left: 0 !important;
-  right: 0 !important;
-  margin: 0 auto !important;
-  z-index: 99 !important;
-  background: rgba(0,0,0,0.8) !important;
-  padding-right: 18px !important;
-  transition: all 0.3s ease !important;
-  max-width: 650px !important;
-  border-top: 3px double var(--primary-pink) !important;
-  border-bottom: 3px double var(--primary-pink) !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
-}
-.aplayer.aplayer-fixed .aplayer-lrc {
-  display: block !important;
-  position: fixed !important;
-  bottom: 90px !important; /* 调整歌词位置，70px + 20px 间距 */
-  left: 0 !important;
-  right: 0 !important;
-  margin: 0 !important;
-  z-index: 98 !important;
-  pointer-events: none !important;
-  text-shadow: 0 0 8px var(--glow-pink), 1px 1px 0 var(--secondary-purple) !important;
-  background: transparent !important;
-}
-.aplayer.aplayer-fixed .aplayer-lrc:after,
-.aplayer.aplayer-fixed .aplayer-lrc:before {
-  display: none !important;
-}
-.aplayer.aplayer-fixed .aplayer-info {
-  transform: scaleX(1) !important;
-  transform-origin: 0 0 !important;
-  transition: all 0.3s ease !important;
-  border-bottom: none !important;
-  border-top: 1px dashed var(--secondary-purple) !important;
-}
-.aplayer.aplayer-fixed .aplayer-info .aplayer-music {
-  width: calc(100% - 105px) !important;
-}
-.aplayer.aplayer-fixed .aplayer-miniswitcher {
-  display: block !important;
-}
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-info {
-  display: block !important;
-  transform: scaleX(0) !important;
-}
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-  width: 66px !important;
-}
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-miniswitcher .aplayer-icon {
-  transform: rotateY(0) !important;
-}
-.aplayer.aplayer-fixed .aplayer-icon-back,
-.aplayer.aplayer-fixed .aplayer-icon-forward,
-.aplayer.aplayer-fixed .aplayer-icon-lrc,
-.aplayer.aplayer-fixed .aplayer-icon-play {
-  display: inline-block !important;
-}
-.aplayer.aplayer-fixed .aplayer-icon-back,
-.aplayer.aplayer-fixed .aplayer-icon-forward,
-.aplayer.aplayer-fixed .aplayer-icon-menu,
-.aplayer.aplayer-fixed .aplayer-icon-play {
-  position: absolute !important;
-  bottom: 27px !important;
-  width: 20px !important;
-  height: 20px !important;
-}
-.aplayer.aplayer-fixed .aplayer-icon-back {
-  right: 75px !important;
-}
-.aplayer.aplayer-fixed .aplayer-icon-play {
-  right: 50px !important;
-}
-.aplayer.aplayer-fixed .aplayer-icon-forward {
-  right: 25px !important;
-}
-.aplayer.aplayer-fixed .aplayer-icon-menu {
-  right: 0 !important;
-}
-.aplayer.aplayer-arrow .aplayer-icon-loop,
-.aplayer.aplayer-arrow .aplayer-icon-order,
-.aplayer.aplayer-mobile .aplayer-icon-volume-down {
-  display: none !important;
-}
-/* 迷你切换器 */
-.aplayer .aplayer-miniswitcher {
-  display: none !important;
-  position: absolute !important;
-  top: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  height: 100% !important;
-  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-purple)) !important;
-  width: 18px !important;
-  border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
-}
-.aplayer .aplayer-miniswitcher .aplayer-icon {
-  height: 100% !important;
-  width: 100% !important;
-  transform: rotateY(180deg) !important;
-  transition: all 0.3s ease !important;
-}
-.aplayer .aplayer-miniswitcher .aplayer-icon path {
-  fill: #fff !important;
-}
-.aplayer .aplayer-miniswitcher .aplayer-icon:hover path {
-  fill: var(--light-pink) !important;
-}
-/* 移动端适配 */
-@media only screen and (max-width: 880px) {
-  .aplayer {
-    max-width: 88vw !important;
-    border-radius: var(--border-radius-mobile) !important;
-    margin: 20px auto !important;
+  .copy-button,
+  .toggle-button {
+    font-size: 12px;
+    padding: 4px 8px;
   }
-  .aplayer .aplayer-body {
-    border-top: 3px double var(--primary-pink) !important;
-    border-bottom: 3px double var(--primary-pink) !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-radius: var(--border-radius-mobile) !important;
-    box-shadow: 0 0 15px var(--glow-pink), 0 0 20px var(--glow-purple), 0 0 25px var(--glow-blue), inset 0 0 8px var(--inner-glow) !important;
+  .centered-list {
+    gap: 24px; /* 统一按钮间距 */
   }
-  .aplayer.aplayer-withlist .aplayer-list {
-    border-top: none !important;
-    border-bottom: 3px double var(--primary-pink) !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-radius: 0 0 var(--border-radius-mobile) var(--border-radius-mobile) !important;
-    max-height: var(--list-max-height-mobile) !important;
-    overflow-y: hidden !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    opacity: 1 !important;
-    transform: scaleY(1) !important;
-    transform-origin: top !important;
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
+  .y2k-link {
+    font-size: 16px; /* 调整移动端字体大小 */
   }
-  .aplayer.aplayer-withlist.aplayer-list-hide .aplayer-list {
-    max-height: 0 !important;
-    opacity: 0 !important;
-    transform: scaleY(0.95) !important;
-    transform-origin: top !important;
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
-    border: none !important;
-    box-shadow: none !important;
-    overflow: hidden !important;
-  }
-  .aplayer.aplayer-withlist.aplayer-list-hide .aplayer-body {
-    border-top: 3px double var(--primary-pink) !important;
-    border-bottom: 3px double var(--primary-pink) !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-radius: var(--border-radius-mobile) !important;
-    box-shadow: none !important;
-  }
-  .aplayer.aplayer-withlist.aplayer-list-hide {
-    min-height: var(--player-height) !important;
-    height: var(--player-height) !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-  .aplayer.aplayer-fixed {
-    max-width: 88vw !important;
-  }
-  .aplayer.aplayer-fixed .aplayer-body {
-    max-width: 88vw !important;
-    border-top: 3px double var(--primary-pink) !important;
-    border-bottom: 3px double var(--primary-pink) !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-radius: var(--border-radius-mobile) var(--border-radius-mobile) 0 0 !important;
-  }
-}
-/* 针对纵向屏幕的适配 */
-@media only screen and (orientation: portrait) {
-  .aplayer {
-    max-width: 88vw !important;
-    border-radius: var(--border-radius-mobile) !important;
-    margin: 20px auto !important;
-  }
-  .aplayer .aplayer-body {
-    border-top: 3px double var(--primary-pink) !important;
-    border-bottom: 3px double var(--primary-pink) !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-radius: var(--border-radius-mobile) !important;
-    box-shadow: 0 0 15px var(--glow-pink), 0 0 20px var(--glow-purple), 0 0 25px var(--glow-blue), inset 0 0 8px var(--inner-glow) !important;
-  }
-  .aplayer.aplayer-withlist .aplayer-list {
-    border-top: none !important;
-    border-bottom: 3px double var(--primary-pink) !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-radius: 0 0 var(--border-radius-mobile) var(--border-radius-mobile) !important;
-    max-height: var(--list-max-height-mobile) !important;
-    overflow-y: hidden !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    opacity: 1 !important;
-    transform: scaleY(1) !important;
-    transform-origin: top !important;
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
-  }
-  .aplayer.aplayer-withlist.aplayer-list-hide .aplayer-list {
-    max-height: 0 !important;
-    opacity: 0 !important;
-    transform: scaleY(0.95) !important;
-    transform-origin: top !important;
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
-    border: none !important;
-    box-shadow: none !important;
-    overflow: hidden !important;
-  }
-  .aplayer.aplayer-withlist.aplayer-list-hide .aplayer-body {
-    border-top: 3px double var(--primary-pink) !important;
-    border-bottom: 3px double var(--primary-pink) !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-radius: var(--border-radius-mobile) !important;
-    box-shadow: none !important;
-  }
-  .aplayer.aplayer-withlist.aplayer-list-hide {
-    min-height: var(--player-height) !important;
-    height: var(--player-height) !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-  .aplayer.aplayer-fixed {
-    max-width: 88vw !important;
-  }
-  .aplayer.aplayer-fixed .aplayer-body {
-    max-width: 88vw !important;
-    border-top: 3px double var(--primary-pink) !important;
-    border-bottom: 3px double var(--primary-pink) !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-radius: var(--border-radius-mobile) var(--border-radius-mobile) 0 0 !important;
-  }
-}
-/* 针对 iOS Safari 优化 */
-@supports (-webkit-overflow-scrolling: touch) {
-  .aplayer .aplayer-list::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-  .aplayer .aplayer-list ol::-webkit-scrollbar {
-    width: 5px !important;
-    height: 5px !important;
-    display: block !important;
-  }
-  .aplayer .aplayer-list ol::-webkit-scrollbar-track {
-    background: transparent !important;
-    border-radius: 3px !important;
-  }
-  .aplayer .aplayer-list ol::-webkit-scrollbar-thumb {
-    border-radius: 3px !important;
-    background: linear-gradient(90deg, var(--primary-pink), var(--secondary-purple)) !important;
-  }
-  .aplayer .aplayer-list ol::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(90deg, var(--secondary-purple), var(--primary-pink)) !important;
-  }
-}
-/* 移除不必要的样式 */
-.aplayer * {
-  box-sizing: content-box !important;
-}
-/* 优化动画性能 */
-.aplayer .aplayer-list {
-  will-change: max-height, opacity, transform !important;
 }
