@@ -750,7 +750,7 @@ footer a:hover {
 @media only screen and (max-width: 880px) {
   #container {
     width: 88vw;
-    margin: 0 auto 0; /* 修改 margin-top 为 0 */
+    margin: -5px auto 0; /* 将 margin-top 从 0 改为 -5px */
   }
   #headerArea {
     width: 100%;
@@ -871,7 +871,7 @@ footer a:hover {
 @media only screen and (orientation: portrait) {
   #container {
     width: 88vw;
-    margin: 0 auto 0; /* 修改 margin-top 为 0 */
+    margin: -5px auto 0; /* 将 margin-top 从 0 改为 -5px */
   }
   #flex {
     flex-direction: column;
