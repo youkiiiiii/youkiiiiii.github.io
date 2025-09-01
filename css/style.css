@@ -1,8 +1,6 @@
 /* 导入 LXGW ZhenKai 字体 */
 @import url("https://fontsapi.zeoseven.com/2/main/result.css");
-/* user styles */
-/* styles are what change the color and sizes of stuff on your site. */
-/* these are variables that are being used in the code */
+/* 变量 */
 :root {
   --text-color: #4f3d46;
 }
@@ -31,6 +29,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+/* pjax容器 */
+#pjax-container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 /* Header as navigation bar */
 #headerArea {
@@ -112,6 +117,10 @@ main,
   font-size: 18px;
   width: 100%;
   min-width: 100%;
+}
+/* 首页特殊样式 - 减少顶部间距 */
+.main-content > main {
+  padding: 0 0 0 0; /* 完全去掉顶部padding */
 }
 /* 文章页面和归档页面样式 */
 .post-content,
@@ -356,7 +365,6 @@ main img,
   text-decoration: underline;
 }
 /* 优化的代码块样式 */
-/* 内联代码样式 */
 code {
   background: #f5f2e8;
   color: #2d3748;
@@ -365,9 +373,9 @@ code {
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
   font-size: 0.9em;
   border: 1px solid #e8e2d5;
-  white-space: normal; /* 允许换行，取代 nowrap */
-  word-break: break-all; /* 确保长路径在必要时断开换行 */
-  overflow-wrap: anywhere; /* 允许在任意位置换行，增强兼容性 */
+  white-space: normal;
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 /* 代码块容器样式 */
 .highlight {
@@ -376,19 +384,17 @@ code {
   border-radius: 6px;
   margin: 1em 0;
   position: relative;
-  overflow: visible; /* 恢复为visible，保证滚动条可见 */
+  overflow: visible;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-/* 确保容器有明确的边界 */
   display: block;
   width: 100%;
   box-sizing: border-box;
-/* 直接给容器添加顶部边框 */
-  border-top: 2px solid #8b7355; /* 从3px改为2px，更细一些 */
+  border-top: 2px solid #8b7355;
 }
 /* 代码内容样式 */
 .highlight pre {
   margin: 0;
-  padding: 15px 20px; /* 恢复正常padding */
+  padding: 15px 20px;
   overflow-x: auto;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
   font-size: 14px;
@@ -398,8 +404,8 @@ code {
   white-space: pre;
   display: block;
   position: relative;
-  border: none; /* 移除可能的边框 */
-  box-shadow: none; /* 移除可能的阴影 */
+  border: none;
+  box-shadow: none;
 }
 /* 代码块内的code元素样式重置 */
 .highlight pre code,
@@ -433,7 +439,7 @@ code {
 }
 /* 代码内容区域 */
 .highlight .code {
-  padding: 0; /* 重置padding，由pre元素控制 */
+  padding: 0;
   overflow-x: auto;
   vertical-align: top;
   background: transparent;
@@ -445,7 +451,7 @@ code {
 }
 .button-container {
   position: absolute;
-  top: 8px; /* 调整回原来的位置 */
+  top: 8px;
   right: 12px;
   display: flex;
   gap: 6px;
@@ -496,232 +502,13 @@ code[class*="language-file"] {
   border-spacing: 0;
   background: transparent;
   position: relative;
-  z-index: 2; /* 确保表格在装饰线下方 */
+  z-index: 2;
 }
 .highlight table td {
   padding: 0;
   border: none;
   background: transparent;
   position: relative;
-}
-/* 特别处理可能的行号列和代码列 */
-.highlight .gutter.gl {
-  display: none !important;
-}
-.highlight .code {
-  padding: 0;
-  overflow-x: auto;
-  vertical-align: top;
-  background: transparent;
-  border: none;
-  position: relative;
-  z-index: 2;
-}
-/* 语法高亮颜色保持不变 */
-.highlight .c {
-  color: #998;
-  font-style: italic;
-}
-.highlight .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-.highlight .k {
-  color: #000;
-  font-weight: bold;
-}
-.highlight .o {
-  color: #000;
-  font-weight: bold;
-}
-.highlight .cm {
-  color: #998;
-  font-style: italic;
-}
-.highlight .cp {
-  color: #999;
-  font-weight: bold;
-  font-style: italic;
-}
-.highlight .c1 {
-  color: #998;
-  font-style: italic;
-}
-.highlight .cs {
-  color: #999;
-  font-weight: bold;
-  font-style: italic;
-}
-.highlight .gd {
-  color: #000;
-  background-color: #fdd;
-}
-.highlight .ge {
-  color: #000;
-  font-style: italic;
-}
-.highlight .gr {
-  color: #a00;
-}
-.highlight .gh {
-  color: #999;
-}
-.highlight .gi {
-  color: #000;
-  background-color: #dfd;
-}
-.highlight .go {
-  color: #888;
-}
-.highlight .gp {
-  color: #555;
-}
-.highlight .gs {
-  font-weight: bold;
-}
-.highlight .gu {
-  color: #aaa;
-}
-.highlight .gt {
-  color: #a00;
-}
-.highlight .kc {
-  color: #000;
-  font-weight: bold;
-}
-.highlight .kd {
-  color: #000;
-  font-weight: bold;
-}
-.highlight .kn {
-  color: #000;
-  font-weight: bold;
-}
-.highlight .kp {
-  color: #000;
-  font-weight: bold;
-}
-.highlight .kr {
-  color: #000;
-  font-weight: bold;
-}
-.highlight .kt {
-  color: #458;
-  font-weight: bold;
-}
-.highlight .m {
-  color: #099;
-}
-.highlight .s {
-  color: #d01040;
-}
-.highlight .na {
-  color: #008080;
-}
-.highlight .nb {
-  color: #0086b3;
-}
-.highlight .nc {
-  color: #458;
-  font-weight: bold;
-}
-.highlight .no {
-  color: #008080;
-}
-.highlight .nd {
-  color: #3c5d5d;
-  font-weight: bold;
-}
-.highlight .ni {
-  color: #800080;
-}
-.highlight .ne {
-  color: #900;
-  font-weight: bold;
-}
-.highlight .nf {
-  color: #900;
-  font-weight: bold;
-}
-.highlight .nl {
-  color: #900;
-  font-weight: bold;
-}
-.highlight .nn {
-  color: #555;
-}
-.highlight .nt {
-  color: #000080;
-}
-.highlight .nv {
-  color: #008080;
-}
-.highlight .ow {
-  color: #000;
-  font-weight: bold;
-}
-.highlight .w {
-  color: #bbb;
-}
-.highlight .mf {
-  color: #099;
-}
-.highlight .mh {
-  color: #099;
-}
-.highlight .mi {
-  color: #099;
-}
-.highlight .mo {
-  color: #099;
-}
-.highlight .sb {
-  color: #d01040;
-}
-.highlight .sc {
-  color: #d01040;
-}
-.highlight .sd {
-  color: #d01040;
-}
-.highlight .s2 {
-  color: #d01040;
-}
-.highlight .se {
-  color: #d01040;
-}
-.highlight .sh {
-  color: #d01040;
-}
-.highlight .si {
-  color: #d01040;
-}
-.highlight .sx {
-  color: #d01040;
-}
-.highlight .sr {
-  color: #009926;
-}
-.highlight .s1 {
-  color: #d01040;
-}
-.highlight .ss {
-  color: #990073;
-}
-.highlight .bp {
-  color: #999;
-}
-.highlight .vc {
-  color: #008080;
-}
-.highlight .vg {
-  color: #008080;
-}
-.highlight .vi {
-  color: #008080;
-}
-.highlight .il {
-  color: #099;
 }
 /* Footer */
 footer {
@@ -746,11 +533,14 @@ footer a:hover {
   color: #000;
   text-decoration: underline;
 }
-/* Media queries */
-@media only screen and (max-width: 880px) {
+@media only screen and (max-width: 880px), (orientation: portrait) {
   #container {
     width: 88vw;
-    margin: 0 auto 0; /* 修改 margin-top 为 0 */
+    margin: 5px auto 0; /* 减小移动端顶部margin */
+  }
+  #pjax-container {
+    width: 100%;
+    padding: 0;
   }
   #headerArea {
     width: 100%;
@@ -765,13 +555,18 @@ footer a:hover {
     width: 100%;
     flex-direction: column;
     justify-content: flex-start;
+    padding: 0;
   }
   main,
   .main-content {
     width: 100%;
     min-width: 0;
     margin: 0;
+    padding: 10px 0;
     text-align: left;
+  }
+  .main-content > main {
+    padding: 0; /* 完全去掉padding */
   }
   .post-content,
   .y2k-archive,
@@ -792,23 +587,24 @@ footer a:hover {
   }
   main ul,
   .main-content ul {
-    padding-left: 30px;
+    padding-left: 20px;
     list-style-type: disc;
   }
   main ol,
   .main-content ol {
-    padding-left: 30px;
+    padding-left: 20px;
     list-style-type: decimal;
   }
   main ul ul,
   main ol ol,
   .main-content ul ul,
   .main-content ol ol {
-    padding-left: 30px;
+    padding-left: 20px;
   }
   footer {
     width: 100%;
-    margin: 0;
+    margin: 20px 0 80px; /* 增加底部间距以避免被播放器遮挡 */
+    padding: 0;
     text-align: left;
   }
   .count {
@@ -833,128 +629,7 @@ footer a:hover {
     max-width: 100%;
   }
   .highlight .code {
-    padding: 12px 15px;
-    overflow-x: auto;
-    max-width: 100%;
-  }
-  .highlight .gutter {
-    display: none;
-  }
-  .button-container {
-    top: 6px;
-    right: 6px;
-    opacity: 1;
-  }
-  .copy-button,
-  .toggle-button {
-    font-size: 10px;
-    padding: 3px 6px;
-    display: inline-block;
-  }
-  code {
-    font-size: 0.85em;
-    padding: 1px 4px;
-  }
-  .centered-list {
-    gap: 24px;
-  }
-  .y2k-link {
-    font-size: 16px;
-  }
-  main table,
-  .main-content table {
-    max-width: 100%;
-    overflow-x: auto;
-    display: block;
-  }
-}
-@media only screen and (orientation: portrait) {
-  #container {
-    width: 88vw;
-    margin: 5px auto 0; /* 修改 margin-top 为 0 */
-  }
-  #flex {
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-  }
-  main,
-  .main-content {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-    text-align: left;
-  }
-  .post-content,
-  .y2k-archive,
-  .archive-section {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
     padding: 0;
-  }
-  .post-item h1 {
-    font-size: 20px;
-    margin: 0 0 0.4em 0;
-    padding: 0.4em 0;
-  }
-  .post-meta {
-    font-size: 12px;
-    gap: 6px;
-  }
-  main ul,
-  .main-content ul {
-    padding-left: 30px;
-    list-style-type: disc;
-  }
-  main ol,
-  .main-content ol {
-    padding-left: 30px;
-    list-style-type: decimal;
-  }
-  main ul ul,
-  main ol ol,
-  .main-content ul ul,
-  .main-content ol ol {
-    padding-left: 30px;
-  }
-  #headerArea {
-    width: 100%;
-    margin: 0;
-  }
-  #header {
-    width: 100%;
-    margin: 0;
-    height: 50px;
-  }
-  footer {
-    width: 100%;
-    margin: 0;
-    text-align: left;
-  }
-  .count {
-    font-size: 14px;
-    margin-left: -5px;
-  }
-  .archive-date,
-  .y2k-date {
-    width: 50px;
-    font-size: 14px;
-  }
-  .highlight {
-    margin: 0.8em 0;
-    border-radius: 4px;
-    max-width: 100%;
-    overflow-x: auto;
-  }
-  .highlight pre {
-    padding: 12px 15px;
-    font-size: 13px;
-    overflow-x: auto;
-    max-width: 100%;
-  }
-  .highlight .code {
-    padding: 12px 15px;
     overflow-x: auto;
     max-width: 100%;
   }
