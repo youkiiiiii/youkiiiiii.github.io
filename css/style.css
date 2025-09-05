@@ -122,7 +122,7 @@ main,
 .main-content > main {
   padding: 0 0 0 0; /* 完全去掉顶部padding */
 }
-/* 文章页面和归档页面样式 */
+/* 文章页面禁止评论页面和归档页面样式 */
 .post-content,
 .y2k-archive,
 .archive-section {
@@ -271,25 +271,6 @@ main img,
   width: 60px;
   margin-right: 10px;
   font-size: 16px;
-  text-align: left;
-  vertical-align: top;
-  line-height: 1.2;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-}
-.y2k-date {
-  display: inline-block;
-  width: 60px;
-  margin-right: 10px;
-  font-size: 16px;
-  font-weight: normal;
-  text-align: left;
-  vertical-align: top;
-  line-height: 1.2;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
 }
 /* Y2K 归档页面特有样式 */
 .y2k-category,
@@ -313,8 +294,6 @@ main img,
   color: var(--text-color);
   font-weight: bold;
   text-decoration: none;
-  word-break: break-word; /* 允许标题自然换行 */
-  max-width: calc(100% - 70px); /* 留出日期和间距的空间 */
 }
 .y2k-link:hover {
   color: #000;
@@ -332,17 +311,14 @@ main img,
 .y2k-post-item {
   margin-bottom: 0.3em;
   list-style: none;
-  display: flex; /* 使用 Flex 布局 */
-  align-items: flex-start; /* 顶部对齐 */
 }
-.y2k-post-item .y2k-date {
-  flex-shrink: 0; /* 防止日期宽度收缩 */
-  margin-right: 10px; /* 保持原有间距 */
-}
-.y2k-post-item a {
-  flex-grow: 1; /* 标题占用剩余空间 */
-  margin: 0; /* 移除默认间距 */
-  padding: 0; /* 移除默认内边距 */
+.y2k-date {
+  display: inline-block;
+  width: 60px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
 }
 /* 文章页面内容切换 */
 .content-toggle-section {
@@ -631,38 +607,14 @@ footer a:hover {
     padding: 0;
     text-align: left;
   }
-  .archive-date,
-  .y2k-date {
-    width: 50px; /* 移动端缩小日期宽度 */
-    font-size: 14px;
-    text-align: left;
-    vertical-align: top;
-    line-height: 1.2;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-  }
-  .y2k-post-item {
-    margin-bottom: 0.3em;
-    list-style: none;
-    display: flex;
-    align-items: flex-start;
-  }
-  .y2k-post-item .y2k-date {
-    flex-shrink: 0;
-    margin-right: 10px;
-  }
-  .y2k-post-item a {
-    flex-grow: 1;
-    margin: 0;
-    padding: 0;
-    font-size: 14px; /* 移动端调整字体大小 */
-    word-break: break-word; /* 允许自然换行 */
-    max-width: calc(100% - 60px); /* 留出日期和间距的空间 */
-  }
   .count {
     font-size: 14px;
     margin-left: -5px;
+  }
+  .archive-date,
+  .y2k-date {
+    width: 50px;
+    font-size: 14px;
   }
   .highlight {
     margin: 0.8em 0;
