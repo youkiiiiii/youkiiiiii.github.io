@@ -536,11 +536,11 @@ footer a:hover {
 @media only screen and (max-width: 880px), (orientation: portrait) {
   #container {
     width: 88vw;
-    margin: 5px auto 0; /* 减小移动端顶部margin */
+    margin: 5px auto 0; /* 平板保持原有顶部间距 */
   }
   #pjax-container {
     width: 100%;
-    padding: 0 0 80px 0; /* 添加底部填充，确保footer不被遮挡 */
+    padding: 0 0 80px 0; /* 保持底部填充 */
   }
   #headerArea {
     width: 100%;
@@ -562,11 +562,11 @@ footer a:hover {
     width: 100%;
     min-width: 0;
     margin: 0;
-    padding: 10px 0;
+    padding: 10px 0 0 0; /* 平板保持原有padding */
     text-align: left;
   }
   .main-content > main {
-    padding: 0; /* 完全去掉padding */
+    padding: 0; /* 确保完全去掉padding */
   }
   .post-content,
   .y2k-archive,
@@ -603,7 +603,7 @@ footer a:hover {
   }
   footer {
     width: 100%;
-    margin: -10px 0 5px 0 !important; /* 保持顶部间距，进一步减少底部空白 */
+    margin: -10px 0 5px 0 !important; /* 保持底部调整 */
     padding: 0;
     text-align: left;
   }
@@ -662,5 +662,17 @@ footer a:hover {
     max-width: 100%;
     overflow-x: auto;
     display: block;
+  }
+}
+@media only screen and (max-width: 767px) {
+  #container {
+    margin: 0 auto 0; /* 手机端移除顶部margin */
+  }
+  #header {
+    height: 40px; /* 手机端减小导航栏高度 */
+  }
+  main,
+  .main-content {
+    padding: 0 0 0 0; /* 手机端移除顶部padding */
   }
 }
