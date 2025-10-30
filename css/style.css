@@ -676,3 +676,35 @@ footer a:hover {
     padding: 0 0 0 0; /* 手机端移除顶部padding */
   }
 }
+/* === 修复长链接 + 保护英文单词 === */
+.post-content,
+.main-content,
+main,
+p {
+  overflow-wrap: anywhere;
+  word-break: normal;
+  max-width: 100%;
+}
+a[href] {
+  overflow-wrap: break-word;
+  word-break: break-all;
+  max-width: 100%;
+  display: inline-block;
+}
+/* 移动端重点保护 */
+@media only screen and (max-width: 880px) {
+  a[href] {
+    word-break: break-all !important;
+    overflow-wrap: anywhere !important;
+  }
+  p,
+  .post-content,
+  .main-content {
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+code {
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
