@@ -5,12 +5,15 @@
   --text-color: #4f3d46;
 }
 body {
-  font-family: "LXGW ZhenKai GB", sans-serif; /* 添加后备字体 */
+  font-family: "LXGW ZhenKai GB", sans-serif;
   font-weight: normal;
   font-size: 18px;
   margin: 0;
   padding: 0;
   background-color: #f0e5d2;
+  background-image: url("背景图url");
+  background-repeat: repeat;
+  background-position: top left;
   color: var(--text-color);
   min-height: 100vh;
   display: flex;
@@ -676,35 +679,21 @@ footer a:hover {
     padding: 0 0 0 0; /* 手机端移除顶部padding */
   }
 }
-/* === 修复长链接 + 保护英文单词 === */
-.post-content,
-.main-content,
-main,
-p {
-  overflow-wrap: anywhere;
-  word-break: normal;
-  max-width: 100%;
-}
+/* === 只修复超长 URL 换行，不影响其他内容 === */
 a[href] {
-  overflow-wrap: break-word;
-  word-break: break-all;
-  max-width: 100%;
-  display: inline-block;
+/* 让链接内容可换行 */
+  display: inline-block; /* 关键：让 max-width 生效 */
+  max-width: 100%; /* 限制宽度 */
+  overflow-wrap: break-word; /* 优先在 / ? = 等处换行 */
+  word-break: break-all; /* 必要时强制断开超长路径 */
+  word-wrap: break-word; /* 兼容旧浏览器 */
 }
-/* 移动端重点保护 */
+/* 移动端保险：确保一定不溢出 */
 @media only screen and (max-width: 880px) {
   a[href] {
     word-break: break-all !important;
     overflow-wrap: anywhere !important;
+    max-width: 100% !important;
+    display: inline-block !important;
   }
-  p,
-  .post-content,
-  .main-content {
-    word-break: normal !important;
-    overflow-wrap: anywhere !important;
-  }
-}
-code {
-  word-break: normal;
-  overflow-wrap: anywhere;
 }
